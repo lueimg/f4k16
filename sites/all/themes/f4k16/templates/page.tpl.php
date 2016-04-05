@@ -132,11 +132,16 @@
 
     <?php print render($page['header']); ?>
   </header> <!-- /#page-header -->
+
  <div class="container">
    <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
  </div>
   <div class="container main-container-inner">
     <div class="row">
+
+      <?php if (!empty($page['content_top'])): ?>
+        <?php print render($page['content_top']); ?>
+      <?php endif; ?>
 
       <?php if (!empty($page['sidebar_first'])): ?>
         <aside class="col-sm-3" role="complementary">
