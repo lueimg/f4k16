@@ -1,0 +1,234 @@
+/* This file will hold styles that are loaded using the same media query as the narrow grid. */
+
+
+.field-name-reserve-node .field-item {
+    margin: 10px 0;
+}
+
+a.ajax {
+    background: #82CC03;
+    border: 1px solid;
+    border-radius: 10px ;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    margin: 10px 0;
+    padding: 10px 40px;
+    text-transform: uppercase;
+	font-size:18px;
+}
+
+a.ajax:hover {
+    background: #F5F452;
+}
+
+a.ajax.delete{
+	
+}
+
+.img-ajax{
+	float:left;
+	margin-top:15px;
+	margin-right:10px;
+}
+
+.block-node-selection h2 {
+    margin: 10px 0;
+}
+.block-node-selection .count.ajax {
+    font-weight: bold;
+}
+
+.select-links {
+    margin: 5px 0;
+}
+
+
+.node-selection-link.goto {
+    border: 1px solid;
+    border-radius: 10px 10px 10px 10px;
+    color: #E14705;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 9px 6px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+
+.node-selection-link.goto {
+    background: none repeat scroll 0 0 #F75D0B;
+    border: 3px solid #DE0000;
+    border-radius: 10px 10px 10px 10px;
+    color: #FFFFFF;
+    font-family: 'Patrick Hand';
+    font-size: 22px;
+    font-weight: bold;
+    padding: 4px 10px;
+    text-decoration: none;
+    text-shadow: 1px 0 1px #000000;
+    text-transform: uppercase;
+}
+
+.node-selection-link.goto:hover {
+    background:  #EDAF46;
+}
+
+
+.print-page {
+    display: inline-block;
+    padding: 10px;
+}
+
+
+.field.field-name-html-addthis {
+    margin: 20px 0;
+}
+
+
+#block-node-selection-select-list {
+    border: 1px solid #4D4747;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+#block-node-selection-select-list h2 {
+    border-bottom: 1px solid #ccc;
+    text-transform: capitalize;
+    padding: 0 0 5px;
+}
+
+
+a.ajax.form {
+    border: none;
+    background: none;
+    font-size: 11px;
+    font-weight: normal;
+}
+
+
+#node-selection-form .form-submit {
+    background: none repeat scroll 0 0 #82CC03;
+    color: #323933;
+    font-size: 18px;
+    margin-bottom: 40px;
+    padding: 10px 40px;
+    text-shadow: none;
+}
+
+#node-selection-form label {
+    display: inline-block;
+    width: 129px;
+    padding: 10px 0;
+}
+
+
+
+#block-block-18 .content a {
+    margin: 20px 0;
+    padding: 10px 0;
+    text-align: center;
+    width: 216px;
+}
+
+
+#block-block-18 .content div {
+    margin: 20px 0 0 0;
+}
+#block-block-18 .content a.goto {
+    padding: 5px 47px;
+}
+.chrome #block-block-18 .content a.goto {
+    padding: 5px 43px;
+}
+
+
+.pdf-catalog {
+    padding-top: 50px;
+}
+
+div.block.special {
+    background: url("../images/special.jpg") no-repeat scroll 0 0 transparent;
+    height: 125px;
+    margin: 53px 0 70px;
+    padding-left: 215px;
+    padding-right: 10px;
+    padding-top: 10px;
+    width: 263px;
+}
+ 
+
+.special .views-field-title a {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.special .views-field-body {
+    font-size: 10px;
+    letter-spacing: 0.001em;
+    line-height: 1.2em;
+}
+
+.bottom {
+    margin-top: 40px;
+}
+
+.node-type-oferta .field-name-field-subtitle {
+    color: #846767;
+    font-size: 15px;
+    margin: 10px 0 20px;
+    text-decoration: underline;
+}
+/* new */
+div.block.special2 {
+    background: url("../images/special.png") no-repeat scroll 0 0 transparent;
+    margin-left: 60px;
+    padding-left: 215px;
+    padding-right: 10px;
+    padding-top: 10px;
+    width: 263px;
+	padding-bottom: 10px;	
+}
+ 
+
+.special2 .views-field-title a {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.special2 .views-field-body {
+    font-size: 10px;
+    letter-spacing: 0.001em;
+    line-height: 1.2em;
+}
+
+div.block.special3 {
+    background: url("../images/special.png") no-repeat scroll 0 0 transparent;
+    margin-left: 85px;
+    padding-left: 215px;
+    padding-right: 10px;
+    padding-top: 10px;
+    width: 263px;
+	top: 5px;
+	padding-bottom: 10px;
+}
+ 
+
+.special3 .views-field-title a {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.special3 .views-field-body {
+    font-size: 10px;
+    letter-spacing: 0.001em;
+    line-height: 1.2em;
+}
+
+.bottom-content {
+	background-color:#FFF;
+}
+
+.pdf-catalog3 {
+    margin-left: 20px;
+}

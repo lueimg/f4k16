@@ -1,0 +1,7 @@
+div.views-fluid-grid{}
+div.views-fluid-grid h3{text-align:center;}
+ul.views-fluid-grid-list{margin:0;padding:0;}
+li.views-fluid-grid-item{padding:3px;overflow:hidden;list-style-type:none;background-image:none;vertical-align:top;color:#444;background-color:#f0f0f0;border:1px solid #aaa;}
+li.views-fluid-grid-inline{display:inline-block;}
+html > body li.views-fluid-grid-inline{*display:inline;*zoom:1;}
+* html li.views-fluid-grid-inline{display:inline;zoom:1;}

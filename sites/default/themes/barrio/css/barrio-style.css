@@ -1,0 +1,1740 @@
+/* $Id: fusion-starter-style.css,v 1.9 2010/11/18 23:57:53 sociotech Exp $ */
+/* Basic Typography
+
+-------------------------------------------------------------- */
+
+/* Add general site styling here for typography and background */
+body {
+
+  font-size: 75%;   /* also set in fusion_starter.info: settings[base-font-size] = font-size-12 */
+  background-image: url("../images/elementos/background.jpg");
+  background-position: left top;
+  background-repeat: no-repeat;
+   background-color: #82CC03;
+}
+
+
+/* Default link styles - separate a:visited for a different visited link style */
+a,
+a:link,
+a:visited {    
+   text-decoration: none;
+}
+a{
+  -moz-transition: all 0.3s ease-out;  /* FF3.7+ */
+  -o-transition: all 0.3s ease-out;  /* Opera 10.5 */
+  -webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
+  transition: all 0.3s ease-out; 
+}
+p, .p {
+    margin-bottom: 1.5em;
+    text-align: justify;
+}
+img {
+    border: medium none;
+}
+ul li {
+    margin: 0;
+}
+ul, ol {
+    margin: 0.5em 0 1.5em 1.5em;
+    padding-left: 20px;
+}
+ol {
+    list-style-type: decimal;
+}
+ol ol {
+    list-style: lower-alpha outside none;
+}
+ol ol ol {
+    list-style: lower-roman outside none;
+}
+ol ol ol ol {
+    list-style: lower-alpha outside none;
+}
+ul ul, ol ol, ul ol, ol ul {
+    margin-bottom: 0;
+}
+dl {
+    margin: 0 1.5em;
+}
+dt {
+    font-weight: bold;
+}
+dd {
+    margin-bottom: 1.5em;
+}
+form {
+    margin: 0;
+    padding: 0;
+}
+small {
+    font-size: 0.68em;
+}
+code, pre {
+    background-color: #F7F7F7;
+    font-family: "Courier New",Courier,Monaco,"Lucida Console",monospace;
+    overflow: auto;
+}
+pre {
+    border-color: #DDDDDD;
+    border-style: solid;
+    border-width: 1px;
+    line-height: 1.5em;
+    margin: 1.5em 0;
+    padding: 1em;
+}
+hr {
+    border-color: #666666;
+    border-style: dotted;
+    border-width: 1px;
+    margin-bottom: 1.5em;
+}
+blockquote {
+    background: url("../images/blockquote-l.png") no-repeat scroll left top transparent;
+    font-size: 1em;
+    margin: 0 3em 1em;
+    padding: 10px 15px;
+    text-indent: 2em;
+}
+blockquote > div {
+    background: url("../images/blockquote-r.png") no-repeat scroll right bottom transparent;
+    padding-bottom: 0.1em;
+}
+abbr, acronym {
+    border-bottom: 1px dotted #888888;
+    cursor: help;
+}
+/* Hover/active link styles. Don't forget :focus for accessibility */
+a:hover,
+a:focus,
+a:active {    
+    text-decoration: underline;
+}
+strong {
+    font-weight: bold;
+}
+h1 {
+    font-size: 220%;
+    font-weight: bold;
+	line-height:120%
+}
+h2, h2 a {
+    font-size: 150%;
+    line-height:120%
+    text-decoration: none;
+}
+h3 {
+    font-size: 130%;
+    font-weight: bold;
+    line-height:120%;
+}
+h4, h5, h6 {
+    font-size: 100%;
+    font-weight: bold;
+}
+fieldset {
+    background: none repeat scroll 0 0 transparent;
+    border: 1px solid #CCCCCC;
+    padding: 0.75em;
+}
+label {
+    color: #333333;
+    display: block;
+    font-size: 90%;
+}
+small {
+    color: #555555;
+    font-size: 90%;
+}
+input {
+    border-color: #CCCCCC #AAAAAA #AAAAAA #CCCCCC;
+    border-style: solid;
+    border-width: 1px;
+    line-height: 1.5em;
+    padding: 5px 3px 3px 5px;
+}
+textarea {
+    border-color: #CCCCCC #AAAAAA #AAAAAA #CCCCCC;
+    border-style: solid;
+    border-width: 1px;
+    height: 140px;
+    line-height: 1.5em;
+    padding: 5px 3px 3px 7px;
+}
+textarea:focus, input[type="text"]:focus {
+    border: 1px solid #666666;
+}
+.button, input[type="submit"], .submit {
+    font-weight: normal;
+    margin: 0;
+    padding: 3px 15px;
+}
+.button:hover, input[type="submit"]:hover, .button:active, input[type="submit"]:active {
+    font-weight: bold;
+}
+/* Specific Typography
+-------------------------------------------------------------- */
+#site-name {
+  font-size: 300%;
+  line-height: 150%;
+}
+.footer-message {
+  font-size: 90%;
+}
+
+/* HTML Elements
+-------------------------------------------------------------- */
+body {
+}
+
+/* Site Info
+-------------------------------------------------------------- */
+/* Wrapper around logo, site name, and slogan */
+.header-site-info span {
+  display: block;
+}
+#header-site-info {
+    position: absolute;
+    top: 20px;
+	left:0px;
+}
+
+/* Add float here to put logo and site name side by side, also add margins as
+  needed */
+
+#logo {float:left;margin-right:20px
+}
+
+/* Link and hover styles for site name */
+#site-name a:link,
+#site-name a:visited,
+#site-name a:hover,
+#site-name a:active {
+}
+#site-name{margin-bottom:0;}
+
+/* Typography for site slogan */
+#slogan {
+}
+
+/* Regions
+
+  Classes (.region-name) should always be used instead of IDs (#region-name) so
+  that Skinr styles can override them with a class later
+-------------------------------------------------------------- */
+
+/* All Regions
+-------------------------------------------------------------- */
+/* By default this wrapper is set to 100% width and centered -- override here to
+  narrow wrapper or align left or right */
+.page {
+    margin: auto;
+}
+
+/* The 0 values here remove padding and spacing at the bottom of the page.
+  Remove to add a gap at the very bottom of the page */
+.page-inner {
+  border: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+/* Main Content Region
+-------------------------------------------------------------- */
+
+#main-content{
+  position:relative;
+}
+
+/* Header Regions
+-------------------------------------------------------------- */
+/* Header Top region to the bottom of Header region */
+/* For full-width header background, add background image/color here */
+.header-group-wrapper {
+}
+.header-group {position:relative;height:180px;
+}
+
+/* Header Top region which sits above the header */
+/* Works well with inline login or inline menu block style */
+.header-top-wrapper {
+}
+.header-top { 
+}
+
+/* Main Menu
+/-------------------------------------------------------------- */
+/* Add general styles for main menu here, such as typography, borders, floats,
+  or spacing above/below */
+#page #main-menu-wrapper {display:inline-block;position:absolute;right:0;bottom:0;
+}
+
+#main-menu ul, #main-menu .gutter{margin:0;}
+#main-menu ul a {
+    font-size: 120%;
+    text-align: center;
+	text-shadow: 0 1px 1px #fff;
+}
+.sf-menu.sf-style-default a{border:none;}
+.sf-menu.sf-style-default li li a{
+    border-left: 1px solid #FFFFFF;
+    border-top: 1px solid #CFDEFF;
+}
+#main-menu li {
+	line-height:1em;
+}
+#main-menu ul li li a{
+    text-align: left;
+}
+.sf-menu li:hover ul, .sf-menu li.sfHover ul{top:2.8em;}
+#main-menu li a:link, #main-menu li a:visited {
+}
+#main-menu li a:focus, #main-menu li a:hover, #main-menu li a.active {
+}
+#block-system-main-menu{margin-bottom:0;}
+
+/* styles for Superfish main menu */
+#main-menu ul.sf-menu {margin:0 0 0 6px;
+}
+.main-menu-inner .block-superfish{margin-bottom:0;}
+/* Link style for top level menu items, add padding here */
+.main-menu-inner ul.sf-menu a,
+.main-menu-inner ul.sf-menu a:visited  {
+}
+.main-menu-inner ul.sf-menu a:hover,
+.main-menu-inner ul.sf-menu a:active,
+.main-menu-inner ul.sf-menu a:focus {
+}
+
+/* These are the top level menu items, add border-right here for separators */
+.main-menu-inner ul.sf-menu li {
+}
+
+/* Add border-right: 0; here to remove separator on last menu item */
+.main-menu-inner ul.sf-menu li.last {
+}
+
+/* Style for container of dropdown, add background or border */
+.main-menu-inner ul.sf-menu ul {
+}
+
+/* Style for individual dropdown menu items, add border-bottom for separators */
+.main-menu-inner ul.sf-menu li li {
+
+}
+.main-menu-inner ul.sf-menu li li.last {
+}
+.main-menu-inner ul.sf-menu li li li {
+}
+
+/* Style for hover of dropdown menu items (add background-color here) */
+.main-menu-inner ul.sf-menu li ul li:hover,
+.main-menu-inner ul.sf-menu li ul li.sfHover {
+}
+
+/* Secondary menu
+-------------------------------------------------------------- */
+/* This menu usually appears in the header as a set of simple text links */
+.secondary-menu {
+}
+
+/* Set general style for menu here -- background, alignment, etc. */
+.secondary-menu-inner ul.links {
+}
+
+/* Add a border-right here for a separator */
+.secondary-menu-inner ul.links li {
+}
+
+/* Add border-right: 0; here to remove right separator on last menu item */
+.secondary-menu-inner ul.links li.last {
+}
+
+/* Styles for links */
+.secondary-menu-inner ul.links li a:link,
+.secondary-menu-inner ul.links li a:visited {
+  padding: 3px;
+}
+.secondary-menu-inner ul.links li a:hover,
+.secondary-menu-inner ul.links li a:focus,
+.secondary-menu-inner ul.links li a.active {
+}
+
+/* General links
+-------------------------------------------------------------- */
+.block ul.links {
+    margin-left: 2em;
+}
+
+/* User Menu
+-------------------------------------------------------------- */
+#block-system-user-menu{
+	margin-bottom:0;
+	width:auto;
+	float:right;}
+#header-top .menu{
+  margin:0;
+}
+#header-top .menu li {
+    float: left;
+    list-style: none outside none;
+    position: relative;
+}
+#header-top .menu li a {
+    display: block;
+    padding: 0.75em 1em;
+    text-decoration: none;
+				text-align:center;
+}
+/* Header - Search
+-------------------------------------------------------------- */
+.search-box {
+}
+.search-box-inner {
+}
+.search-box-inner form#search-theme-form {
+}
+.search-box-inner input#edit-search-theme-form-header {
+}
+/* --------------- Search Form ---------------- */
+
+#block-search-form .inner{
+  padding: 7px;
+}
+#block-search-form .content {
+  margin-top: 0;
+}
+#search-form input#edit-keys,
+#block-search-form .form-item-search-block-form input {
+  float: left; /* LTR */
+  font-size: 1em;
+  height: 1.143em;
+  margin-right: 5px;
+  margin-top:4px;
+  width: 9em;
+}
+#search-block-form input.form-submit,
+#search-form input.form-submit {
+  margin-left: 0;
+  margin-right: 0;
+  height: 25px;
+  width: 34px;
+  padding: 0;
+  cursor: pointer;
+  text-indent: -9999px;
+  border-color: #e4e4e4 #d2d2d2 #b4b4b4;
+  background: url(../images/search-button.png) no-repeat center top;
+  overflow: hidden;
+}
+#search-block-form input.form-submit:hover,
+#search-block-form input.form-submit:focus,
+#search-form input.form-submit:hover,
+#search-form input.form-submit:focus {
+  background-position: center bottom;
+}
+#search-form .form-item-keys label {
+  display: block;
+}
+
+/*  Preface Regions
+-------------------------------------------------------------- */
+/* The Preface Top region sits between the header and the Main Area
+ (columns, sidebars, and main content).  The Preface Bottom region
+ is inside the Main Area. */
+.preface-top-wrapper {
+}
+.preface-top {
+}
+.preface-top-inner {
+}
+.preface-bottom {
+}
+.preface-bottom-inner {
+}
+
+/*  Main Area (content + sidebars + preface bottom + postscript top)
+-------------------------------------------------------------- */
+.main-wrapper {
+}
+
+/* Sidebar Regions
+-------------------------------------------------------------- */
+/* Sidebar widths can be controlled through theme settings */
+#sidebar-first {padding-top:10px;
+}
+#sidebar-second {padding-top:10px;
+}
+#main-wrapper .sidebar-first .block .inner, #main-wrapper .sidebar-second .block .inner{
+    margin: 0 5px;
+}
+/* Content Regions
+-------------------------------------------------------------- */
+.content-top {
+}
+.content {
+}
+.content-inner {
+}
+.content-bottom {
+}
+
+/* This region only appears on full node pages. It's useful for ads or other
+  content between the body of the node and its comments */
+.node-bottom {
+}
+
+/*  Postscript & Footer Regions
+-------------------------------------------------------------- */
+.postscript-top {
+}
+.postscript-top-inner {
+}
+.postscript-bottom-wrapper {
+}
+.postscript-bottom {
+}
+.postscript-bottom-inner {
+}
+.footer-wrapper {
+}
+.footer {
+}
+.footer-inner {    
+    clear: both;
+    height: 65px;
+    padding: 10px 1% 1%;
+}
+.footer-message-wrapper {
+}
+.footer-message {
+}
+.footer-message-inner {
+}
+.footer-message-text {
+}
+
+/* Page titles
+/-------------------------------------------------------------- */
+/* Page and full node titles */
+h1.title {
+}
+
+/* Default node styles
+/-------------------------------------------------------------- */
+/* Change unpublished and preview colors for dark background themes */
+.node-unpublished {
+  background-color: #fff4f4;
+}
+.preview .node {
+  background-color: #ffffea;
+}
+
+/* Typography for node titles */
+h2.title {    
+	border-bottom: 1px dotted #CCCCCC;
+    color: #000000;
+    font-size: 200%;
+    margin: 3px 0 2px;
+    padding-bottom: 4px;
+}
+
+/* Colors and styles for linked node titles, ie. teaser listing at /node */
+h2.title a:link,
+h2.title a:visited {
+}
+h2.title a:hover,
+h2.title a:focus,
+h2.title a:active {
+}
+
+/* Separators and padding for node teasers */
+.node-teaser {
+}
+
+/* Author/date info */
+.meta {
+}
+.submitted {
+}
+
+/* Links for nodes (taxonomy, commenting, read more, etc) */
+.node ul.links li {
+}
+.node ul.links a {
+}
+
+/* Only more/read more links */
+div.node .read-more a,
+div.node .more-link a {
+}
+
+/* Drupal Messages
+/-------------------------------------------------------------- */
+/* General style for all errors/messages (border, padding, etc.) */
+div.content-messages div.messages,
+div.content-help div.help {
+}
+
+/* Status messages: green */
+div.content-messages-inner div.status {
+}
+
+/* Warning messages: yellow */
+div.content-messages-inner div.warning {
+}
+
+/* Error messages: red */
+div.content-messages-inner div.error {
+}
+
+/* Help messages: blue */
+div.content-help-inner div.help, div.content-help {
+	    border: medium none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Error that appears when a required form field is not filled out */
+.form-item input.error,
+.form-item textarea.error,
+.form-item select.error {
+  border: 1px solid #aa1144;
+}
+
+/* "New" text and required form field asterisk (default = red) */
+.marker,
+.form-required {
+  color: #aa1144;
+}
+
+/* Default block title styles
+/-------------------------------------------------------------- */
+h2.block-title { 
+	padding-top:10px;
+	border-bottom: 1px dotted #C0C0C0;
+    margin: 0;
+    padding: 8px 24px 7px 10px;
+    position: relative;
+				font-size:1.2em;
+}
+
+/* Breadcrumbs
+-------------------------------------------------------------- */
+.breadcrumbs {
+	padding:10px 0;
+	margin-bottom:0;
+}
+.breadcrumbs a:link,
+.breadcrumbs a:visited {
+}
+
+/* Tab Menus
+/-------------------------------------------------------------- */
+.tabs {
+    position: absolute;
+    right: 0;
+}
+#content-tabs ul.primary {
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    height: 30px;
+    margin: 15px 0 0;
+}
+#content-tabs ul.primary li {
+    background: url("../images/bleeds.png") no-repeat scroll 50% 0 #EEEEEE;
+    height: 30px;
+    position: relative;
+}
+#content-tabs ul.primary a {
+    color: #333333;
+    float: left;
+    min-width: 70px;
+    padding: 5px 10px;
+    text-align: center;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+#content-tabs ul.primary li:hover {
+    background-color: #F8F8F8;
+}
+#content-tabs ul.primary li:first-child {
+    background-position: 0 0;
+    border-radius: 5px 0 0 5px;
+}
+#content-tabs ul.primary li:last-child {
+    background-position: 100% 0;
+    border-radius: 0 5px 5px 0;
+}
+#content-tabs ul.primary li.active {
+    background-color: #77BBCC;
+}
+#content-tabs ul.primary li.active a {
+    color: #FFFFFF;
+    text-shadow: 0 1px 0 #3388AA;
+}
+#content-tabs ul.secondary {
+    background: url("../images/buttons.png") no-repeat scroll -800px 50% #5599AA;
+    border-radius: 3px 3px 3px 3px;
+    float: left;
+    font-size: 11px;
+    margin: 5px 5px 5px 0;
+    min-width: 100px;
+    position: relative;
+}
+#content-tabs ul.secondary:hover {
+    background: none repeat scroll 0 0 #5599AA;
+    opacity: 0.9;
+}
+ul#content-tabs ul.secondary li, ul#content-tabs ul.secondary li a {
+    background: none repeat scroll 0 0 transparent;
+    float: none;
+    height: auto;
+    text-align: left;
+}
+#content-tabs ul.secondary a {
+    color: #FFFFFF;
+    display: none;
+    padding: 0 10px 0 25px;
+    text-shadow: 0 1px 0 #3388AA;
+}
+#content-tabs ul.secondary:hover a, #content-tabs ul.secondary .active a {
+    display: block;
+}
+#content-tabs ul.secondary li:hover, #content-tabs ul.secondary li.active {
+    background: none repeat scroll 0 0 transparent;
+}
+#content-tabs ul.secondary a:hover {
+    background: url("images/buttons.png") no-repeat scroll -800px 50% #338899;
+}
+#content-tabs ul.secondary li:last-child a:hover {
+    border-radius: 0 0 3px 3px;
+}
+#content-tabs ul.secondary li:first-child a:hover {
+    border-radius: 3px 3px 0 0;
+}
+.tabs ul.primary li a.active {
+  background-color: #ffffff;
+}
+.tabs ul.primary li.active a {
+  background-color: #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+
+/* Pagers
+-------------------------------------------------------------- */
+ul.pager {
+}
+
+ul.pager li {
+}
+ul.pager a,
+ul.pager li.pager-current {
+}
+ul.pager li.pager-current {
+}
+ul.pager a:hover,
+ul.pager a:active,
+ul.pager a:focus {
+}
+
+/* Forms
+/-------------------------------------------------------------- */
+/* Typography and backgrounds for all form buttons */
+form input.form-submit {
+  margin: 1px;
+  padding: 1px 5px;
+}
+
+/* Hover style for form buttons */
+form input.form-submit:hover,
+form input.form-submit.hover,
+form input.form-submit:focus {
+}
+
+/* Typography, background, borders, padding for form fields */
+.form-item input,
+.form-item select,
+.form-item textarea {
+}
+
+/* Remove backgrounds and border on radios and checkboxes */
+.form-item .form-radio,
+.form-item .form-checkbox {
+  background: none;
+  border: none !important;
+}
+
+/* Fieldset wrapper around groups of form elements -- add border here */
+fieldset {
+}
+
+/* Typography and spacing for legend of fieldsets */
+fieldset legend {
+}
+
+/* Link style for legend of fieldsets */
+fieldset legend,
+legend.collapse-processed,
+legend.collapse-processed a:link,
+legend.collapse-processed a:visited {
+}
+
+/* Custom icons on (open) collapsible fieldsets */
+html.js fieldset.collapsible legend a:link,
+html.js fieldset.collapsible legend a:visited {
+}
+
+/* Custom icons on (closed) collapsible fieldsets */
+html.js fieldset.collapsed legend a:link,
+html.js fieldset.collapsed legend a:visited {
+}
+
+/* Tables
+-------------------------------------------------------------- */
+table {
+    border: 0 none;
+    border-spacing: 0;
+    font-size: 0.857em;
+    margin: 10px 0;
+    width: 100%;
+}
+table table {
+    font-size: 1em;
+}
+#footer-wrapper table {
+    font-size: 1em;
+}
+table tr th {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.51);
+    border-bottom-style: none;
+}
+table tr th, table tr th a, table tr th a:hover {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+table tbody tr th {
+    vertical-align: top;
+}
+tr td, tr th {
+    border: 1px solid #FFFFFF;
+    padding: 4px 9px;
+    text-align: left;
+}
+#footer-wrapper tr td, #footer-wrapper tr th {
+    border-color: rgba(255, 255, 255, 0.18);
+}
+tr.odd {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.106);
+}
+tr, tr.even {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.063);
+}
+table ul.links {
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+}
+table ul.links li {
+    padding: 0 1em 0 0;
+}
+
+/* Maintenance Page
+/-------------------------------------------------------------- */
+/* Maintenance page tpl file in Fusion Core has simplified layout, but you can
+  also add specific styles, such as a background, just for your offline page */
+.in-maintenance  {
+}
+
+/*--------------------------------------------------------------*/
+/* Module styles
+/-------------------------------------------------------------- */
+
+/* Book
+/-------------------------------------------------------------- */
+.book-navigation .menu {
+  border-top: 1px solid #ccc;
+}
+.book-navigation .page-links {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Comments
+/-------------------------------------------------------------- */
+/* Style for each individual comment */
+div.comment {
+}
+
+/* Subject (title) of each comment */
+div.comment h3.title {
+}
+
+/* Links (edit, reply, delete) for each comment */
+div.comment div.links a,
+div.comment ul.links a {
+}
+
+/* Alternating styles for even/odd comments */
+.comments div.odd {
+  background-color: #fff;
+}
+
+.comments div.even {
+  background-color: #eee;
+}
+
+/* A special highlight style for a comment by the author of the node */
+.comments div.comment-by-author {
+  background-color: #ddd;
+}
+
+/* Comment signatures */
+.signature {
+  border-top: 1px solid #d6ddb9;
+}
+
+/* User avatars in comments */
+.comment-wrapper .picture img {
+}
+
+/* Forum
+/-------------------------------------------------------------- */
+#forum .description {
+}
+
+.forum-topic-navigation {
+  border-top: 1px solid #888;
+  border-bottom: 1px solid #888;
+}
+
+/* Poll
+/-------------------------------------------------------------- */
+div.poll div.bar {
+  background-color: #ddd;
+}
+div.poll div.bar div.foreground {
+  background-color: #999;
+}
+
+/* Profiles
+/-------------------------------------------------------------- */
+.profile .picture {
+  float: none;
+}
+
+/* Styles for sub-headings on user profiles */
+.profile dt {
+  background-color: #ccc;
+}
+
+/* Ubercart - catalog
+/-------------------------------------------------------------- */
+
+/* Horizontal list of subcategories in catalog */
+ul.uc-categories {
+}
+.uc-categories li a {
+  font-weight: bold;
+  padding: 0 5px 0 3px;
+}
+
+/* Product and category names */
+.catalog-grid-title a:link,
+.catalog-grid-title a:visited,
+.category a:link,
+.category a:visited {
+}
+.catalog-grid-title a:hover,
+.catalog-grid-title a:focus,
+.category a:hover,
+.category a:focus {
+}
+
+/* Sell price in Ubercart catalog */
+.category-grid-products .catalog-grid-sell-price {
+}
+
+/* Ubercart - add to cart buttons
+/-------------------------------------------------------------- */
+
+/* Add to cart buttons */
+input.node-add-to-cart,
+input.list-add-to-cart {
+}
+
+/* Hover and focus styles, with .hover class added for IE6 support */
+input.node-add-to-cart:hover,
+input.node-add-to-cart.hover,
+input.node-add-to-cart:focus,
+input.list-add-to-cart:hover,
+input.list-add-to-cart.hover,
+input.list-add-to-cart:focus {
+}
+
+/* Ubercart - product nodes
+/-------------------------------------------------------------- */
+#field-group {
+}
+#price-group {
+}
+/* Product images */
+.product-image a img {
+}
+.product-image a:hover img,
+.product-image a:focus img {
+}
+
+/* Display price on full product nodes */
+.full-node .product-group .uc-price-display {
+}
+
+/* Product attributes on full nodes */
+.full-node .product-group .attributes {
+}
+
+/* Ubercart - general / checkout
+/-------------------------------------------------------------- */
+/* For optional "Powered by Ubercart" footer message */
+#store-footer {
+}
+#store-footer a:link,
+#store-footer a:visited {
+}
+/* View cart/Checkout links in Ubercart cart block */
+.cart-block-summary-links ul.links li a {
+}
+.cart-block-summary-links ul.links li.cart-block-checkout a:link,
+.cart-block-summary-links ul.links li.cart-block-checkout a:visited {
+}
+
+/* Key checkout process buttons: Checkout, Continue, and Submit Order */
+#uc-cart-view-form #edit-checkout,
+#uc-cart-checkout-form #edit-continue,
+#uc-cart-checkout-review-form #edit-submit {
+}
+/* Table on final order review page */
+.order-review-table {
+}
+#cart-form-products table th {
+  border-bottom: 3px solid #dec2c3;
+}
+/* Skinr
+/-------------------------------------------------------------- */
+
+/* This is a sample Skinr style to get you started. See fusion_starter.info */
+.fusion-example-stylename .inner {
+  /* When setting the background color, also set foreground colors for text and
+    links, even if it's similar to the default body style. Remember, this block
+    style may be used in regions with other foreground colors, thus making text
+    invisible if left unspecified */
+  background-color: #ccc;
+  color: #000;
+  /* All padding and borders should go on the .inner div, so as not to break
+    the widths of the grid */
+  border: 3px solid #000;
+  padding: 10px;
+}
+/* @group skinr ------------------------------------ */
+.hide-title h1.title,
+.hide-title h2,
+.hide-title h3 {
+  display: none;
+}
+.align-left {
+  text-align: left;
+}
+.align-center {
+  text-align: center;
+}
+.align-right {
+  text-align: right;
+}
+.sm-font {
+  font-size: 0.85em;
+  line-height: 1.2em;
+}
+.md-font {
+  font-size: 1.1em;
+  line-height: 1.3em;
+}
+.lg-font {
+  font-size: 1.5;
+}
+.ex-font {
+  font-size: 2em;
+}
+.giant {
+  font-size: 2.5em;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.lowercase {
+  text-transform: lowercase;
+}
+.capitalize {
+  text-transform: capitalize;
+}
+/*---widths---*/
+.width-100 {
+  width: 100%;
+}
+.width-75 {
+  float: left;
+  width: 73%;
+}
+.width-50 {
+  float: left;
+  width: 48%;
+}
+.width-33 {
+  float: left;
+  width: 32%;
+}
+.width-25 {
+  float: left;
+  width: 23%;
+}
+#content-top .width-75,
+#content-inner .width-75 {
+  width: 71%;
+}
+#content-top .width-50,
+#content-inner .width-50 {
+  width: 46%;
+}
+#content-top .width-33,
+#content-inner .width-33 {
+  width: 29%;
+}
+#content-top .width-25,
+#content-inner .width-25 {
+  width: 22%;
+}
+/*----margins----*/
+.top-10 {
+  margin-top: 10px;
+}
+.right-10 {
+  margin-right: 10px;
+}
+.bottom-10 {
+  margin-bottom: 10px;
+}
+.left-10 {
+  margin-left: 10px;
+}
+/*---*/
+.img ul {
+  padding: 0;
+}
+.img ul li {
+  border-bottom: 1px solid #eee;
+  padding: 5px 0;
+  margin: 0 5px;
+  list-style-image: url(../images/black-bullet.gif);
+  list-style-position: inside;
+}
+.img ul li.expanded {
+  border-bottom: none;
+}
+#content-top .img ul li {
+  list-style-image: url(../images/orange-bullet.gif);
+}
+.img {
+  color: #888;
+}
+.blist ul {
+  padding: 0;
+}
+.blist ul li {
+  list-style: none;
+  list-style-image: none;
+  line-height: 2.3em;
+  margin: 0;
+  padding: 0;
+}
+.blist ul li a {
+  border-bottom: #eee 1px solid;
+  color: #444;
+  display: block;
+  padding: 0 0 0 5px;
+}
+.blist ul li a:hover {
+  background: #EF9F20;
+  color: #fff;
+}
+.blist.grey ul li a:hover {
+  background: #ddd;
+  color: #444;
+}
+.blist ul ul li a {
+  padding: 0 0 0 10px;
+}
+.blist ul ul ul li a {
+  padding: 0 0 0 15px;
+}
+/*---blocks---*/
+.ohead h3 {
+  background: #EF9F20;
+  color: #fff;
+  line-height: 1.4em;
+  padding: 0 5px;
+}
+.gborder .inner{
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+.gborder-top-menu #main-menu li a, .gborder-top .inner{
+  -webkit-border-radius: 6px 6px 0 0;
+  -moz-border-radius: 6px 6px 0 0;
+  border-radius: 6px 6px 0 0;
+}
+.gboxshadow .inner{
+box-shadow:
+	-moz-box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+	-webkit-box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+	box-shadow: 5px 5px 5px rgba(0,0,0,0.2);}
+/*----links-----*/
+.inline-links ul {
+  padding: 0;
+}
+.inline-links ul li {
+  border-right: 1px solid #777;
+  display: inline;
+  padding: 0 10px 0 0;
+  line-height: 1em;
+  margin: 0 10px 0 0;
+}
+.inline-links ul li.last {
+  border-right: none;
+}
+.inline-links ul ul {
+  display: none;
+}
+.column-links ul {
+  padding: 0;
+}
+.column-links ul li {
+  display: inline;
+  display: inline-block;
+  float: left;
+  list-style: none;
+  margin: 0 50px 0 0;
+  position: relative;
+  vertical-align: top;
+}
+.column-links ul li a {
+  font-weight: bold;
+}
+.column-links ul li ul {
+  display: block;
+  position: relative;
+}
+.column-links ul li ul li {
+  display: block;
+  float: none;
+  margin: 0;
+}
+.column-links ul li ul li a {
+  font-weight: normal;
+  font-size: 0.9em;
+  line-height: 1em;
+}
+.column-links ul li ul li ul  {
+  padding: 0 0 0 10px;
+}
+.column-links ul li ul li ul  {
+  padding: 0 0 0 10px;
+}
+/*---imgfield-----*/
+.img-left .field-type-image,
+.img-left.image-insert {
+  float: left;
+  margin: 0 10px 10px 0;
+}
+.img-left .views-row {
+  clear: left;
+}
+.img-right .field-type-image,
+.img-right.image-insert {
+  float: right;
+  margin: 0 0 10px 10px;
+}
+.img-left .views-row {
+  clear: right;
+}
+/*-----fonts----*/
+.serif-heading h1,
+.serif-heading h1 a,
+.serif-heading h2,
+.serif-heading h2 a,
+.serif-heading h3,
+.serif-heading h3 a,
+.serif-heading h4,
+.serif-heading h4 a,
+.serif-heading h5,
+.serif-heading h5 a {
+  font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
+}
+.serif-all,
+.serif-all input {
+  font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
+}
+.lucida-heading h1,
+.lucida-heading h1 a,
+.lucida-heading h2,
+.lucida-heading h2 a,
+.lucida-heading h3,
+.lucida-heading h3 a,
+.lucida-heading h4,
+.lucida-heading h4 a,
+.lucida-heading h5,
+.lucida-heading h5 a {
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+}
+.lucida-all,
+.lucida-all input {
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+  font-size: 0.9em;
+}
+.mono-heading h1,
+.mono-heading h1 a,
+.mono-heading h2,
+.mono-heading h2 a,
+.mono-heading h3,
+.mono-heading h3 a,
+.mono-heading h4,
+.mono-heading h4 a,
+.mono-heading h5,
+.mono-heading h5 a {
+  font-family: Consolas, "Courier New", "Courier", mono;
+}
+.mono-all,
+.mono-all input {
+  font-family: Consolas, "Courier New", "Courier", mono;
+}
+.verdana-heading h1,
+.verdana-heading h1 a,
+.verdana-heading h2,
+.verdana-heading h2 a,
+.verdana-heading h3,
+.verdana-heading h3 a,
+.verdana-heading h4,
+.verdana-heading h4 a,
+.verdana-heading h5,
+.verdana-heading h5 a {
+  font-family: Verdana, Geneva, sans-serif;
+}
+.verdana-all,
+.verdana-all input {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 0.9em;
+}
+/* @end */
+/* Rounded Corners */
+#language-selector ul ul li, #language-selector ul ul li a, #language-selector ul ul li a:visited {
+    border-radius: 0 0 0 0;
+	  behavior: url(/sites/all/libraries/PIE/PIE.htc);
+
+}
+a.comment-reply-link, a.comment-response-types, span.comment-response-types, .wp-caption, .suf-mag-headline-block li.suf-mag-headline a.tab-current, .widget-suf-cat-posts li.suf-cat-post:hover, .suf-mag-category li.suf-mag-catblock-post:hover, .activity-meta a, ul.item-list span.activity {
+    border-radius: 3px 3px 3px 3px;
+	  behavior: url(/sites/all/libraries/PIE/PIE.htc);
+
+}
+.suf-widget, .post, div.page, .non-wp-post, #subnav, .hier-nav, .page-nav, .post-nav, .flattened, .author-profile, .info-tag, .info-category, #featured-posts, h3#comments, h3.comments, h3#respond, h3.respond, #reply-title, textarea, .author-info, blockquote, pre, input[type="text"], input[type="password"], .commentlist li, .suf-mag-categories td, .suf-mag-excerpts td, .suf-tiles td, h2.suf-mag-headlines-title, .suf-mag-excerpts th, .suf-tiles th, .suf-mag-categories th, #recaptcha_response_field, #language-selector ul li, #language-selector ul li a, #language-selector ul li a:visited, .download, .announcement, .warning, .note, .suf-mag-headlines, .nr-post h3, .nr_widget h4, .post form#whats-new-form #whats-new-textarea, .post form#whats-new-form, ul.item-list li, .standard-form, fieldset {
+    border-radius: 5px 5px 5px 5px;
+	  behavior: url(/sites/all/libraries/PIE/PIE.htc);
+
+}
+#wrapper {
+    border-radius: 7px 7px 7px 7px;
+	  behavior: url(/sites/all/libraries/PIE/PIE.htc);
+
+}
+.searchform .searchfield, .dir-search input {
+    border-radius: 10px 10px 10px 10px;
+	  behavior: url(/sites/all/libraries/PIE/PIE.htc);
+
+}
+legend, .button, input[type="button"], input[type="submit"], .submit, a.suf-mag-excerpt-full-story, a.suf-mag-excerpt-full-story:hover, a.suf-mag-excerpt-full-story:visited, a.suf-mag-category-all-posts, a.suf-mag-category-all-posts:hover, a.suf-mag-category-all-posts:visited, .generic-button {
+    border-radius: 20px 20px 20px 20px;
+	  behavior: url(/sites/all/libraries/PIE/PIE.htc);
+
+}
+#nav.continuous ul li, #nav.continuous ul li a {
+    border-radius: 0 0 0 0;
+	  behavior: url(http://drupal/sites/all/libraries/PIE/PIE.htc);
+
+}
+#nav ul ul li, #nav ul ul li a, #nav ul ul li a:visited {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+	  behavior: url(/sites/all/libraries/PIE/PIE.htc);
+
+}
+.dbx-handle {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+	  behavior: url(/sites/all/libraries/PIE/PIE.htc);
+
+}
+#commentform label.textarea, h2.suf-mag-category-title, #language-selector ul ul li:first-child, #language-selector ul ul li:first-child a, #language-selector ul ul li:first-child a:visited, ul.sidebar-tabs li a, #nav ul li, #nav ul li a, #nav ul ul ul li:first-child, #nav ul ul ul li:first-child > a, #nav ul ul ul ul li:first-child > a:hover, #nav-top ul ul ul li:first-child, #nav-top ul ul ul li:first-child > a, #nav-top ul ul ul li:first-child > a:hover, #item-nav div.item-list-tabs ul li {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+	  behavior: url(/sites/all/libraries/PIE/PIE.htc);
+
+}
+#commentform label {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+	  behavior: url(/sites/all/libraries/PIE/PIE.htc);
+
+}
+#commentform input[type="text"] {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+	  behavior: url(/sites/all/libraries/PIE/PIE.htc);
+
+}
+#language-selector ul ul li:last-child, #language-selector ul ul li:last-child a, #language-selector ul ul li:last-child a:visited, div.sidebar-tab-content, #nav ul ul li:last-child, #nav ul ul li:last-child > a, #nav ul ul li:last-child > a:hover, #nav-top, #nav-top ul ul li:last-child, #nav-top ul ul li:last-child > a, #nav-top ul ul li:last-child > a:hover {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+	  behavior: url(/sites/all/libraries/PIE/PIE.htc);
+
+}
+#commentform input[type="text"], #commentform label.textarea {
+    border-bottom-left-radius: 0;
+	  behavior: url(/sites/all/libraries/PIE/PIE.htc);
+
+}
+#commentform input[type="text"], #commentform textarea {
+    border-top-left-radius: 0;
+	  behavior: url(/sites/all/libraries/PIE/PIE.htc);
+
+}
+/* Skinr selectable helper classes */
+.fusion-clear {
+  clear: both;
+}
+
+div.fusion-right {
+  float: right; /* LTR */
+}
+
+div.fusion-center {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fusion-center-content .inner {
+  text-align: center;
+}
+
+.fusion-center-content .inner ul.menu {
+  display: inline-block;
+  text-align: center;
+}
+
+/* required to override drupal core */
+.fusion-center-content #user-login-form {
+  text-align: center;
+}
+
+.fusion-right-content .inner {
+  text-align: right; /* LTR */
+}
+
+/* required to override drupal core */
+.fusion-right-content #user-login-form {
+  text-align: right; /* LTR */
+}
+
+/* Large, bold callout text style */
+.fusion-callout .inner {
+  font-weight: bold;
+}
+
+/* Extra padding on block */
+.fusion-padding .inner {
+  padding: 30px;
+}
+
+/* Adds 1px border and padding */
+.fusion-border .inner {
+  border-width: 1px;
+  border-style: solid;
+  padding: 10px;
+}
+
+/* Single line menu with separators */
+.fusion-inline-menu .inner ul.menu {
+  margin-left: 0; /* LTR */
+}
+
+.fusion-inline-menu .inner ul.menu li {
+  border-right-style: solid;
+  border-right-width: 1px;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.fusion-inline-menu .inner ul.menu li a {
+  padding: 0 8px 0 5px; /* LTR */
+}
+
+.fusion-inline-menu .inner ul li.last {
+  border: none;
+}
+
+/* Hide second level (and beyond) menu items */
+.fusion-inline-menu .inner ul li.expanded ul {
+  display: none;
+}
+
+/* Multi-column menu style with bolded top level menu items */
+.fusion-multicol-menu .inner ul {
+  margin-left: 0; /* LTR */
+  text-align: left; /* LTR */
+}
+
+.fusion-multicol-menu .inner ul li {
+  border-right: none;
+  display: block;
+  font-weight: bold;
+}
+
+.fusion-multicol-menu .inner ul li.last {
+  border-right: none;
+}
+
+.fusion-multicol-menu .inner ul li.last a {
+  padding-right: 0; /* LTR */
+}
+
+.fusion-multicol-menu .inner ul li.expanded,
+.fusion-multicol-menu .inner ul li.leaf {
+  float: left; /* LTR */
+  list-style-image: none;
+  margin-left: 50px; /* LTR */
+}
+
+.fusion-multicol-menu .inner ul.menu li.first {
+  margin-left: 0; /* LTR */
+}
+
+.fusion-multicol-menu .inner ul li.expanded li.leaf {
+  float: none;
+  margin-left: 0; /* LTR */
+}
+
+.fusion-multicol-menu .inner ul li.expanded ul {
+  display: block;
+  margin-left: 0; /* LTR */
+}
+
+.fusion-multicol-menu .inner ul li.expanded ul li {
+  border: none;
+  margin-left: 0; /* LTR */
+  text-align: left; /* LTR */
+}
+
+.fusion-multicol-menu .inner ul.menu li ul.menu li {
+  font-weight: normal;
+}
+
+/* Split list across multiple columns */
+.fusion-2-col-list .inner .item-list ul li,
+.fusion-2-col-list .inner ul.menu li {
+  float: left; /* LTR */
+  width: 50%;
+}
+
+.fusion-3-col-list .inner .item-list ul li,
+.fusion-3-col-list .inner ul.menu li {
+  float: left; /* LTR */
+  width: 33%;
+}
+
+.fusion-2-col-list .inner .item-list ul.pager li,
+.fusion-3-col-list .inner .item-list ul.pager li {
+  float: none;
+  width: auto;
+}
+
+/* List with bottom border
+    Fixes a common issue when list items have bottom borders and appear to be
+    doubled when nested lists end and begin. This removes the extra border-bottom
+ */
+.fusion-list-bottom-border .inner ul li {
+  list-style: none;
+  list-style-type: none;
+  list-style-image: none;
+}
+
+.fusion-list-bottom-border .inner ul li,
+.fusion-list-bottom-border .view-content div.views-row {
+  padding: 0 0 0 10px; /* LTR */
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  line-height: 216.7%; /* 26px */
+}
+
+.fusion-list-bottom-border .inner ul {
+  margin: 0;
+}
+
+.fusion-list-bottom-border .inner ul li ul {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+
+.fusion-list-bottom-border .inner ul li ul li.last {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  margin-bottom: -1px;
+  margin-top: -1px;
+}
+
+/* List with no bullet and extra padding
+    This is a common style for menus, which removes the bullet and adds more
+    vertical padding for a simple list style
+ */
+.fusion-list-vertical-spacing .inner ul,
+.fusion-list-vertical-spacing div.views-row-first {
+  margin-left: 0;
+  margin-top: 10px;
+}
+
+.fusion-list-vertical-spacing .inner ul li,
+.fusion-list-vertical-spacing div.views-row {
+  line-height: 133.3%; /* 16px/12px */
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.fusion-list-vertical-spacing .inner ul li {
+  list-style: none;
+  list-style-image: none;
+  list-style-type: none;
+}
+
+.fusion-list-vertical-spacing .inner ul li ul {
+  margin-left: 10px; /* LTR */
+}
+
+/* Bold all links */
+.fusion-bold-links .inner a {
+  font-weight: bold;
+}
+
+/* Float imagefield images left and add margin */
+.fusion-float-imagefield-left .field-type-filefield,
+.fusion-float-imagefield-left .image-insert,
+.fusion-float-imagefield-left .imagecache {
+  float: left; /* LTR */
+  margin: 0 15px 15px 0; /* LTR */
+}
+
+/* Clear float on new Views item so each row drops to a new line */
+.fusion-float-imagefield-left .views-row {
+  clear: left; /* LTR */
+}
+
+/* Float imagefield images right and add margin */
+.fusion-float-imagefield-right .field-type-filefield,
+.fusion-float-imagefield-right .image-insert
+.fusion-float-imagefield-right .imagecache {
+  float: right; /* LTR */
+  margin: 0 0 15px 15px; /* LTR */
+}
+
+/* Clear float on new Views item so each row drops to a new line */
+.fusion-float-imagefield-right .views-row {
+  clear: right; /* LTR */
+}
+
+/* Superfish: all menus */
+.sf-menu li {
+  list-style: none;
+  list-style-image: none;
+  list-style-type: none;
+}
+
+/* Superfish: vertical menus */
+.superfish-vertical {
+  position: relative;
+  z-index: 9;
+}
+
+ul.sf-vertical {
+  background: #fafafa;
+  margin: 0;
+  width: 100%;
+}
+
+ul.sf-vertical li {
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
+  line-height: 200%; /* 24px */
+  padding: 0;
+  width: 100%;
+}
+
+ul.sf-vertical li a:link,
+ul.sf-vertical li a:visited,
+ul.sf-vertical li .nolink {
+  margin-left: 10px;
+  padding: 2px;
+}
+
+ul.sf-vertical li a:hover,
+ul.sf-vertical li a.active {
+  text-decoration: underline;
+}
+
+ul.sf-vertical li ul {
+  background: #fafafa;
+  border-top: 1px solid #ccc;
+  margin-left: 0;
+  width: 150px;
+}
+
+ul.sf-vertical li ul li.last {
+  border-top: 1px solid #ccc;
+  margin-bottom: -1px;
+  margin-top: -1px;
+}
+
+ul.sf-vertical li ul {
+  border-top: none;
+  padding: 4px 0;
+}
+
+ul.sf-vertical li ul li {
+  border-bottom: none;
+  line-height: 150%; /* 24px */
+}
+
+ul.sf-vertical li ul li.last {
+  border-top: none;
+}
+
+ul.sf-vertical li ul li ul {
+  margin-top: -4px;
+}
+
+/* PIE correction */
+.gboxshadow .inner, .gborder-top-menu #main-menu li a, .gborder-top .inner, .gborder .inner, a
+{
+  behavior: url(/sites/all/libraries/PIE/PIE.htc);
+}
+/* Other color definitions */
+.comment .comment-arrow {
+  border-color: #ffffff;
+}

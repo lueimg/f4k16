@@ -1,0 +1,29 @@
+/**
+  * Responsive Elements
+  */
+#logo {
+    height: auto;
+}
+#logo img {
+	/*height: 85px;
+	position: absolute;
+    top: 25px;*/
+}
+
+#block-block-27 {
+	/*display: none;*/
+	margin-right: 10px;
+}
+#header-wrapper .container {
+    padding-top: 17px !important;
+}
+
+#block-block-13--2 .block-inner {
+	min-height: 10px !important;
+}
+.curlypage {
+	display: none;
+}
+.old-logo img {
+	height: 108px;
+}

@@ -1,0 +1,248 @@
+#block-views-nodequeue-1-block,
+#block-views-nodequeue-2-block,
+#block-views-nodequeue-3-block,
+#block-views-nodequeue-1-block--2,
+#block-views-nodequeue-2-block--2,
+#block-views-nodequeue-3-block--2 {
+  border-bottom: thin dashed #ccc;
+  margin-top: 18px;
+  padding-bottom: 18px;
+}
+#block-views-nodequeue-1-block.block-home .block-inner,
+#block-views-nodequeue-2-block.block-home .block-inner,
+#block-views-nodequeue-3-block.block-home .block-inner,
+#block-views-nodequeue-1-block--2.block-home .block-inner,
+#block-views-nodequeue-2-block--2.block-home .block-inner,
+#block-views-nodequeue-3-block--2.block-home .block-inner {
+  padding: 0;
+}
+#block-views-nodequeue-1-block.block-home .block-title,
+#block-views-nodequeue-2-block.block-home .block-title,
+#block-views-nodequeue-3-block.block-home .block-title,
+#block-views-nodequeue-1-block--2.block-home .block-title,
+#block-views-nodequeue-2-block--2.block-home .block-title,
+#block-views-nodequeue-3-block--2.block-home .block-title {
+  color: #aa354c;
+  text-transform: uppercase;
+  margin-bottom: 0px;
+  padding-left: 15px;
+}
+#block-views-nodequeue-1-block.block-home .more-link a,
+#block-views-nodequeue-2-block.block-home .more-link a,
+#block-views-nodequeue-3-block.block-home .more-link a,
+#block-views-nodequeue-1-block--2.block-home .more-link a,
+#block-views-nodequeue-2-block--2.block-home .more-link a,
+#block-views-nodequeue-3-block--2.block-home .more-link a {
+  color: #fff;
+  display: inline-block;
+}
+#block-views-nodequeue-1-block.block-home .queu.list .jcarousel-container-horizontal,
+#block-views-nodequeue-2-block.block-home .queu.list .jcarousel-container-horizontal,
+#block-views-nodequeue-3-block.block-home .queu.list .jcarousel-container-horizontal,
+#block-views-nodequeue-1-block--2.block-home .queu.list .jcarousel-container-horizontal,
+#block-views-nodequeue-2-block--2.block-home .queu.list .jcarousel-container-horizontal,
+#block-views-nodequeue-3-block--2.block-home .queu.list .jcarousel-container-horizontal {
+  width: 630px;
+  padding: 15px 24px;
+}
+#block-views-nodequeue-1-block.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal,
+#block-views-nodequeue-2-block.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal,
+#block-views-nodequeue-3-block.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal,
+#block-views-nodequeue-1-block--2.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal,
+#block-views-nodequeue-2-block--2.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal,
+#block-views-nodequeue-3-block--2.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal {
+  width: 650px;
+  height: 140px;
+}
+#block-views-nodequeue-1-block.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal .jcarousel-list-horizontal .jcarousel-item-horizontal,
+#block-views-nodequeue-2-block.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal .jcarousel-list-horizontal .jcarousel-item-horizontal,
+#block-views-nodequeue-3-block.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal .jcarousel-list-horizontal .jcarousel-item-horizontal,
+#block-views-nodequeue-1-block--2.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal .jcarousel-list-horizontal .jcarousel-item-horizontal,
+#block-views-nodequeue-2-block--2.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal .jcarousel-list-horizontal .jcarousel-item-horizontal,
+#block-views-nodequeue-3-block--2.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal .jcarousel-list-horizontal .jcarousel-item-horizontal {
+  float: left !important;
+  width: 200px;
+  height: 120px;
+}
+#block-views-nodequeue-1-block.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal .jcarousel-list-horizontal .jcarousel-item-horizontal .views-field-title,
+#block-views-nodequeue-2-block.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal .jcarousel-list-horizontal .jcarousel-item-horizontal .views-field-title,
+#block-views-nodequeue-3-block.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal .jcarousel-list-horizontal .jcarousel-item-horizontal .views-field-title,
+#block-views-nodequeue-1-block--2.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal .jcarousel-list-horizontal .jcarousel-item-horizontal .views-field-title,
+#block-views-nodequeue-2-block--2.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal .jcarousel-list-horizontal .jcarousel-item-horizontal .views-field-title,
+#block-views-nodequeue-3-block--2.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal .jcarousel-list-horizontal .jcarousel-item-horizontal .views-field-title {
+  background: none;
+  bottom: 0px;
+  color: #fff;
+  left: 0px;
+  padding: 0px;
+  position: static;
+  text-align: left;
+  width: 100%;
+  margin-bottom: 0px;
+}
+#block-views-nodequeue-1-block.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal .jcarousel-list-horizontal .jcarousel-item-horizontal .views-field-title .field-content a,
+#block-views-nodequeue-2-block.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal .jcarousel-list-horizontal .jcarousel-item-horizontal .views-field-title .field-content a,
+#block-views-nodequeue-3-block.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal .jcarousel-list-horizontal .jcarousel-item-horizontal .views-field-title .field-content a,
+#block-views-nodequeue-1-block--2.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal .jcarousel-list-horizontal .jcarousel-item-horizontal .views-field-title .field-content a,
+#block-views-nodequeue-2-block--2.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal .jcarousel-list-horizontal .jcarousel-item-horizontal .views-field-title .field-content a,
+#block-views-nodequeue-3-block--2.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal .jcarousel-list-horizontal .jcarousel-item-horizontal .views-field-title .field-content a {
+  color: #6f5f7c;
+  font-family: condbold !important;
+  line-height: 1em;
+  font-size: 1.2em !important;
+  font-weight: 200;
+}
+#block-views-nodequeue-1-block.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal .jcarousel-list-horizontal .jcarousel-item-horizontal .views-field-uc-product-image,
+#block-views-nodequeue-2-block.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal .jcarousel-list-horizontal .jcarousel-item-horizontal .views-field-uc-product-image,
+#block-views-nodequeue-3-block.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal .jcarousel-list-horizontal .jcarousel-item-horizontal .views-field-uc-product-image,
+#block-views-nodequeue-1-block--2.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal .jcarousel-list-horizontal .jcarousel-item-horizontal .views-field-uc-product-image,
+#block-views-nodequeue-2-block--2.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal .jcarousel-list-horizontal .jcarousel-item-horizontal .views-field-uc-product-image,
+#block-views-nodequeue-3-block--2.block-home .queu.list .jcarousel-container-horizontal .jcarousel-clip-horizontal .jcarousel-list-horizontal .jcarousel-item-horizontal .views-field-uc-product-image {
+  float: left;
+  border: 1px solid #bebcc2;
+  margin-right: 5px;
+}
+#block-views-nodequeue-1-block.block-home .queu.list .jcarousel-container-horizontal .jcarousel-prev,
+#block-views-nodequeue-2-block.block-home .queu.list .jcarousel-container-horizontal .jcarousel-prev,
+#block-views-nodequeue-3-block.block-home .queu.list .jcarousel-container-horizontal .jcarousel-prev,
+#block-views-nodequeue-1-block--2.block-home .queu.list .jcarousel-container-horizontal .jcarousel-prev,
+#block-views-nodequeue-2-block--2.block-home .queu.list .jcarousel-container-horizontal .jcarousel-prev,
+#block-views-nodequeue-3-block--2.block-home .queu.list .jcarousel-container-horizontal .jcarousel-prev {
+  background: url("../images/icon_arrowL.png") no-repeat scroll 0 0 transparent;
+  display: block;
+  height: 35px;
+  width: 23px;
+  left: 2px;
+}
+#block-views-nodequeue-1-block.block-home .queu.list .jcarousel-container-horizontal .jcarousel-next,
+#block-views-nodequeue-2-block.block-home .queu.list .jcarousel-container-horizontal .jcarousel-next,
+#block-views-nodequeue-3-block.block-home .queu.list .jcarousel-container-horizontal .jcarousel-next,
+#block-views-nodequeue-1-block--2.block-home .queu.list .jcarousel-container-horizontal .jcarousel-next,
+#block-views-nodequeue-2-block--2.block-home .queu.list .jcarousel-container-horizontal .jcarousel-next,
+#block-views-nodequeue-3-block--2.block-home .queu.list .jcarousel-container-horizontal .jcarousel-next {
+  background: url("../images/icon_arrowR.png") no-repeat scroll 0 0 transparent;
+  display: block;
+  height: 35px;
+  width: 23px;
+  right: -30px;
+}
+#block-views-nodequeue-3-block--2 {
+  border: none;
+}
+#panel-first-wrapper .container {
+  border-bottom: thin dashed #ccc !important;
+}
+#panel-first-wrapper .block-inner h2 {
+  font-size: 1.4em;
+  font-weight: 400 !important;
+}
+#block-block-27 .block-inner {
+  margin-top: 30px;
+}
+.front #page {
+  margin-top: -12px;
+}
+.front .group-header {
+  display: none;
+}
+.field-name-montly-specials h2,
+.field-name-montly-specials h1 {
+  margin-top: 0;
+}
+.front .node-custom-page h1 {
+  margin-top: 0px;
+}
+.view-categories-homepage .views-field-field-term-subtitle {
+  font-size: 17px;
+}
+#menu-bar-wrapper {
+  margin: 0 0 5px;
+}
+#block-superfish-2 a {
+  font-size: 1.1em;
+}
+.bloque-list-category #block-views-bloques-home-block--2 {
+  margin-top: 50px;
+}
+.page-nodequeue- .views-field-title a {
+  font-size: 21px;
+}
+#menu-bar-wrapper ul.menu ul li {
+  margin-right: -9px;
+}
+.page-node-865 #block-views-nodequeue-1-block,
+.page-node-865 #block-views-nodequeue-2-block,
+.page-node-865 #block-views-nodequeue-3-block {
+  padding-right: 30px;
+  margin-top: 0;
+}
+.page-node-865 .block-views.block-home {
+  width: 78%;
+  margin: 0 auto;
+  background: #eee;
+}
+.page-node-865 .block-views.block-home h2 {
+  margin: 0;
+}
+.page-node-865 .field-name-body {
+  font-size: 2em;
+  font-weight: bold;
+}
+.page-node-865 .field-name-body p {
+  margin: 0;
+}
+.page-node-865 #search-block-form--2,
+.page-node-865 #search-block-form {
+  background: #fff;
+  border: 1px solid #e7e8e9;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  display: block;
+  height: 25px;
+  overflow: hidden;
+  padding: 5px 5px 0 10px !important;
+  webkit-border-radius: 5px;
+  width: 243px;
+  margin-bottom: 0;
+}
+.page-node-865 #search-block-form--2 label,
+.page-node-865 #search-block-form label {
+  display: none;
+}
+.page-node-865 #search-block-form--2 .block-search .container-inline div,
+.page-node-865 #search-block-form .block-search .container-inline div {
+  display: block;
+  float: left;
+}
+.page-node-865 #search-block-form--2 .block-search .block-inner,
+.page-node-865 #search-block-form .block-search .block-inner,
+.page-node-865 #search-block-form--2 .block-search .form-item,
+.page-node-865 #search-block-form .block-search .form-item {
+  margin: 0;
+  padding: 0;
+}
+.page-node-865 #search-block-form--2 .form-text,
+.page-node-865 #search-block-form .form-text {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 1em;
+  font-style: italic;
+  margin-top: 2px;
+  padding: 0;
+  width: 210px;
+}
+.page-node-865 #search-block-form--2 .form-submit,
+.page-node-865 #search-block-form .form-submit {
+  background: url("../images/ico-search.png") 0 0 no-repeat;
+  border: none;
+  height: 15px;
+  text-indent: -999em;
+  vertical-align: top;
+  width: 15px;
+}
+.page-node-865 #search-block-form--2 #edit-actions,
+.page-node-865 #search-block-form #edit-actions {
+  float: right;
+  margin: 3px 0 0 0;
+}

@@ -1,0 +1,72 @@
+
+/* ---------- Color Module Styles ----------- */
+
+body,
+body.overlay {
+  color: #4a4a4a;
+}
+#page,
+#main-wrapper,
+.main-menu-inner ul.sf-menu a:hover,
+.main-menu-inner ul.sf-menu a:active,
+.main-menu-inner ul.sf-menu a:focus {
+ /* background: #eeeeee;*/
+}
+#main{/*background: #f5f5f5;*/}
+#header-group-wrapper {
+/*  background-color: #c2c4c5;
+  background-image: -moz-linear-gradient(top, #d0d0d0 0%, #c2c4c5 100%);
+  background-image: -ms-linear-gradient(top, #d0d0d0 0%, #c2c4c5 100%);
+  background-image: -o-linear-gradient(top, #d0d0d0 0%, #c2c4c5 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #d0d0d0), color-stop(1, #c2c4c5));
+  background-image: -webkit-linear-gradient(top, #d0d0d0 0%, #c2c4c5 100%);
+  background-image: linear-gradient(top, #d0d0d0 0%, #c2c4c5 100%);
+*/}
+a {
+  color: #019dbf;
+}
+a:hover,
+a:focus,
+a.active {
+  color: #018fe2;
+}
+#main-wrapper .sidebar-first .block .inner, 
+#main-wrapper .sidebar-second .block .inner{
+  background-color: #ffffff;
+  border-color: #cccccc;
+}
+#footer-wrapper {
+  /*background-color: #24272c;*/
+}
+#header-site-info,
+#header-site-info a,
+#header-site-info li a.active,
+.secondary-menu-inner a {
+  color: #000000;
+}
+ul.pager a:hover,
+ul.pager a:active,
+ul.pager a:focus,
+ul.pager a,
+ul.pager li.pager-current {
+  border-color: #333333;
+}
+ul.pager li.pager-current,
+ul.pager a:hover,
+ul.pager a:active,
+ul.pager a:focus {
+  background-color: #777777;
+  color: #ffffff;
+}
+#main-menu li a{color:#111;
+}
+#main-menu li a:focus, 
+#main-menu li a:hover, 
+#main-menu li a.active {
+	color:#333;
+}
+#main-menu .block-system, 
+#page .block-superfish, 
+.sf-menu.sf-style-default li, 
+.sf-menu.sf{
+	background-color:#f5f5f5;}

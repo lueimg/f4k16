@@ -1,0 +1,911 @@
+<?php
+
+function node_selection_menu() {
+
+  $items['nselect/add'] = array(
+    'title' => 'Add node in list',
+    'page callback' => 'node_selection_add',
+    'access arguments' => array('access content'),
+    'type' =>  MENU_CALLBACK,
+  );
+
+ $items['nselect/delete'] = array(
+    'title' => 'Delete node of list',
+    'page callback' => 'node_selection_delete',
+    'access arguments' => array('access content'),
+    'type' =>  MENU_CALLBACK,
+  );
+  
+  $items['nselect/load'] = array(
+    'title' => 'load boton',
+    'page callback' => 'node_selection_load',
+    'access arguments' => array('access content'),
+    'type' =>  MENU_CALLBACK,
+  );
+
+  $items['nselect/count'] = array(
+    'title' => 'load boton',
+    'page callback' => 'node_selection_contador_nodes_ajax',
+    'access arguments' => array('access content'),
+    'type' =>  MENU_CALLBACK,
+  );
+
+	 $items['nselect/form'] = array(
+    'title' => 'Delete node of list',
+    'page callback' => 'node_selection_form_page',
+    'access arguments' => array('access content'),
+    'type' =>  MENU_CALLBACK,
+  );
+
+   $items['nselect/form/thanks'] = array(
+    'title' => 'Thank you for your reservation',
+    'page callback' => 'node_selection_form_page_thanks',
+    'access arguments' => array('access content'),
+    'type' =>  MENU_CALLBACK,
+  );
+
+   $items['admin/config/node_selection'] = array(
+    'title' => 'Node Selection',
+	'page callback' => 'drupal_get_form',
+	'page arguments' => array('node_selection_settings_form'),
+	'type' => MENU_LOCAL_TASK,
+    'access arguments' => array('access content'),
+
+  );
+
+  return $items;
+}
+
+
+function node_selection_block_info() {
+
+  // This example comes from node.module.
+
+  $blocks['select_list'] = array(
+    'info' => t('Select node list'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+
+  return $blocks;
+
+}
+
+
+function node_selection_block_view($delta = '') {
+
+  // This example is adapted from node.module.
+
+  $block = array();
+
+  switch ($delta) {
+    case 'select_list':
+      $block['subject'] = t('Selected Items');
+      $block['content'] = node_selection_block_content();
+      break;
+  }
+
+  return $block;
+
+}
+
+
+function node_selection_block_content(){
+
+	$html ="";
+
+	$html .="<div class='select-list'>";
+	$html .="<div class='select-header'>
+<span class='text'>Your items </span>	( <span class='count ajax'>".node_selection_contador_nodes()."</span> )<span class='view-nodes oculto'>  </span>
+	</div>";
+	$html .="<div class='select-nodes no-active ajax'></div>";
+	$html .="<div class='select-links'>
+	<span><a href='/nselect/form'>Reserve Now</a></span>
+	</div>";
+	$html .="</div>
+	<style>
+
+	</style>
+
+	";
+
+	return $html;
+}
+
+function node_selection_boton(){
+
+	$nid = arg(1);
+
+	$selected = in_array($nid, $_SESSION["nodes"]);
+//	$selected = FALSE;
+	$boton = '';
+
+	if(!$selected){
+		$boton ="<a class='node-selection-link add ajax' path='/nselect/add/$nid' nid ='$nid'>".variable_get("nselected_addtext","Add to list")."</a>";
+	}else{
+//	$boton ="<a class='node-selection-link delete ajax' path='/nselect/delete/$nid'  nid ='$nid'>".variable_get("nselected_deltext","Add to list")."</a>";
+		$boton .="  <a class='node-selection-link goto' href='/nselect/form'><i class='fa fa-calendar-o'></i> Reserve NOW</a>";
+//		$boton .="<div><a href='/catalog' class='continue shopping'>Continue shopping</a></div>";
+	}
+
+	//$boton.=node_selection_script();
+	return $boton;
+
+}
+
+
+
+function node_selection_boton_by_nid($nid){
+
+	//$nid = arg(1);
+
+	$selected = in_array($nid, $_SESSION["nodes"]);
+//	$selected = FALSE;
+	$boton = '';
+	if(!$selected){
+		$boton ="<a class='node-selection-link add ajax' path='/nselect/add/$nid' nid ='$nid'>".variable_get("nselected_addtext","Add to list")."</a>";
+	}else{
+//		$boton ="<a class='node-selection-link delete ajax' path='/nselect/delete/$nid'  nid ='$nid'>".variable_get("nselected_deltext","Add to list")."</a>";
+		$boton .="  <a class='node-selection-link goto' href='/nselect/form'><i class='fa fa-calendar-o'></i> Reserve NOW</a>";
+//		$boton .="<div><a href='/' class='continue shopping'>Continue shopping</a></div>";
+	}
+
+	//$boton.=node_selection_script();
+	return $boton;
+
+}
+
+
+function node_selection_load(){
+	$nid = arg(2);
+
+	$selected = in_array($nid, $_SESSION["nodes"]);
+//	$selected = FALSE;
+	$boton = '';
+	$url = '/catalog';
+	$do = domain_get_domain();
+	if($do['domain_id']== 2 )
+		$url = '';
+
+
+	if(!$selected){
+		$boton ="<a class='node-selection-link add ajax' path='/nselect/add/$nid' nid ='$nid'>".variable_get("nselected_addtext","Add to list")."</a>";
+	}else{
+//		$boton ="<a class='node-selection-link delete ajax' path='/nselect/delete/$nid' nid ='$nid'>".variable_get("nselected_deltext","Add to list")."</a>";
+		$boton .="  <a class='node-selection-link goto' href='/nselect/form'><i class='fa fa-calendar-o'></i> Reserve NOW</a>";
+//		$boton .="<div><a href='$url' class='continue shopping'>Continue shopping</a></div>";
+	}
+	//print node_selection_script();
+	print $boton;
+}
+
+function node_selection_script(){
+
+	$path = drupal_get_path("module", "node_selection");
+	$load = "/".$path."/images/ajax-loader.gif";
+	$img_load = "<img src='$load' class='img-ajax'>";
+
+	$script = '<script>
+
+	/*** add to list  ***/
+	jQuery("a.ajax").click(function() {
+
+		var nid  = jQuery(this).attr("nid");
+		var path = jQuery(this).attr("path");
+		var self = this;
+		console.log(nid);
+		console.log(path);
+
+		jQuery(self).ajaxStart(function() { jQuery(self).parent().append("'.$img_load.'"); });
+
+		jQuery.get(path,{ name: Math.floor(Math.random()*11) },function(data){
+   			jQuery.get("/nselect/load/"+nid,{ name: Math.floor(Math.random()*11) }, function(dt){ jQuery(self).parent().html(dt); });
+ 		});
+ 		jQuery(self).ajaxComplete(function() {
+        	jQuery("span.count.ajax").ajaxStart(function() { jQuery(self).html("'.$img_load.'"); });
+            jQuery.get("/nselect/count",{ name: Math.floor(Math.random()*11) },function(dt){ jQuery("span.count.ajax").text(dt); });
+			setTimeout(function(){ jQuery(".region-sidebar-second").masonry("reload"); }, 1000);
+			console.log("entre");
+		});
+	});
+
+	</script>';
+
+return $script;
+
+}
+
+
+function node_selection_form_page(){
+
+	drupal_set_title(variable_get("nselected_title","Send my Reservation Products"));
+
+	$html = node_selection_nodes();
+
+    //$html .= "Send my Reservation Products";
+	$form = drupal_get_form('node_selection_form');
+    $html .= drupal_render($form);
+
+	return $html;
+}
+
+function node_selection_form(){
+
+$form['data'] = array('#type' => 'fieldset', '#title' => t("Send my Reservation Products"), '#collapsible' => FALSE, '#collapsed' => TRUE);
+$form['data']['to'] = array(
+    '#type' => 'hidden',
+	'#default_value' =>variable_get("nselected_mail",variable_get('site_mail', 'juanhispanocity@gmail.com'))
+ );
+
+$form['data']['name'] = array(
+    '#type' => 'textfield',
+    '#length' => 100,
+    '#title' => 'Full name:',
+    '#required' => TRUE,
+	'#weight' => -15,
+ );
+
+	$form['data']['phone'] = array(
+    '#type' => 'textfield',
+    '#length' => 30,
+    '#maxlength' => 255,
+    '#title' => 'Phone number:',
+	'#required' => TRUE,
+  );
+
+  $form['data']['email'] = array(
+		'#title' => t('E-mail'),
+		'#type' => 'textfield',
+		'#length' => 30,
+	    '#maxlength' => 255,
+		'#required' => TRUE,
+  );
+
+  $form['data']['company'] = array(
+		'#title' => "Company Name: ",
+		'#type' => 'textfield',
+		'#length' => 30,
+	    '#maxlength' => 255,
+  );
+
+   $form['data']['type'] = array(
+		'#title' => "Type of event: ",
+		'#type' => 'textfield',
+		'#length' => 30,
+	    '#maxlength' => 255,
+		'#required' => TRUE,
+  );
+
+ $form['data']['date'] = array(
+		'#title' => "Date of event: ",
+		'#type' => 'textfield',
+		'#length' => 30,
+	    '#maxlength' => 255,
+		'#required' => TRUE,
+  );
+
+   $form['data']['timestart'] = array(
+		'#title' => "Event Start Time: ",
+		'#type' => 'textfield',
+		'#length' => 30,
+	    '#maxlength' => 255,
+		'#required' => TRUE,
+  );
+
+   $form['data']['timeend'] = array(
+		'#title' => "Event End Time: ",
+		'#type' => 'textfield',
+		'#length' => 30,
+	    '#maxlength' => 255,
+		'#required' => TRUE,
+  );
+
+ $form['data']['message'] = array(
+		'#title' => t('Message'),
+		'#type' => 'textarea',
+		'#required' => TRUE,
+		  );
+
+$form['data']["captcha"] = array(
+"#type"=>"captcha",
+);
+
+	 $form['data']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Send your Reservation',
+	"#weight"=>100,
+  );
+
+  return $form;
+
+	}
+
+
+function node_selection_form_submit($form, &$form_state){
+
+	$form_values = $form_state['values'];
+	$account = $form_values['to'];
+	if (drupal_mail(
+		'node_selection', // El formulario que lo llama
+		'reservationmail', // key que se utiliza en mail_hook()
+		$account, // Cuenta de destino
+		language_default(),
+		$form_values,
+		$form_state['values']['email'], // Cuenta de envio
+		true  //automatically send
+		))
+	{
+		unset($_SESSION["nodes"]);
+	//	drupal_set_message("Thanks your for send your reservation.");
+		$do = domain_get_domain();
+		if($do['domain_id']== 2 )
+			drupal_goto("list/2");
+		else
+			drupal_goto("nselect/form/thanks");
+
+	}
+}
+
+function node_selection_mail($key, &$message, $params){
+
+	if($key == 'reservationmail'){
+
+	$data = node_selection_form_mail($params);
+	$message['subject'] = $data["subject"];
+	$message['body'][] = $data["body"];
+
+	}
+
+}
+
+function node_selection_form_mail($params){
+
+	$data = array();
+
+	$subject = "Reservación de Productos";
+
+	$data["subject"] = $subject;
+
+	$table = "<h2>Productos Reservados</h2>";
+	$nodes = node_load_multiple($_SESSION["nodes"]);
+
+	foreach($nodes as $node){
+	$table .="<br>".$node->title."<br>";
+	}
+
+	$datos_cliente ="<h2>Client info</h2>";
+	$datos_cliente .="<br>Full name:".$params["name"];
+	$datos_cliente .="<br>Phone number:".$params["phone"];
+	$datos_cliente .="<br>E-mail: ".$params["email"];
+	$datos_cliente .="<br>Company: ".$params["company"];
+	$datos_cliente .="<br>Date of event: ".$params["date"];
+	$datos_cliente .="<br>Type of event: ".$params["type"];
+	$datos_cliente .="<br>Event start time: ".$params["timestart"];
+	$datos_cliente .="<br>Event end time: ".$params["timeend"];
+	$datos_cliente .="<br>Message: ".$params["message"];
+	$datos_cliente .="<br><p>";
+
+	$data["body"]= $datos_cliente.$table;
+	return $data;
+}
+
+
+function node_selection_nodes(){
+
+	//manualmente se debe colocar el nombre del campo
+
+	$nodes = node_load_multiple($_SESSION["nodes"]);
+	$table  ="<table class='nodes-selecteds'>";
+	$count = 0;
+	foreach($nodes as $node){
+	$count ++ ;
+	$image = field_get_items('node', $node, 'uc_product_image');
+    $output = field_view_value('node', $node, 'uc_product_image', $image[0], array( 'type' => 'image','settings' => array('image_style' => 'thumbnail',),));
+
+	$nid = $node->nid;
+
+	$delete = "<a class='node-selection-link delete ajax form' path='/nselect/delete/$nid'  nid ='$nid'>".variable_get("nselected_deltext","Add to list")."</a>";
+
+	$table .="<tr>";
+	$table .="<td class='img'> ".render($output)."</td><td class='title'>".$node->title."</td><td class='btn'>$delete</td>";
+	$table .="</tr>";
+	}
+	if($count == 0){
+	$table .="<tr>";
+	$table .="<td>No products reserved. Please visit our <a href='/catalog'>catalog</a></td>";
+	$table .="</tr>";
+	}
+
+	$table .="</table>";
+
+
+	$path = drupal_get_path("module", "node_selection");
+	$load = "/".$path."/images/ajax-loader.gif";
+	$img_load = "<img src='$load' class='img-ajax'>";
+
+	$scrip = '
+	<script>
+	jQuery("a.ajax").click(function() {
+
+var path = jQuery(this).attr("path");
+
+jQuery.get(path,function(data){ });
+jQuery(this).parent().parent().remove();
+
+});
+</script>
+';
+
+	return $table.$scrip;
+}
+
+function node_selection_add(){
+	$nid = arg(2);
+	$_SESSION["nodes"][$nid] = $nid;
+	return;
+}
+
+
+function node_selection_delete(){
+	$nid = arg(2);
+	unset($_SESSION["nodes"][$nid]);
+	return;
+}
+
+function node_selection_contador_nodes_ajax(){
+	$cant = count($_SESSION["nodes"]);
+	print $cant;
+}
+
+function node_selection_contador_nodes(){
+	$cant = count($_SESSION["nodes"]);
+	return $cant;
+}
+
+function node_selection_settings_form(){
+
+$form['mail-destino'] = array(
+    '#type' => 'textfield',
+    '#length' => 100,
+    '#title' => 'E-mail Destino: ',
+    '#required' => TRUE,
+	'#default_value'=>variable_get("nselected_mail",variable_get('site_mail', '')),
+
+ );
+
+	$form['text-add'] = array(
+    '#type' => 'textfield',
+    '#length' => 30,
+    '#maxlength' => 255,
+    '#title' => 'Add button Text:',
+	'#default_value'=>variable_get("nselected_addtext","Add to list"),
+  );
+
+
+  $form['text-del'] = array(
+		'#title' => "Delete Text Button",
+		'#type' => 'textfield',
+		'#length' => 30,
+	    '#maxlength' => 255,
+		'#default_value'=>variable_get("nselected_deltext","Delete of the list"),
+  );
+
+   $form['title-form'] = array(
+		'#title' => "Title page Form",
+		'#type' => 'textfield',
+		'#length' => 30,
+	    '#maxlength' => 255,
+		'#default_value'=>variable_get("nselected_title","Send my Reservation Products"),
+  );
+
+   $form['thankmessage'] = array(
+		'#title' => "Page thank you html",
+		'#type' => 'text_format',
+		'#default_value'=>variable_get("nselected_reservationmessage","Thank you"),
+  );
+
+	 $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Save configuration',
+	"#weight"=>100,
+  );
+
+  return $form;
+
+	}
+
+
+function  node_selection_settings_form_submit($form, &$form_state){
+
+	$form_values = $form_state['values'];
+
+	variable_set("nselected_title",$form_values["title-form"]);
+	variable_set("nselected_mail",$form_values["mail-destino"]);
+	variable_set("nselected_deltext",$form_values["text-del"]);
+	variable_set("nselected_addtext",$form_values["text-add"]);
+	variable_set("nselected_reservationmessage",$form_values["thankmessage"]["value"]);
+
+}
+
+function node_selection_form_page_thanks(){
+
+	return variable_get("nselected_reservationmessage","Thank you!");
+	
+}
+
+
+function node_selection_get_category( $nid ){
+
+	$tax_parent = arg(1);
+
+	/*$terms = taxonomy_get_children($tax_parent , 2 );*/
+	$terms = taxonomy_get_children($tax_parent , 2 );
+	$arrayt = array();
+	foreach($terms as $term){
+		$arrayt[] = $term->tid;
+	}
+
+	$node= node_load($nid);
+	$taxs = $node->taxonomy_catalog;
+//	dsm($arrayt);
+	foreach($taxs as $key=>$vals){
+		foreach($vals as $tk=>$tv){
+
+			foreach($tv as $k2=>$v2){
+
+			if(in_array($v2,$arrayt)){
+//			 dsm("esta en el array");
+			$termino = taxonomy_term_load($v2)->name;
+//			dsm($termino);
+			return $termino;
+
+				}
+
+
+			}
+		}
+	}
+}
+
+function node_selection_get_category_tid( $nid ){
+	$tax_parent = arg(1);
+	$terms = taxonomy_get_children($tax_parent, 2);
+	$arrayt = array();
+	foreach($terms as $term){
+		$arrayt[] = $term->tid;
+	}	
+	$node= node_load($nid);
+	$taxs = $node->taxonomy_catalog;
+	foreach($taxs as $key=>$vals){
+		foreach($vals as $tk=>$tv){
+			foreach($tv as $k2=>$v2){
+			if(in_array($v2,$arrayt)){
+			  return $v2;
+			}
+			}
+		}
+	}
+	return $tax_parent;
+}
+
+function node_selection_get_category_age_tid( $nid ){
+	$tax_parent = arg(1);
+	$terms = taxonomy_get_children($tax_parent);
+	$arrayt = array();
+	foreach($terms as $term){
+		$arrayt[] = $term->tid;
+	}	
+	$node= node_load($nid);
+	$taxs = $node->field_taxonomy_age_group;
+	foreach($taxs as $key=>$vals){
+		foreach($vals as $tk=>$tv){
+			foreach($tv as $k2=>$v2){
+			if(in_array($v2,$arrayt)){
+			  return $v2;
+			}
+			}
+		}
+	}
+	return $tax_parent;
+}
+
+function node_selection_get_category_event_tid( $nid ){
+	$tax_parent = arg(1);
+	$terms = taxonomy_get_children($tax_parent);
+	$arrayt = array();
+	foreach($terms as $term){
+		$arrayt[] = $term->tid;
+	}	
+	$node= node_load($nid);
+	$taxs = $node->field_taxonomy_event_type;
+	foreach($taxs as $key=>$vals){
+		foreach($vals as $tk=>$tv){
+			foreach($tv as $k2=>$v2){
+			if(in_array($v2,$arrayt)){
+			  return $v2;
+			}
+			}
+		}
+	}
+	return $tax_parent;
+}
+
+function node_selection_get_category_name( $tid ){
+	return taxonomy_term_load($tid)->name;
+}
+
+
+function node_selection_get_category_event( $nid ){
+	$tax_parent = arg(1);
+	/*$terms = taxonomy_get_children($tax_parent , 2 );*/
+	$terms = taxonomy_get_children($tax_parent);
+	$arrayt = array();
+	foreach($terms as $term){
+		$arrayt[] = $term->tid;
+	}
+	$node= node_load($nid);
+	$taxs = $node->field_taxonomy_event_type;
+//	dsm($arrayt);
+	foreach($taxs as $key=>$vals){
+		foreach($vals as $tk=>$tv){
+
+			foreach($tv as $k2=>$v2){
+
+			if(in_array($v2,$arrayt)){
+//			 dsm("esta en el array");
+			$termino = taxonomy_term_load($v2)->name;
+//			dsm($termino);
+			return $termino;
+				}
+			}
+		}
+	}
+}
+
+function node_selection_get_category_age( $nid ){
+	$tax_parent = arg(1);
+	/*$terms = taxonomy_get_children($tax_parent , 2 );*/
+	$terms = taxonomy_get_children($tax_parent);
+	$arrayt = array();
+	foreach($terms as $term){
+		$arrayt[] = $term->tid;
+	}
+	$node= node_load($nid);
+	$taxs = $node->field_taxonomy_age_group;
+//	dsm($arrayt);
+	foreach($taxs as $key=>$vals){
+		foreach($vals as $tk=>$tv){
+
+			foreach($tv as $k2=>$v2){
+
+			if(in_array($v2,$arrayt)){
+//			 dsm("esta en el array");
+			$termino = taxonomy_term_load($v2)->name;
+//			dsm($termino);
+			return $termino;
+				}
+			}
+		}
+	}
+}
+
+function node_selection_get_category_weight( $nid ){
+
+	$tax_parent = arg(1);
+
+	//$terms = taxonomy_get_children($tax_parent , 2 );
+	$terms = taxonomy_get_children($tax_parent, 2);
+	$arrayt = array();
+	foreach($terms as $term){
+		$arrayt[] = $term->tid;
+	}
+
+	$node= node_load($nid);
+	$taxs = $node->taxonomy_catalog;
+//	dsm($arrayt);
+	foreach($taxs as $key=>$vals){
+		foreach($vals as $tk=>$tv){
+
+			foreach($tv as $k2=>$v2){
+
+			if(in_array($v2,$arrayt)){
+//			 dsm("esta en el array");
+			$termino = taxonomy_term_load($v2)->weight;
+//			dsm($termino);
+			return $termino;
+
+				}
+			}
+		}
+	}
+}
+
+function node_selection_get_category_event_weight( $nid ){
+	$tax_parent = arg(1);
+	//$terms = taxonomy_get_children($tax_parent , 2 );
+	$terms = taxonomy_get_children($tax_parent);
+	$arrayt = array();
+	foreach($terms as $term){
+		$arrayt[] = $term->tid;
+	}
+	$node= node_load($nid);
+	$taxs = $node->field_taxonomy_event_type;
+//	dsm($arrayt);
+	foreach($taxs as $key=>$vals){
+		foreach($vals as $tk=>$tv){
+
+			foreach($tv as $k2=>$v2){
+
+			if(in_array($v2,$arrayt)){
+//			 dsm("esta en el array");
+			$termino = taxonomy_term_load($v2)->weight;
+//			dsm($termino);
+			return $termino;
+				}
+			}
+		}
+	}
+}
+
+function node_selection_get_category_age_weight( $nid ){
+	$tax_parent = arg(1);
+	//$terms = taxonomy_get_children($tax_parent , 2 );
+	$terms = taxonomy_get_children($tax_parent);
+	$arrayt = array();
+	foreach($terms as $term){
+		$arrayt[] = $term->tid;
+	}
+	$node= node_load($nid);
+	$taxs = $node->field_taxonomy_age_group;
+//	dsm($arrayt);
+	foreach($taxs as $key=>$vals){
+		foreach($vals as $tk=>$tv){
+			foreach($tv as $k2=>$v2){
+			if(in_array($v2,$arrayt)){
+//			 dsm("esta en el array");
+			$termino = taxonomy_term_load($v2)->weight;
+//			dsm($termino);
+			return $termino;
+				}
+			}
+		}
+	}
+}
+
+
+function node_selection_validate_term( $tid ){
+	$tax_parent = arg(1);
+	$terms = taxonomy_get_children($tax_parent);
+	if(in_array($tid,$terms)){
+		return true;
+	}
+	return false;
+}
+
+
+/*
+*
+*/
+function node_selection_list_children(){
+
+	$tid = arg(1);
+	$vid = 2;
+	$childs = taxonomy_get_children( $tid, $vid );
+
+	$html = "<ul class = 'c-child'>";
+	foreach($childs as $child){
+	$html .= "<li><a href='#child-".str_replace(" ","-",check_plain($child->name))."'>".$child->name."</a></li>";
+	}
+	$html.="</ul>";
+
+	return $html;
+}
+
+/**
+ *
+ * Retorna los hijos en lista por tid
+ * @return string
+ */
+function node_selection_list_childrenV2($tid) {
+
+	//$tid = arg(1);
+	$vid = 2;
+	$childs = taxonomy_get_children( $tid, $vid );
+	$html = '';
+
+	if (count($childs) > 0 ) {
+		$html .= "<ul class = 'c-child'>";
+		foreach($childs as $child){
+			$html .= "<li><a href='#child-".str_replace(" ","-",check_plain($child->name))."'>".$child->name."</a></li>";
+		}
+		$html .="</ul>";
+
+
+		// Imprimir cada lista con su respectivos productos
+		foreach($childs as $child) {
+			$html .= "<h2>".$child->name."</h2>";
+			$html .= views_embed_view('productv2perterm','default', $child->tid);
+		}
+
+	} else {
+		$html .= views_embed_view('productv2perterm','default', $tid);
+	}
+
+
+	return $html;
+}
+
+function node_selection_preprocess_page($vars){
+
+}
+
+
+function node_selection_new_ideas_vertical () {
+	$queue = db_query('SELECT nid FROM {nodequeue_nodes} n WHERE qid = 3 ');
+
+	// contador
+	$count = $queue->rowCount();
+	$grupos = ceil($count / 4);
+	$contador = 0;
+	$isFirst = true;
+	$html = '<ul class="new-ideas-vertical jcarousel-skin-default">';
+
+	// Crear los grupos de a 4
+	forEach($queue as $record) {
+		if ($contador == 0 ) {
+			if ($isFirst) {
+				$html .= '<li>';
+				$isFirst = !$isFirst;
+			} else {
+				$html .= '</li><li>';
+			}
+		}
+
+		$contador++;
+
+		$html .='<div class="sub-item pos-'.$contador.'">';
+//		$html .=''.$record->nid;
+		$html .=render(node_view(node_load($record->nid), 'vertical_list'));
+		$html .= '</div>';
+
+		if ($contador == 4 ) {
+			$contador = 0;
+		}
+	}
+
+	$html .= '</li></html>';
+
+
+	print $html;
+	jcarousel_add('new-ideas-vertical', array('visible'=>1));
+}
+
+/**
+ * genera html que sera imprimido dentro de una vista para generar el blocke
+ */
+function node_selection_related_products () {
+
+	$node = node_load(arg(1));
+
+	$prods = $node->field_related_products['und'];
+	$html = '<ul class="jq-related-products jcarousel-skin-default">';
+
+	// Crear los grupos de a 4
+	forEach($prods as $record) {
+		if ($record['nid']) {
+			$nodeload = node_load($record['nid']);
+			if ($nodeload) {
+				$html .= '<li>';
+				$html .= render(node_view($nodeload, 'product_list'));
+				$html .= '</li>';
+			}
+
+		}
+
+	}
+
+	$html .= '</html>';
+
+
+	print $html;
+	jcarousel_add('jq-related-products', array('visible'=>4, 'wrap'=>'circular', 'scroll'=>1));
+}

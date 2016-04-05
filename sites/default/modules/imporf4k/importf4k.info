@@ -1,0 +1,5 @@
+name = importf4k
+description = "Importa contenido del antiguo sistema de f4k"
+package = Toronto
+core = 7.x
+files[] = importf4k.module

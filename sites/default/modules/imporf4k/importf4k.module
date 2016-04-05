@@ -1,0 +1,297 @@
+<?php
+
+
+function importf4k_menu(){
+	
+	$items['f4k/importar'] = array(
+  'title' => "Importar Datos",
+  'page callback'=>"f4k_pagina",
+  'type'=> MENU_CALLBACK,
+  'access callback' => TRUE,
+  );
+
+  return $items;
+	
+	
+	
+}
+
+function f4k_pagina(){
+	
+	$tpl = drupal_get_form("f4k_pagina_form");
+
+	return $tpl;
+	
+}
+
+function f4k_pagina_form(){
+	
+	$form['title'] = array(
+     '#type' => 'select',
+       '#title' => t('Importar'),
+       '#options' => array(
+          0 => t('Categorias'),
+          1 => t('Subcategorias'),
+		  2 => "Productos",
+		  3 => "Testimonios",
+       ),
+ 
+  );
+
+
+$form['buttons']['guardar'] = array(
+        '#type' => 'submit',
+        '#value' => t('Importar'),
+        '#weight' => 5,
+        '#submit' => array('f4k_pagina_form_importar'),
+    );
+	
+  return $form;
+}
+
+
+
+// formulario opcion guardar a opcion de guardados del propio menu
+function f4k_pagina_form_importar($form, &$form_state){
+	
+	$opcion = $form_state["values"]["title"];
+	//dsm($opcion);
+	
+	$other_database = array(
+      'database' => 'fiesta4k_fiesta4kids',
+      'username' => 'fiesta4k_admin', // assuming this is necessary
+      'password' => 'fiesta4kids', // assuming this is necessary
+      'host' => 'localhost', // assumes localhost
+      'driver' => 'mysql', // replace with your database driver
+	  );
+	  // replace 'YourDatabaseKey' with something that's unique to your module
+	  Database::addConnectionInfo('f4ktoronto', 'default', $other_database);
+	  
+	  
+	  
+	if($opcion){
+	
+		/*  PARA IMPORTAR CATEGORIAS	 
+	
+		$result = db_query("SELECT idCategoria, nombre,Detalle FROM categorias WHERE estado =1");
+		foreach ($result as $row) {
+				
+		$term = new stdClass();
+	    $term->name = $row->nombre;
+	    $term->description = $row->detalle;
+		$term->vid = 2; // vid :2 es el vocabulario catalogo
+	    taxonomy_term_save($term);
+	
+		}
+		--------------------------------------------------------------------------------------------
+	*/
+	/*
+		PARA IMPORTAR SUBCATEGORIAS
+		
+		//obteniendo todos los terminos padres.	
+		$terms = taxonomy_get_tree(2);
+		//dsm($terms);	
+	
+		foreach($terms as $term){
+		//Consulto todos los hijos del padre
+	 
+		$query = "	SELECT c.idCategoria AS cat_id,c.Nombre AS cat_name,sc.idSubcategoria AS scat_id,sc.Nombre AS scat_name,sc.Detalle as detalle FROM subcategorias  AS sc LEFT JOIN categorias AS c ON sc.Categorias_idCategoria = c.idCategoria WHERE sc.estado = 1 AND c.idCategoria IS NOT NULL  AND c.nombre = '".$term->name."'";
+	
+		db_set_active('f4ktoronto');	
+		$result = db_query($query);
+		db_set_active();	
+	
+		foreach($result as $row){
+			//dsm($row);
+			$tax = new stdClass();
+	        $tax->name = $row->scat_name;
+	        $tax->description = $row->detalle;
+		    $tax->vid = 2; // vid :2 es el vocabulario catalogo
+			$tax->parent = $term->tid; 
+	        $r = taxonomy_term_save($tax);
+			dsm($r);
+			
+		}
+	
+	}
+	*/
+//	dsm(node_load(52));
+	
+//	-------------------------------------------------------------------------------------------------------------------
+	
+/*
+	PARA IMPORTAR LOS Productos
+
+-------------------------------------------- // INICIO
+
+
+$query = "
+	
+SELECT 
+p.Nombre AS title ,
+ p.Codigo AS sku,
+ p.Detalle AS detalle1,
+ p.Detalle02 AS detalle2,
+ p.Duracion AS duration,
+ p.Precio AS price,
+sc.idSubcategoria AS sc_id,
+sc.Nombre AS sc_name,
+sc.Categorias_idCategoria AS cat_id,
+c.Nombre AS cat_name
+
+FROM productos AS p 
+LEFT JOIN subcategorias AS sc
+ON p.Subcategorias_idSubcategoria = sc.idSubcategoria
+LEFT JOIN categorias AS c
+ON sc.Categorias_idCategoria = c.idCategoria
+
+WHERE p.estado = 1 
+  AND c.Nombre IS NOT NULL 
+	
+	";
+	
+        db_set_active('f4ktoronto');	
+		$result = db_query($query);
+		db_set_active();	
+		
+		foreach($result as $row){
+		
+		//consigue la categoria a la que pertenece en el sistema de drupal
+		$terms = taxonomy_get_term_by_name($row->sc_name);
+		
+		foreach($terms as $term){
+		
+		$tiene = taxonomy_get_parents($term->tid);
+		// pregunta si tiene padre , es decir si tiene subcategoria
+				if($tiene){
+					// si tiene entonces guardar producto.
+					
+					$prod = new stdClass();
+			        $prod->is_new = TRUE;
+					$prod->type = "product";
+					$prod->uid = 1 ;
+					$prod->language = "und";
+					
+					$prod->title = $row->title;
+					$prod->model = $row->sku;
+					$prod->body['und'][0]['value'] = $row->detalle1;
+					$prod->field_detalle_2['und'][0]['value'] = $row->detalle2;
+					$prod->field_duration['und'][0]['value'] = $row->duration;
+					$prod->sell_price = $row->price;
+					$prod->taxonomy_catalog['und'][0]['tid'] = $term->tid;
+					
+					
+					node_save($prod);
+					//uc_product_insert($prod);
+						}
+		
+								}
+			
+											
+		}// fin de consulta a la db de f4k antiguo
+
+
+-------------------------------------------- // FINº
+
+
+*/	
+
+
+/*
+IMPORTAR TESTIMONIOS 
+
+-----------------------------------------------------//INICIO
+$query = "SELECT * FROM testimonios";
+	
+        db_set_active('f4ktoronto');	
+		$result = db_query($query);
+		db_set_active();	
+		
+		foreach($result as $row){
+							
+					$node = new stdClass();
+			        $node->is_new = TRUE;
+					$node->type = "testimonies";
+					$node->uid = 1 ;
+					$node->language = "und";
+					
+					$node->title = $row->asunto;
+					$node->field_author['und'][0]['value'] = $row->autor_nombre;
+					
+					$node->body['und'][0]['value'] = $row->mensaje;
+					$node->body['und'][0]['safe_value'] = $row->mensaje;
+					$node->body['und'][0]['format'] = "full_html";
+					
+					node_save($node);
+					
+						
+		
+								
+			
+											
+		}// fin de consulta a la db de f4k antiguo
+
+
+
+-----------------------------------------------------//FIN
+*/
+	
+$query = "
+SELECT 
+p.Nombre AS title ,
+p.Orden AS orden,
+sc.idSubcategoria AS sc_id,
+sc.Nombre AS sc_name,
+sc.Categorias_idCategoria AS cat_id,
+c.Nombre AS cat_name
+
+FROM productos AS p 
+LEFT JOIN subcategorias AS sc
+ON p.Subcategorias_idSubcategoria = sc.idSubcategoria
+LEFT JOIN categorias AS c
+ON sc.Categorias_idCategoria = c.idCategoria
+
+WHERE p.estado = 1 
+  AND c.Nombre IS NOT NULL 
+    AND sc.Nombre = 'Supplies'
+
+";
+	
+        db_set_active('f4ktoronto');	
+		$result = db_query($query);
+		db_set_active();	
+		
+		foreach($result as $row){
+												
+		
+		$q = "SELECT
+				n.nid, 
+				n.title,
+				t.name,
+				t.tid
+				FROM node AS n
+				LEFT JOIN field_revision_taxonomy_catalog AS c
+				ON c.entity_id = n.nid
+				LEFT JOIN taxonomy_term_data AS t
+				ON t.tid = c.taxonomy_catalog_tid
+				WHERE n.title = '".$row->title."'
+				AND  t.name ='".$row->sc_name."'";	
+				
+		$rs = db_query($q)->fetchObject();
+	//	$rs = $rs[0];
+		
+		$node = node_load($rs->nid);
+	//	dsm($node);
+//		dsm($row->orden);
+
+		if(count($node->field_orden_int) == 0 )
+		$node->field_orden_int['und'][0]['value'] = $row->orden;
+				
+		node_save($node);
+	//	drupal_set_message($row->title);		
+	//	break;								
+		}// fin de consulta a la db de f4k antiguo
+	}	
+}
+
+

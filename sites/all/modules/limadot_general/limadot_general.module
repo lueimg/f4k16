@@ -1,0 +1,175 @@
+<?php
+/*
+ *
+ * 
+ */
+ 
+function limadot_general_init() {
+	drupal_add_css('http://fonts.googleapis.com/css?family=Lato:100,300,400,100italic', 'external');
+	drupal_add_css('http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic', 'external');
+	drupal_add_js(drupal_get_path('module', 'limadot_general') . '/js/page.js');
+}
+
+function limadot_general_form_alter(&$form, &$form_state, $form_id) {
+	switch ($form_id) {
+	}
+}
+
+function limadot_general_menu() { 
+  $items['catalog-event'] = array(
+    'title' => 'Catalog Event Type',
+    'page callback' => 'limadot_general_catalog_event_browse',
+    'access arguments' => array('view catalog'),
+    'type' => MENU_SUGGESTED_ITEM,
+  );
+  $items['catalog-age'] = array(
+    'title' => 'Catalog Age Group',
+    'page callback' => 'limadot_general_catalog_age_browse',
+    'access arguments' => array('view catalog'),
+    'type' => MENU_SUGGESTED_ITEM,
+  );
+  return $items;
+}
+
+/**
+ * Shows the catalog page of the given category.
+ */
+function limadot_general_catalog_event_browse($tid = 0) {
+  $build = array();
+  if ($terms = views_get_view('uc_catalog_event_terms')) {
+    $build['terms'] = array(
+      '#markup' => $terms->preview('default', array($tid)),
+    );
+  }
+  if ($products = views_get_view('uc_catalog_event')) {
+    $display = 'catalog_grid';
+    // Force the breadcrumb path to this page.
+    $products->override_path = 'catalog-event';
+    $build['products'] = array(
+      '#markup' => $products->execute_display($display, array($tid)),
+    );
+  }
+
+  return $build;
+}
+
+/**
+ * Shows the catalog page of the given category.
+ */
+function limadot_general_catalog_age_browse($tid = 0) {
+  $build = array();
+  if ($terms = views_get_view('uc_catalog_age_terms')) {
+    $build['terms'] = array(
+      '#markup' => $terms->preview('default', array($tid)),
+    );
+  }
+  if ($products = views_get_view('uc_catalog_age')) {
+    $display = 'catalog_grid';
+    // Force the breadcrumb path to this page.
+    $products->override_path = 'catalog-age';
+    $build['products'] = array(
+      '#markup' => $products->execute_display($display, array($tid)),
+    );
+  }
+
+  return $build;
+}
+
+function limadot_general_preprocess_page(&$variables) {
+  /*drupal_add_js('jQuery(document).ready(function () { 
+  
+	  $.ajax({
+	  url: "/sites/all/modules/contrib/floating_block/floating_block.js",
+	  dataType: "script",
+	  success: success
+	});
+  
+    });', 'inline');*/
+	$args = arg();
+    $path = $_GET['q'];	
+  if (isset($variables['node']) && $variables['node']->type == 'product') {
+    // Add js
+    drupal_add_js(drupal_get_path('module', 'limadot_general') . '/js/product.js');
+    $variables['scripts'] = drupal_get_js();
+	$breadcrumb = array();
+    $breadcrumb[] = l(t('Home'), '<front>');
+	$breadcrumb[] = l(t('Catalog'), 'catalog');	
+	$breadcrumb[] = drupal_get_title();
+    $variables['breadcrumb'] = theme('breadcrumb', array('breadcrumb'=>$breadcrumb));
+  } elseif (isset($variables['node']) && $variables['node']->type == 'blog') { 
+  	$breadcrumb = array();
+    $breadcrumb[] = l(t('Home'), '<front>');
+    $breadcrumb[] = l(t('Blog'), 'blog');
+	$breadcrumb[] = drupal_get_title();
+    $variables['breadcrumb'] = theme('breadcrumb', array('breadcrumb'=>$breadcrumb));
+  } elseif(!drupal_is_front_page()) {
+  	$breadcrumb = drupal_get_breadcrumb();
+	$breadcrumb[] = drupal_get_title();
+    $variables['breadcrumb'] = theme('breadcrumb', array('breadcrumb'=>$breadcrumb));
+  }
+}
+
+/**
+ * Implements hook_jcarousel_skin_info().
+ */
+function limadot_general_jcarousel_skin_info() {
+  $skins = array();
+
+  $skins['limadot'] = array(
+    'title' => t('LimaDot'),
+    'file' => 'skins/limadot/jcarousel-limadot.css',
+  );
+  return $skins;
+}
+
+function limadot_general_js_alter(&$js) {
+  if (strstr($_SERVER['HTTP_USER_AGENT'], 'iPhone') ||
+    strstr($_SERVER['HTTP_USER_AGENT'],'iPod') ||
+    strstr($_SERVER['HTTP_USER_AGENT'], 'Android') ||
+    strstr($_SERVER['HTTP_USER_AGENT'], 'Blackberry') ||
+    strstr($_SERVER['HTTP_USER_AGENT'], 'OperaMobi') ||
+    strstr($_SERVER['HTTP_USER_AGENT'], 'Opera Mini') ||
+    strstr($_SERVER['HTTP_USER_AGENT'], 'IEMobile') ||
+    strstr($_SERVER['HTTP_USER_AGENT'], 'Jasmine') ||
+    strstr($_SERVER['HTTP_USER_AGENT'], 'Fennec') ||
+    strstr($_SERVER['HTTP_USER_AGENT'], 'Blazer') ||
+    strstr($_SERVER['HTTP_USER_AGENT'], 'Minimo') ||
+    strstr($_SERVER['HTTP_USER_AGENT'], 'MOT-') ||
+    strstr($_SERVER['HTTP_USER_AGENT'], 'Nokia') ||
+    strstr($_SERVER['HTTP_USER_AGENT'], 'SAMSUNG') ||
+    strstr($_SERVER['HTTP_USER_AGENT'], 'Polaris') ||
+    strstr($_SERVER['HTTP_USER_AGENT'], 'LG-') ||
+    strstr($_SERVER['HTTP_USER_AGENT'], 'SonyEricsson') ||
+    strstr($_SERVER['HTTP_USER_AGENT'], 'SIE-') ||
+    strstr($_SERVER['HTTP_USER_AGENT'], 'AUDIOVOX') ||
+    strstr($_SERVER['HTTP_USER_AGENT'], 'mobile') ||
+    strstr($_SERVER['HTTP_USER_AGENT'], 'webOS'))
+  {
+    unset($js['sites/all/modules/floating_block/floating_block.js']);
+  }
+  //unset($js['sites/all/modules/floating_block/floating_block.js']);
+}
+
+function _limadot_general_get_weight($nid, $tid) {
+	$weight = db_query('SELECT weight FROM {taxonomy_index} n WHERE n.nid = :nid AND n.tid = :tid ', array(':nid' => $nid, ':tid' => $tid))->fetchField();
+	print($weight.'-'.$nid.'-'.$tid);
+	return $weight;
+}
+
+function _limadot_general_get_weightv2($nid, $tid) {
+  $weight = db_query('SELECT weight FROM {taxonomy_index} n WHERE n.nid = :nid AND n.tid = :tid ', array(':nid' => $nid, ':tid' => $tid))->fetchField();
+
+  return $weight;
+}
+
+function _limadot_general_sort_weight_term_nid ($nid1, $nid2, $view) {
+  $tid = $view->args[0];
+
+  $val1 = _limadot_general_get_weightv2($nid1, $tid);
+  $val2 = _limadot_general_get_weightv2($nid2, $tid);
+
+ return $val1 < $val2 ? -1 : $val1 > $val2 ;
+//  return 1;
+}
+
+

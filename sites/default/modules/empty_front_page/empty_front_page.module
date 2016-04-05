@@ -1,0 +1,278 @@
+<?php
+
+ function empty_front_page_menu_alter(&$items) {
+   $items['node']['page callback'] = 'empty_front_page_callback';
+ }
+
+ function empty_front_page_callback() {
+   drupal_set_title('');
+   return array();
+ }
+function empty_front_page_menu(){
+	$items['mobile'] = array(
+    'title' => '',
+    'page callback' => 'empty_front_page_home',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+
+	$items['list'] = array(
+    'title' => '',
+    'page callback' => 'empty_front_page_list',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+	$items['listado'] = array(
+    'title' => '',
+    'page callback' => 'empty_front_page_list',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+
+	 return $items;
+}
+
+function empty_front_page_home(){
+	return "";
+}
+
+function empty_front_page_list() {
+	$listado = "";
+	$titulo = "";
+	//RECONOCE QUE LISTA MOSTRAR DE ACUERDO A LOS ARGUMENTOS QUE SE LES PASE
+	$arg0 = arg(0);//list
+	$arg1 = arg(1);//voc
+	$arg2 = arg(2);//term
+	$arg3 = arg(3);//deth term
+	$arg4 = arg(4);// prod o vacio (0)
+
+	//vocabulario
+	if( !empty($arg1) and empty($arg2) and empty($arg3) and empty($arg4)  ){
+		$lista = empty_front_page_lista_primer_terms_by_vid($arg1);
+		$listado = '<ul data-role="listview" data-inset="true" >'.$lista.'</ul>';
+		$title = empty_front_page_titulo_page($arg1, $op="vid");
+	//termino padre
+	}elseif( !empty($arg1) and !empty($arg2) and empty($arg3) and empty($arg4)  ){
+
+		//si tiene childrens deberia mostrar las subcategorias
+		$children = taxonomy_get_children($arg2, $arg1);
+
+		if (!count($children)) {
+			$title = empty_front_page_titulo_page($arg2, $op="tid");
+			$lista = empty_front_page_lista_productos($arg1, $arg2);
+			$listado = '<ul data-role="listview" data-inset="true" >'.$lista.'</ul>';
+		} else {
+			$title = empty_front_page_titulo_page($arg2, $op="tid");
+			$lista = empty_front_page_lista_primer_terms_by_vid($arg1, $arg2);
+			$listado = '<ul data-role="listview" data-inset="true" >'.$lista.'</ul>';
+		}
+
+	//producto
+	}elseif( !empty($arg1) and !empty($arg2) and !empty($arg3) and empty($arg4)  ){
+		$producto = empty_front_page_view_producto($arg3, $arg2, $arg1);
+		$listado = $producto;
+	
+	}
+ 
+
+
+	return $title.$listado; 
+}
+
+//SOLO DEVUELVE TERMINOS DE PRIMIR NIVEL
+function empty_front_page_lista_primer_terms_by_vid($vid, $tid_parent = 0) {
+
+
+$sql = "SELECT taxonomy_term_data.tid AS tid, 
+taxonomy_term_data.name AS taxonomy_term_data_name, 
+taxonomy_vocabulary.name AS vo_name, 
+taxonomy_term_data.weight AS taxonomy_term_data_weight
+FROM 
+taxonomy_term_data taxonomy_term_data
+LEFT JOIN taxonomy_term_hierarchy taxonomy_term_hierarchy ON taxonomy_term_data.tid = taxonomy_term_hierarchy.tid
+LEFT JOIN taxonomy_vocabulary taxonomy_vocabulary ON taxonomy_term_data.vid = taxonomy_vocabulary.vid
+WHERE (( (taxonomy_term_hierarchy.parent = '$tid_parent' ) )AND(( (taxonomy_term_data.vid =  $vid) )))
+ORDER BY taxonomy_term_data_weight ASC, taxonomy_term_data_name ASC";
+
+$lista = '';
+$rs = db_query($sql)->fetchAll();
+
+	foreach ($rs as $row) {
+		$img= '';
+		$tax = taxonomy_term_load($row->tid);
+		$lista .= "<li>";
+		if(!empty($tax->uc_catalog_image)){
+			$img_url = $tax->uc_catalog_image['und'][0]['uri'];
+			$img = image_style_url("mobile_thumb", $img_url);
+			$lista .= "<img  style=\" float: left;\" src=\"".$img."\">";
+		}
+
+		$lista .= "<a style='color: rgb(51, 51, 51); text-shadow: none;' href='/list/".$vid."/".$row->tid."'>".$row->taxonomy_term_data_name."</a>";
+		$lista .= "</li>";
+
+
+	}
+	return $lista;
+
+}
+
+
+function empty_front_page_lista_productos($vid, $tid) {
+
+	$sql ="select n.nid, n.title from taxonomy_index ti inner join node n on n.nid = ti.nid where ti.tid = $tid order by ti.weight asc ";
+
+	$lista = '';
+	$rs = db_query($sql)->fetchAll();
+
+	foreach ($rs as $row) {
+		$img= '';
+		$node = node_load($row->nid);
+		$lista .= "<li>";
+		if(!empty($node->uc_product_image)){
+			$img_url = $node->uc_product_image['und'][0]['uri'];
+			$img = image_style_url("mobile_thumb", $img_url);
+			$lista .= "<img style=\"float: left;\" src=\"".$img."\">";
+		}
+
+		$lista .= "<a style='color: rgb(51, 51, 51); text-shadow: none;'  href='/list/".$vid."/".$tid."/".$node->nid."' >".$node->title."</a>";
+		$lista .= "</li>";
+
+
+	}
+	return $lista;
+
+
+}
+
+function empty_front_page_view_producto($nid, $tid, $vid){
+
+	$breadcrumb;
+	$title;
+	$image;
+	$general_information;
+	$detail;
+	$price;
+	$buttons;
+	$back;
+
+	$nod = node_load($nid);
+	$tax = taxonomy_term_load($tid);
+	$voc = taxonomy_vocabulary_load($vid);
+	
+	$breadcrumb = "<div class='breadcrumb'> 
+	<a href='/'>Home</a> / 
+	<a href='/list/$voc->vid'>$voc->name</a>/ 
+	<a href='/list/$voc->vid/$tax->tid'>$tax->name</a> /
+	</div>";
+	
+	$title = "<h1 class='product-title'>$nod->title</h1>";
+	$images = '';
+	if(count($nod->uc_product_image['und']) > 0 ){
+		$imgs = $nod->uc_product_image['und'];
+		foreach ($imgs as $img) {
+			$img_url = $img['uri'];
+			$img = image_style_url("large", $img_url);
+			$images.= "<div>
+			<img src=\"".$img."\" style='width:100%'>
+			</div>";
+		}
+	}
+	
+
+
+	$general_information = $nod->body['und'][0]['value'];
+
+	$detail = $nod->field_detalle_2['und'][0]['value'];
+
+	$price = "<div class='price'>Price: $".round($nod->price,2)."</div>";
+
+	$buttons  = node_selection_boton_by_nid($nod->nid);
+
+	//$back = "<a href='#' data-rel='back' class='back'>Back</a>";
+
+
+	$tpl ="";
+	$tpl .=$breadcrumb; 
+	$tpl .=$title;
+	$tpl .="<div class='product-content'>";
+	$tpl .="<div  id='mySwipe' class='swipe'><div class='swipe-wrap'>";
+	$tpl .=$images;
+	$tpl .="</div></div>";
+
+	$tpl .="<h4 class='subtitle'>General information</h4>";
+	$tpl .=$general_information;
+	$tpl .="<h4 class='subtitle'>Details</h4>";
+
+	$tpl .=$detail;
+	$tpl .=$price;
+	$tpl .="<div class='product-select'>";
+	$tpl .=$buttons;
+	$tpl .="</div>";
+
+	
+	$tpl .="</div>";
+	$tpl .=$back;
+
+	return $tpl;
+
+}
+
+
+function empty_front_page_titulo_page($id, $op="vid"){
+
+	if($op== "vid"){
+	$voc = taxonomy_vocabulary_load($id);
+	$title = $voc->name;
+	}else{
+	$tax = taxonomy_term_load($id);
+	$title = $tax->name;
+	}
+
+	//colores de titulos
+	$vid = arg(1);
+	if($vid == 3)
+		$color = 'blue';
+	elseif($vid == 4)
+		$color = 'pink';
+
+
+
+	return "<h1 data-role='button'  data-rel='back' data-iconpos='right' data-corners='false' data-icon='arrow-d' class='page-title $color'> $title </h1>";
+
+}
+
+
+function mobile_detect(){
+    $mobile_devices = '/(alcatel|amoi|android|avantgo|blackberry
+|benq|cell|cricket|docomo|elaine|htc|iemobile|iphone|ipad|ipaq|ipod
+|j2me|java|midp|mini|mmp|mobi|motorola|nec-|nokia|palm|panasonic
+|philips|phone|sagem|sharp|sie-|smartphone|sony|symbian|t-mobile
+|telus|vodafone|wap|webos|wireless|xda|xoom|zte)/i';
+
+	if(preg_match($mobile_devices, $_SERVER['HTTP_USER_AGENT'])) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+
+function empty_front_page_init(){
+	$isMobile_device = mobile_detect();
+	$do = domain_get_domain();
+
+	// Perform a redirection if a mobile device is detected
+	if ($do['domain_id'] == 1 && $isMobile_device) {
+		header('Location: http://m.fiesta4kids.com');
+		exit(); 
+	} elseif($do['domain_id'] == 2 && !$isMobile_device) {
+		header('Location: http://fiesta4kids.com');
+		exit(); 
+	} else {
+		//behavior as usual
+	}
+}
+
+
+
+

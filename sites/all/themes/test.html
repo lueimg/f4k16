@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://www.fiesta4kids.com/sites/all/themes/zircon/js/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+  /*$(".taxonomy_term").attr("href", "http://www.fiesta4kids.com/catalog/interactive-games-sports");*/
+  $('.field-content').html(function(i, v) {
+    return v.replace(/-%26/g, '');    
+});
+});
+
+</script>
+</head>
+<body>
+<p>If you click on me, I will disappear.</p>
+<p>Click me away!</p>
+<p>Click me too!</p>
+<div class="views-field views-field-name">        <span class="field-content"><a href="http://www.fiesta4kids.com/catalog/carnival-games" class="taxonomy_term">Carnival Games</a></span>  </div>  </div>
+<div class="views-row views-row-4 views-row-even">
+      
+  <div class="views-field views-field-name">        <span class="field-content"><a class="taxonomy_term" href="http://www.fiesta4kids.com/catalog/interactive-games-%26-sports">Interactive Games &amp; Sports</a></span>  </div>  </div>
+  <div class="views-row views-row-2 views-row-even">
+      
+  <div class="views-field views-field-name">        <span class="field-content"><a href="http://www.fiesta4kids.com/catalog/bouncy-castles" class="taxonomy_term">Bouncy Castles</a></span>  </div>  </div>
+  <div class="views-row views-row-7 views-row-odd">
+      
+  
+</body>
+</html>

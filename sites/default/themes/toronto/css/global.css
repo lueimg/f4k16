@@ -1,0 +1,420 @@
+/* This file will hold the main styles for your website. */
+
+.page-catalog-5 #block-system-main {
+    display: none;
+}
+
+
+input.submit {
+    margin: 10px 0;
+}
+.block-block {
+   /* margin-bottom: 20px;*/
+}
+
+.region-sidebar-second-inner .block {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+.ie ul.nice-menu-down li,
+.ie ul.menu li{
+	list-style-image:none;
+}
+
+ul.nice-menu-down li,
+ul.menu li {
+    list-style: none;
+    text-align: center;
+    margin: 10px 0 10px 0;
+    background:url('../images/fondomenu.png') no-repeat center center transparent;
+    font-weight: bold;
+    font-size: 12px;
+    border: 2px solid #BB7C3C;
+    border-radius: 10px;
+    min-height: 25px;
+	min-width:87px;
+}
+
+ul.nice-menu-down li:hover,
+ul.nice-menu-down li.active,
+ul.menu li.active, 
+ul.menu li:hover {
+    background: url("../images/fondomenuactive.png") no-repeat scroll center center transparent;
+    
+   
+}
+
+ul.menu li:hover{
+	font-size: 15px;
+	width: 150px;
+    position: relative;
+    right: 10px;
+    top: 0;
+}
+
+
+
+ul.nice-menu-down li{
+	margin:10px 5px;
+}
+
+ul.menu li a.little{
+	font-size:9px;
+}
+
+ul.nice-menu-down li a,
+ul.menu li a {
+    text-decoration: none;
+    color: #005100;
+}
+
+.page-node-51 form label { 
+    display: inline-block;
+    width: 200px;
+	font-weight:normal;
+	vertical-align: top;
+}
+
+
+.page-node-51 form .form-textarea-wrapper {
+    width: 400px;
+    display: inline-block;
+}
+
+
+.page-faq-page .region-content-inner {
+background:url('../images/fiesta4faq.jpg') no-repeat right top transparent;
+
+}
+
+#block-block-9 {
+    float: right;
+    margin: 10px;
+}
+
+ul.quicktabs-tabs li a {
+    color: #990000;
+    border: 1px solid #004D7B;
+    height: 20px;
+    width: 180px;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    font-size: 12px;
+    padding: 5px;
+    font-weight: bold;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+ul.quicktabs-tabs li.active a {
+    background: none repeat scroll 0 0 #990000;
+    color: white;
+}
+
+
+.view-testimonies .views-row {
+    margin-bottom: 20px;
+    border-top: 1px dotted;
+    padding-top: 10px;
+}
+
+.faq-question a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+.faq-question span {
+    display: list-item;
+    list-style: inside;
+	list-style-image: url("../images/bulletfaq.gif");
+}
+
+.txt{
+	line-height:20px;
+}
+
+.ie .view-fun-events-gallery li{
+zoom: 1;
+*display:inline;	
+}
+
+.view-fun-events-gallery li {
+    display: inline-block;
+}
+.view-fun-events-gallery .view-content {
+    width: 500px;
+    margin: 0 auto;
+}
+
+
+.ie .field-name-field-images-gallery .field-item{
+zoom: 1;
+*display:inline;	
+}
+
+.field-name-field-images-gallery .field-item {
+    display: inline-block;
+    margin: 20px;
+	box-shadow:0 0 5px #000000;
+	-moz-box-shadow:   0 0 5px #000000;
+   -webkit-box-shadow: 0 0 5px #000000;
+}
+
+.page-node-51 form {
+    clear: both;
+    padding-top: 30px;
+}
+
+.print_html{
+	 -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: -moz-linear-gradient(center top , #FFFFFF 0%, #DDDDDD 100%) repeat scroll 0 0 transparent;
+    border-color: #DDDDDD #BBBBBB #999999;
+    border-radius: 11px 11px 11px 11px;
+    border-style: solid;
+    border-width: 1px;
+    color: #333333;
+    cursor: pointer;
+    font: bold 12px/1.2 Arial,sans-serif;
+    outline: 0 none;
+    overflow: visible;
+    padding: 3px 10px 4px;
+    text-shadow: 0 1px 1px #FFFFFF;
+    width: auto;
+}
+
+.print-page {
+    display: inline-block;
+    padding: 10px;
+}
+
+
+#block-block-10{
+    position: absolute;
+    top: 0px;
+    right: 35px;
+	width:250px;
+	
+}
+
+#block-views-description-category-block {
+    font-size: 16px;
+    font-family: arial;
+    margin-top: 20px;
+}
+
+
+.view-all-products .views-field-body {
+    min-height: 55px;
+}
+
+.node-type-product .add-to-cart {
+    display: inline-block;
+}
+
+
+.node-type-product .field-name-taxonomy-catalog{
+	color: #999999;
+    font-family: Arial,Helvetica,sans-serif;
+    font-weight: normal;
+    margin: 5px 0;
+    padding: 0;
+    text-decoration: none;
+	font-size:24px;
+}
+.node-type-product .field-name-title	{
+	color: #006699;
+    font-family: Arial,Helvetica,sans-serif;
+    margin: 5px 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+
+.node-type-product .field-name-body {
+    font-size: 12px;
+    font-family: arial;
+    line-height: 16px;
+    margin-right: 10px;
+}
+
+#block-views-random-testimonies-block,
+.testimonio {
+    background-color: #FFFFE1;
+    border: 1px none #CCCCCC;
+    font-size: 12px;
+    font-style: normal;
+    margin: 5px;
+    padding: 10px;
+}
+
+#block-views-random-testimonies-block .field-name-title,
+.testimonio h2 {
+    font-family: "Courier New",Courier,monospace;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 5px 0;
+    padding: 5px 0 0;
+    text-decoration: none;
+}
+
+#block-views-random-testimonies-block .field-name-body,
+.testimonio .mensaje {
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 20px;
+}
+#block-views-random-testimonies-block .field-name-field-author,
+.testimonio .autor {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: normal;
+    line-height: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+
+#block-block-7 hr {
+    margin-bottom: 40px;
+}
+
+
+#block-block-11 {
+    float: right;
+    margin: 30px 10px 0 10px;
+}
+.view-testimonies .views-row-1 {
+    border: none;
+}
+
+.panel-overlay {
+    display: none;
+}
+
+/************************* Node ********************************************/
+
+
+.page-futuros-eventos .view-content .field-content {
+    display: inline;
+}
+.page-futuros-eventos .view-content .views-label {
+    font-weight: bold;
+}
+
+
+.page-blog .node-teaser {
+    margin: 0 0 20px 0;
+    padding: 0 0 10px 0;
+    border-bottom: 1px dotted #ccc;
+}
+
+.node-blog.node-teaser .field-name-title {
+    margin-top: 10px;
+} 
+
+.node-blog.node-teaser .field-name-title a {
+    text-decoration: none;
+    color: #047AA0;
+    font-size: 26px;
+}
+.node-blog.node-teaser .field-name-title a:hover {
+    text-decoration: underline;
+    color: #047AA0;
+}
+
+/* media*/
+
+.field-name-field-video-url .field-item {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px;
+   
+	width:192px;
+	vertical-align:top; 
+}
+
+.field-name-field-video-url a {
+    border: 1px solid #CCCCCC;
+    display: block;
+    padding: 5px;
+}
+
+/************************* Bloque ********************************************/
+
+
+#block-block-12, 
+#block-block-12 h2.block-title,
+#block-block-13, 
+#block-block-13 h2.block-title  
+ {
+   margin-top:25px;
+    text-align: center;
+}
+#block-block-12 .block-inner{
+	border:1px solid;
+}
+#block-block-12 .content{
+	margin: 5px 0 0 0;
+}
+ 
+#region-sidebar-second .block-block h2{
+	background-color: #999999;
+    clear: both;
+    color: #FFFFFF;
+    display: block;
+    float: none;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    margin: 0;
+    padding: 5px 5px 5px 10px;
+}
+#block-block-15 #craftysyntax img {
+    width: 140px;
+}
+
+#block-block-15 {
+    TEXt-align: center;
+    margin-top: 15px;
+ 
+}
+
+#block-block-17 {
+    position: relative;
+    bottom: 10px;
+    left: 785px;
+	width:170px;
+}
+
+.fb-icon, 
+.twit-icon, 
+.youtube-icon, 
+.mail-icon, 
+.home-icon {
+    background-image: url("../images/social-icons-II.png");
+    float: left;
+    height: 17px;
+    margin-right: 5px;
+    text-indent: -9999px;
+    width: 17px;
+}
+
+.twit-icon {
+    background-position: 0 -33px;
+}
+.youtube-icon {
+    background-position: 0 18px;
+}
+.node-type-blog .field-name-html-addthis {
+    position: absolute;
+    right: 20px;
+    top: -27px;
+    width: 245px;
+}

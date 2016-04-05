@@ -1,0 +1,5 @@
+name = Node selection
+description = "Select several nodes in a list."
+package = Castimor
+core = 7.x
+files[] = node_selection.module

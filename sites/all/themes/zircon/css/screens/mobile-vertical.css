@@ -1,0 +1,148 @@
+/**
+  * Responsive Elements
+  */
+th,
+td {
+  padding: .3em;
+}
+
+/* Sidebar First */
+
+
+.article .field-type-image {
+  float: none;
+  margin-right: 0;
+}
+
+.article .field-type-image img {
+  max-width: 100%;
+}
+
+
+/**
+ * Panels & grid-views
+ */
+.cols-1 .views-col,
+.cols-2 .views-col,
+.cols-3 .views-col,
+.cols-4 .views-col,
+.panel-cols-1 .panel-column,
+.panel-cols-2 .panel-column,
+.panel-cols-3 .panel-column,
+.panel-cols-4 .panel-column {
+  width: 100% !important;
+}
+
+/* View Carousel */
+.view-horizontal-carousel .jcarousel-container-horizontal,
+.view-horizontal-carousel .jcarousel-skin-default .jcarousel-container-horizontal {
+  width: 100%;
+}
+
+.view-horizontal-carousel .jcarousel-skin-default {
+  width: 75%;
+}
+
+
+/* Navigation */
+ul.primary {
+  background: none;
+  white-space: normal;
+}
+
+ul.primary li a {
+  display: inline-block;
+  margin-bottom: 5px;
+  white-space: nowrap;
+}
+
+ul.primary,
+#user-login .form-text {
+  width: 100% !important;
+}
+
+
+/* Form */
+.contact-form .form-text,
+.form-text {
+  width: 97% !important;
+}
+
+#header #search-block-form {
+  display: none;
+}
+
+#slideshow-wrapper .views_slideshow_controls_text span {
+  top: 45px;
+}
+
+#social-share-wrapper {
+  left: 28%;
+}
+
+#logo {
+    height: auto;
+	margin-left: 0;
+}
+
+#logo img {
+	/*height: 49px;*/
+	height: 60px;
+	position: absolute;
+    top: 25px;
+}
+#block-block-27 {
+	/*display: none;*/
+	margin-right: 10px;
+}
+
+.slider_subtitle {
+	font-size: 2em;
+}
+.slider_title {
+	font-size: 1.5em;
+}
+.slider_content {
+	font-size: 0.6em;
+}
+
+#header-wrapper .container {
+    /*padding-top: 17px !important;*/
+	padding-top: 0 !important;
+}
+
+.node-type-page .field-name-field-addthis {
+    float:none;
+	margin-top: 0px;
+}
+
+#block-block-13--2 .block-inner {
+	min-height: 10px !important;
+}
+
+.block-title {
+	text-align:center;
+}
+
+.node-type-blog .field-name-html-addthis {
+    float:none;
+	margin-top: 0px;
+}
+
+#block-block-10 {
+    float:none;
+	margin-top: 0px;
+}
+.node-type-custom-page .field-name-title h2 {
+    font-size: 1.45em;
+}
+#bg_top img {
+	/*min-height: 110px;*/
+	min-height: 145px;
+}
+.view-categories-homepage .views-fluid-grid-item {
+    border-right: 0 dashed #CCCCCC !important;
+}
+.view-all-products ul.views-fluid-grid-list, .view-uc-catalog-terms ul.views-fluid-grid-list, .view-uc-catalog-event-terms ul.views-fluid-grid-list, .view-uc-catalog-age-terms ul.views-fluid-grid-list {
+    text-align: center;
+}

@@ -1,0 +1,8 @@
+name = LimaDot General customizations
+description = This module contains small customizations for the website.
+version = 7.x-1.0
+core = 7.x
+package = Extensions from LimaDot
+files[] = limadot_general.module
+stylesheets[all][] = css/custom_website.css
+stylesheets[all][] = css/social-buttons.css
