@@ -22,8 +22,7 @@
 @v2_gris: #E5E5E5;
 @v2_blanco: #F9F9F9;
 
-  // custom styles
-
+// custom styles
 @amarillo_header: @v2_amarillo;
 @rosado_oscuro: @v2_rosado_oscuro;
 @rosado_claro: @v2_rosado_claro;
@@ -674,9 +673,6 @@ body {
     }
   }
 }
-
-
-
 
 
 .view-productv2perterm {
@@ -1345,6 +1341,58 @@ body {
     }
   }
 }
+
+.pagev2 {
+  .page-header {
+    .mix-page-header();
+  }
+
+  .field-name-body {
+    margin-bottom: 45px;
+  }
+
+  .view-testimonies {
+    .views-row {
+      border: 1px solid @v2_gris;
+      background: #fff;
+      padding: 0 0 0 18px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+
+      .field-name-title {
+        padding: 0;
+        margin: 0;
+        h2 {
+          color: @v2_rosado_claro;
+          text-transform: uppercase;
+          padding: 25px 0 20px 0;
+          font-size: 1.2em;
+          margin: 0;
+        }
+      }
+      .field-name-body {
+        color: @v2_plomo;
+        margin-bottom: 25px;
+
+      }
+      .field-name-field-author {
+        padding: 0px 0 30px 20px;
+        color: @v2_negro;
+        position: relative;
+        &::before {
+          content: '- ';
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+    }
+  }
+
+}
+
+
+
 
 
 footer {
