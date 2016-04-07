@@ -230,7 +230,7 @@ function node_selection_form_page(){
 
 function node_selection_form(){
 
-$form['data'] = array('#type' => 'fieldset', '#title' => t("Send my Reservation Products"), '#collapsible' => FALSE, '#collapsed' => TRUE);
+//$form['data'] = array('#type' => 'fieldset', '#title' => t("Send my Reservation Products"), '#collapsible' => FALSE, '#collapsed' => TRUE);
 $form['data']['to'] = array(
     '#type' => 'hidden',
 	'#default_value' =>variable_get("nselected_mail",variable_get('site_mail', 'juanhispanocity@gmail.com'))
@@ -435,7 +435,8 @@ jQuery(this).parent().parent().remove();
 </script>
 ';
 
-	return $table.$scrip;
+//	return $table.$scrip;
+	return "";
 }
 
 function node_selection_add(){
@@ -845,6 +846,7 @@ function node_selection_new_ideas_vertical () {
 	// contador
 	$count = $queue->rowCount();
 	$grupos = ceil($count / 4);
+
 	$contador = 0;
 	$isFirst = true;
 	$html = '<ul class="new-ideas-vertical jcarousel-skin-default">';
@@ -861,18 +863,13 @@ function node_selection_new_ideas_vertical () {
 		}
 
 		$contador++;
-
 		$html .='<div class="sub-item pos-'.$contador.'">';
-//		$html .=''.$record->nid;
 		$html .=render(node_view(node_load($record->nid), 'vertical_list'));
 		$html .= '</div>';
-
-		if ($contador == 4 ) {
-			$contador = 0;
-		}
+		if ($contador == 4 ) {$contador = 0;}
 	}
 
-	$html .= '</li></html>';
+	$html .= '</li></ul>';
 
 
 	print $html;
@@ -908,4 +905,41 @@ function node_selection_related_products () {
 
 	print $html;
 	jcarousel_add('jq-related-products', array('visible'=>4, 'wrap'=>'circular', 'scroll'=>1));
+}
+
+function node_selection_reserved_list () {
+	$contador = 0;
+	$isFirst = true;
+	$html = '<div class="rl-row ">';
+	$nodes = $_SESSION["nodes"];
+	// Crear los grupos de a 4
+	forEach($nodes as $nid) {
+		if ($contador == 0 ) {
+			if ($isFirst) {
+				$html .= '<div class="row-item">';
+				$isFirst = !$isFirst;
+			} else {
+				$html .= '</div><div class="row-item">';
+			}
+		}
+
+		$contador++;
+		$html .='<div class="sub-item pos-'.$contador.'">';
+		$html .=render(node_view(node_load($nid), 'reserved_list'));
+		$html .= '</div>';
+		if ($contador == 4 ) {$contador = 0;}
+	}
+
+	if (!$isFirst) {
+		$html = "No products reserved. Please visit our <a href='/'>catalog</a>";
+	}
+
+	$html .= '</div></div>';
+
+
+	print $html;
+}
+
+function node_selection_reserved_list_button ($nid) {
+	print "<a class='node-selection-link delete ajax' path='/nselect/delete/$nid'  nid ='$nid'>".variable_get("nselected_deltext","Add to list")."</a>";
 }

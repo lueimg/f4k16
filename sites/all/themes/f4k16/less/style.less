@@ -1390,10 +1390,177 @@ body {
   }
 
 }
+.page-node-51,
+.page-nselect,
+.page-monthly-special,
+.page-header-v2 {
+  .page-header {
+    .mix-page-header();
+  }
+}
+
+// paginas basicas , subtittul
+.field-name-field-subtitle {
+  color: @v2_morado_claro;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  font-weight: 700;
+  font-family: Asap!important;
+}
 
 
+// our clientes page
+.page-monthly-special,
+.page-node-50 {
+  .field-name-body {
+    margin-top: 25px;
+   ul {
+     padding-left: 0;
+     li {
+       list-style: none;
+       display: inline-block;
+       width: 30%;
+       font-weight: bold;
+       margin-bottom: 10px;
+     }
+   }
+  }
+}
 
+// monthly specials
+.view-monthly-special {
+  margin-top: 20px;
+  .views-row {
+    display: inline-block;
+    border: none;
+    padding: 0;
+    margin-bottom: 50px;
+    margin-right: 25px;
+    .field-name-field-offer-image {
+      img {
+        border: none;
+        padding: 0;
+        border-radius: 0;
+      }
+    }
+    .field-name-post-date {
+      margin-top: 15px;
+      color: @v2_plomo;
+    }
+    .field-name-title {
+      h2{
+        margin: 0;
+        a{
+          color: @rosado_claro;
+          font-size: .6em;
+          font-weight: bold;
+          display: inline-block;
+          margin-top: 10px;
+          margin-bottom: 15px;
+          font-family: Asap !important;
+        }
+      }
 
+    }
+    .field-name-node-link {
+      a {
+        color: @v2_negro;
+        font-size: 0.9em;
+      }
+    }
+  }
+}
+
+#block-views-selected-list-block {
+  .block-title {
+    font-weight: bold;
+  }
+  .view-selected-list {
+    .sub-item {
+      clear: both;
+      border: 1px solid @v2_gris;
+      border-radius: 8px;
+      padding: 8px;
+      margin-bottom: 10px;
+      background: #fff;
+      .field-name-field-v2-images {
+        float: left;
+        margin-right: 10px;
+      }
+      .field-name-title {
+        h3 {
+          color: @rosado_claro;
+          font-size: 1.2em;
+          padding: 0;
+          margin: 0;
+          line-height: 1.2em;
+          margin-bottom: 5px;
+          text-transform: uppercase;
+          font-family: Asap !important;
+        }
+      }
+      .field-name-reserved-list-button {
+        .node-selection-link.delete {
+          color: #fff;
+          background: @v2_negro;
+          text-transform: capitalize;
+          margin: 0;
+          padding: 5px 10px;
+          width: auto;
+          font-size: 1em;
+          border-radius: 5px;
+          font-family: Asap !important;
+        }
+      }
+    }
+  }
+}
+#node-selection-form {
+  .form-item {
+    width: 45%;
+    display: inline-block;
+    margin-right: 40px;
+
+    &.form-type-textarea {
+      width: 95%;
+    }
+  }
+  #edit-submit {
+    background: @rosado_claro;
+    color: #fff;
+    margin: 35px 0;
+  }
+}
+
+// contact us
+.page-node-51 {
+  .page-header {
+    margin-top: 30px;
+  }
+  .field-name-body {
+    float: right;
+    width: 30%;
+    display: inline-block;
+  }
+  .webform-client-form {
+    width: 60%;
+    display: inline-block;
+
+    .form-item {
+      width: 43%;
+      display: inline-block;
+      margin-right: 40px;
+      &.webform-component-textarea {
+        width: 95%;
+      }
+    }
+    #edit-submit {
+      background: @rosado_claro;
+      color: #fff;
+      margin: 35px 0;
+    }
+  }
+}
 
 footer {
   background: @v2_negro;
