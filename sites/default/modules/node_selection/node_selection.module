@@ -217,7 +217,7 @@ return $script;
 
 function node_selection_form_page(){
 
-	drupal_set_title(variable_get("nselected_title","Send my Reservation Products"));
+	drupal_set_title('Send my Reservation Products');
 
 	$html = node_selection_nodes();
 
@@ -907,39 +907,33 @@ function node_selection_related_products () {
 	jcarousel_add('jq-related-products', array('visible'=>4, 'wrap'=>'circular', 'scroll'=>1));
 }
 
-function node_selection_reserved_list () {
+function node_selection_reserved_list ()
+{
 	$contador = 0;
 	$isFirst = true;
-	$html = '<div class="rl-row ">';
+	$html = '<div class="rl-rows ">';
 	$nodes = $_SESSION["nodes"];
-	// Crear los grupos de a 4
-	forEach($nodes as $nid) {
-		if ($contador == 0 ) {
-			if ($isFirst) {
-				$html .= '<div class="row-item">';
-				$isFirst = !$isFirst;
-			} else {
-				$html .= '</div><div class="row-item">';
-			}
-		}
 
-		$contador++;
-		$html .='<div class="sub-item pos-'.$contador.'">';
-		$html .=render(node_view(node_load($nid), 'reserved_list'));
+	// Crear los grupos de a 4
+	forEach ($nodes as $nid) {
+		if ($isFirst) {
+			$isFirst = false;
+		}
+		$html .= '<div class="row-item">';
+		$html .= render(node_view(node_load($nid), 'reserved_list'));
 		$html .= '</div>';
-		if ($contador == 4 ) {$contador = 0;}
 	}
 
-	if (!$isFirst) {
+	$html .= '</div>';
+
+	if ($isFirst) {
 		$html = "No products reserved. Please visit our <a href='/'>catalog</a>";
 	}
-
-	$html .= '</div></div>';
-
 
 	print $html;
 }
 
 function node_selection_reserved_list_button ($nid) {
+	print "<div class='rp-cantidad'><span class='label-cant'>Quantity</span> <input type='text' value='1' class='rp-cantidad-input'>";
 	print "<a class='node-selection-link delete ajax' path='/nselect/delete/$nid'  nid ='$nid'>".variable_get("nselected_deltext","Add to list")."</a>";
 }

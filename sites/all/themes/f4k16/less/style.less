@@ -333,6 +333,7 @@ body {
         color: @v2_negro;
         text-transform: uppercase;
         font-family: 'Asap' !important;
+        margin: -1px 0px;
       }
 
       .tb-megamenu-submenu {
@@ -1254,6 +1255,10 @@ body {
           &:before {
           }
         }
+        i {
+          font-size: 1.2em;
+          padding-right: 10px;
+        }
       }
     }
   }
@@ -1560,6 +1565,72 @@ body {
       margin: 35px 0;
     }
   }
+}
+
+
+#block-views-selected-list-block {
+  .block-title {
+
+  }
+  .view-selected-list {
+    .rl-rows {
+      .row-item {
+        .view-mode-reserved_list {
+          border: 1px solid @v2_gris;
+          border-radius: 5px;
+          background: #fff;
+          clear: both;
+          margin-bottom: 10px;
+          padding: 10px;
+
+          .field {
+            display: inline-block;
+            width: 100px;
+          }
+
+          .field-name-field-v2-images {
+            float: left;
+            margin-right: 15px;
+            img {
+
+            }
+          }
+          .field-name-title {
+            h3 {
+              color: @rosado_claro;
+              font-size: 1em;
+              width: 130px;
+              margin: 0;
+              padding: 0;
+              font-weight: bold;
+              text-transform: uppercase;
+            }
+          }
+          .field-name-reserved-list-button {
+            .label-cant {
+              color: @v2_negro;
+            }
+            .rp-cantidad-input {
+              width: 40px;
+              text-align: center;
+            }
+            a {
+              display: inline-block;
+              width: 100px;
+              background: @v2_negro;
+              color: #fff;
+              text-transform: capitalize;
+              font-size: 1em;
+              border-radius: 5px;
+              font-family: Asap !important;
+              padding: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+
 }
 
 footer {
