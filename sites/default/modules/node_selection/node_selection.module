@@ -15,6 +15,13 @@ function node_selection_menu() {
     'access arguments' => array('access content'),
     'type' =>  MENU_CALLBACK,
   );
+
+	$items['nselect/updatequatity'] = array(
+		'title' => 'Delete node of list',
+		'page callback' => 'node_selection_updatequantity',
+		'access arguments' => array('access content'),
+		'type' =>  MENU_CALLBACK,
+	);
   
   $items['nselect/load'] = array(
     'title' => 'load boton',
@@ -38,7 +45,7 @@ function node_selection_menu() {
   );
 
    $items['nselect/form/thanks'] = array(
-    'title' => 'Thank you for your reservation',
+    'title' => 'Thank you for your Pre-Order. This is not your final Booking',
     'page callback' => 'node_selection_form_page_thanks',
     'access arguments' => array('access content'),
     'type' =>  MENU_CALLBACK,
@@ -192,8 +199,6 @@ function node_selection_script(){
 		var nid  = jQuery(this).attr("nid");
 		var path = jQuery(this).attr("path");
 		var self = this;
-		console.log(nid);
-		console.log(path);
 
 		jQuery(self).ajaxStart(function() { jQuery(self).parent().append("'.$img_load.'"); });
 
@@ -334,8 +339,10 @@ function node_selection_form_submit($form, &$form_state){
 		true  //automatically send
 		))
 	{
-		unset($_SESSION["nodes"]);
+		// SERA REMOVIDO EN THANKS PAGE
+		//unset($_SESSION["nodes"]);
 	//	drupal_set_message("Thanks your for send your reservation.");
+		$_SESSION['form_values'] = $form_values;
 		$do = domain_get_domain();
 		if($do['domain_id']== 2 )
 			drupal_goto("list/2");
@@ -452,6 +459,13 @@ function node_selection_delete(){
 	return;
 }
 
+function node_selection_updatequantity() {
+	$nid = arg(2);
+	$quatity = arg(3);
+	$_SESSION["nodesquantity"][$nid] = $quatity;
+	return;
+}
+
 function node_selection_contador_nodes_ajax(){
 	$cant = count($_SESSION["nodes"]);
 	print $cant;
@@ -527,9 +541,80 @@ function  node_selection_settings_form_submit($form, &$form_state){
 
 }
 
+
+
 function node_selection_form_page_thanks(){
 
-	return variable_get("nselected_reservationmessage","Thank you!");
+	$html = variable_get("nselected_reservationmessage","Thank you!");
+
+	$quantities = $_SESSION["nodesquantity"];
+	$nodes = $_SESSION["nodes"];
+	$quatities = '';
+	foreach($nodes as $n) {
+		$complete_node = node_load($n);
+		$quatities .= '<tr class="row-item">
+		<td>'.$complete_node->title .'</td>
+		<td>'. $quantities[$n] .'</td>
+	</tr>';
+	}
+
+	$params = $_SESSION['form_values'];
+
+	$html .= '<h2>PRODUCTS TO: </h2>
+<table class="table p-list">
+	<tr>
+		<th>Name products/Service</th>
+		<th>Quatity</th>
+	</tr>
+	'.$quatities.'
+</table>
+<br>
+<div class="column p-info">
+<h2>PERSONAL INFORMATION: </h2>
+	<table border="0">
+		<tr>
+			<td>Name:</td>
+			<th>'.$params["name"].'</th>
+		</tr>
+		<tr>
+			<td>Email:</td>
+			<th>'.$params["email"].'</th>
+		</tr>
+		<tr>
+			<td>Phone:</td>
+			<th>'.$params["phone"].'</th>
+		</tr>
+		<tr>
+			<td>Company Name:</td>
+			<th>'.$params["company"].'</th>
+		</tr>
+	</table>
+</div>
+<div class="column e-info">
+<h2>EVENT INFORMATION: </h2>
+	<table border="0">
+		<tr>
+			<td>Type of Event:</td>
+			<th>'.$params["date"].'</th>
+		</tr>
+		<tr>
+			<td>Data of Event:</td>
+			<th>'.$params["type"].'</th>
+		</tr>
+		<tr>
+			<td>Event Start Time:</td>
+			<th>'.$params["timestart"].'</th>
+		</tr>
+		<tr>
+			<td>Event End Time:</td>
+			<th>'.$params["timeend"].'</th>
+		</tr>
+	</table>
+</div>';
+
+	return $html;
+
+
 	
 }
 
@@ -934,6 +1019,10 @@ function node_selection_reserved_list ()
 }
 
 function node_selection_reserved_list_button ($nid) {
-	print "<div class='rp-cantidad'><span class='label-cant'>Quantity</span> <input type='text' value='1' class='rp-cantidad-input'>";
+	$value = $_SESSION["nodesquantity"][$nid];
+	if (!$value) {
+		$value = 1;
+	}
+	print "<div class='rp-cantidad'><span class='label-cant'>Quantity</span> <input  nid ='$nid' type='text' value='$value' class='rp-cantidad-input'>";
 	print "<a class='node-selection-link delete ajax' path='/nselect/delete/$nid'  nid ='$nid'>".variable_get("nselected_deltext","Add to list")."</a>";
 }

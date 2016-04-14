@@ -9,5 +9,16 @@ jQuery(function () {
 
   jQuery('.block-wrapper li.active-trail a').prepend('<i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>');
 
+  jQuery('.rp-cantidad-input').keyup(function () {
+    var node = jQuery(this).attr("nid");
+    var quantity = jQuery(this).val();
+    var path = '/nselect/updatequatity/' + node + '/' + quantity;
+    if (quantity) {
+      jQuery.get(path,{ name: Math.floor(Math.random()*11) },function(data){
+        console.log('done:' +path);
+      });
+    }
+
+  })
 
 });
