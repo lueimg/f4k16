@@ -1,4 +1,5 @@
 // Generate style.css
+// cd /Applications/MAMP/htdocs/fiesta4kids.20160301/public_html/sites/all/themes/f4k16/less
 // lessc  --clean-css style.less ../css/style.css
 
 // Bootstrap library.
@@ -9,8 +10,8 @@
 
 // fonts
 
-@import url(https://fonts.googleapis.com/css?family=Asap);
-@import url(https://fonts.googleapis.com/css?family=Vollkorn);
+@import url(https://fonts.googleapis.com/css?family=Asap:700,400);
+@import url(https://fonts.googleapis.com/css?family=Vollkorn:700,400);
 
 @v2_morado_claro: #B91D98;
 @v2_morado_oscuro: #99117D;
@@ -127,10 +128,16 @@ body {
   .phone-text {
     color: @v2_negro;
     font-family: 'Vollkorn';
+    font-size: 1.2em;
+    text-shadow: none;
+    letter-spacing: 0.02em;
+
   }
   .phone-number {
     color: @v2_morado_claro;
-    font-size: 1.9em;
+    font-size: 1.8em;
+    font-weight: bold;
+    text-shadow: none;
   }
 }
 
@@ -237,6 +244,20 @@ body {
   border-radius: 4px;
   font-family: 'asap';
   text-transform: uppercase;
+   li {
+     color: @v2_rosado_claro !important;
+     font-family: Asap !important;
+     &:first-child {
+       a {
+         color: @v2_negro !important;
+
+       }
+     }
+     a {
+       color: @v2_rosado_claro !important;
+       font-family: Asap !important;
+     }
+   }
   li+li {
     position: relative;
     margin-left: 20px ;
@@ -291,12 +312,12 @@ body {
             border-bottom: 1px solid #fff;
             width: 100%;
             text-transform: uppercase !important;
-            padding-top: 20px;
-            padding-bottom: 10px;
-            font-size: 1.5em !important;
+            padding-top: 15px;
+            padding-bottom: 3px;
+            font-size: 1.3em !important;
             font-family: 'Vollkorn' !important;
             color: #fff;
-            margin-bottom: 25px;
+            margin-bottom: 10px;
           }
           .tb-megamenu-row {
             margin-bottom: 30px;
@@ -305,6 +326,7 @@ body {
                 text-transform: capitalize;
                 color: #fff;
                 font-size: 1em;
+                padding-bottom: 0;
                 &::before {
                   content: '–';
                 }
@@ -358,6 +380,11 @@ body {
   }
 }
 
+.tb-megamenu .nav > li > a {
+  letter-spacing: 0.02em;
+}
+
+
 .catalog-sidebar {
   text-transform: uppercase;
   .block-title {
@@ -371,6 +398,17 @@ body {
     i {
       font-size: 0.9em;
       padding-right: 12px;
+      position: relative;
+      margin-right: 10px;
+      &::after {
+        content: '';
+        height: 44px;
+        width: 1px;
+        background: #fff;
+        position: absolute;
+        top: -10px;
+        right: 0;
+      }
     }
   }
   .catalog-list {
@@ -378,7 +416,7 @@ body {
     .views-row {
       a {
         display: inline-block;
-        padding: 12px;
+        padding: 16px;
         color: @v2_negro;
         border-right: 1px solid @color_sidebar_item_border ;
         border-left: 1px solid @color_sidebar_item_border ;
@@ -386,6 +424,7 @@ body {
         width: 100%;
         font-family: 'Asap' !important;
         font-weight: bold;
+        letter-spacing: 0.04em;
         &:hover {
           background: @rosado_claro;
           color: #fff;
@@ -406,6 +445,7 @@ body {
     margin-bottom: 30px;
     padding-bottom: 10px;
     font-weight: bold;
+    letter-spacing: 0.03em;
     .mix-segundoBorde();
 
   }
@@ -439,7 +479,7 @@ body {
     .jcarousel-clip-horizontal {
       width: 100%;
       height: 350px;
-      .jcarousel-item{
+      .jcarousel-item {
         height: 350px;
         border-radius: 5px;
         margin-right: 12px;
@@ -454,45 +494,77 @@ body {
           margin: 8px auto;
         }
         .field-name-title {
-          height: 3.5em;
+          &::before {
+            content: '';
+            height: 1px;
+            width: 196px;
+            background: #CCC;
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+          position: relative;
+          padding-top: 10px;
+          text-transform: uppercase;
           h2{
             margin: -1px;
           }
           a {
-            font-size: .7em;
+            font-size: .5em;
             color: @rosado_claro;
             display: inline-block;
+            width: 135px;
+            text-transform: uppercase;
+            vertical-align: top;
+            font-family: Asap !important;
+            font-weight: bold;
           }
         }
-
-        .field-name-body .field-item{
-          width: 185px;
-          height: 35px;
-          overflow: hidden;
-          text-overflow: ellipsis;
+        .field-name-body {
+          margin-top: 0;
+          .field-item{
+            width: 185px;
+            height: 35px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
         }
         .field-name-reserve-node {
           .node-selection-link {
             width: 120px;
             height: 35px;
             font-weight: normal;
-            font-size: .8em;
+            font-size: 1em;
             background: @v2_blanco;
             border-radius: 5px;
             font-family: 'Asap' !important;
             color: @v2_negro !important;
             border-color: @v2_gris;
             text-transform: capitalize;
+            letter-spacing: 0.03em;
+            padding: 6px 0;
+            border-bottom: 2px solid #E5E5E5;
             &:hover {
               background: @v2_rosado_claro;
               color: @v2_blanco !important;
+              border: 1px solid @v2_rosado_claro;
+              border-bottom: 2px solid @v2_rosado_oscuro;
             }
             &.goto {
               background: @v2_morado_claro;
               margin-top: 10px;
               color: #fff!important;
               text-shadow: none;
-
+            }
+          }
+        }
+        &:hover {
+          .field-name-reserve-node {
+            .node-selection-link {
+              background: @v2_rosado_claro;
+              color: @v2_blanco !important;
+              border: 1px solid @v2_rosado_claro;
+              border-bottom: 2px solid @v2_rosado_oscuro;
             }
           }
         }
@@ -686,6 +758,16 @@ body {
     padding: 5px;
     margin: 5px;
     margin-bottom: 30px;
+    &:hover {
+      .views-field-php {
+        .node-selection-link {
+          background: @v2_rosado_claro;
+          color: @v2_blanco !important;
+          border: 1px solid @v2_rosado_claro;
+          border-bottom: 2px solid @v2_rosado_oscuro;
+        }
+      }
+    }
   }
   .views-field {
     width: 185px;
@@ -697,12 +779,27 @@ body {
   .views-field-title {
     height: 3.5em;
     padding-top: 10px;
-
+    &::before {
+      content: '';
+      height: 1px;
+      width: 196px;
+      background: @v2_gris;
+      position: absolute;
+      top: 0;
+      left: -6px;
+    }
+    position: relative;
+    padding-top: 10px;
+    text-transform: uppercase;
     a {
-      margin: -1px;
-      font-size: 1.3em;
+      font-size: 1em;
       color: @rosado_claro;
       display: inline-block;
+      width: 135px;
+      text-transform: uppercase;
+      vertical-align: top;
+      font-family: Asap !important;
+      font-weight: bold;
     }
   }
 
@@ -725,15 +822,21 @@ body {
       width: 120px;
       height: 35px;
       font-weight: normal;
-      font-size: .8em;
+      font-size: 1.1em;
       background: @v2_blanco;
       border-radius: 5px;
       font-family: 'Asap' !important;
       color: @v2_negro !important;
       border-color: @v2_gris;
+      letter-spacing: 0.03em;
+      padding: 6px 0;
+      border-bottom: 2px solid #E5E5E5;
+      text-transform: none;
       &:hover {
         background: @v2_rosado_claro;
         color: @v2_blanco !important;
+        border: 1px solid @v2_rosado_claro;
+        border-bottom: 2px solid @v2_rosado_oscuro;
       }
       &.goto {
         background: @v2_morado_claro;
@@ -744,6 +847,7 @@ body {
       }
     }
   }
+
 }
 // view search products
 .view-search {
@@ -782,8 +886,10 @@ body {
       right: 0;
       a {
         float: right;
-        background: @v2_morado_claro;
+        background: @v2_rosado_claro;
         font-family: 'asap' !important;
+        width: 150px;
+        text-transform: capitalize;
       }
     }
   }
@@ -886,6 +992,11 @@ body {
 
 }
 
+
+.page-node.node-type-page {
+  text-align: justify;
+}
+
 // listado por categoria
 .view-id-productv2list {
   .views-field-name {
@@ -918,7 +1029,7 @@ body {
     text-transform: capitalize;
     font-family: 'Vollkorn' !important;
     margin-left: 22px;
-
+    font-weight: bold;
   }
   .view-nodequeue-3 {
     height: 540px;
@@ -940,7 +1051,7 @@ body {
       }
     }
     .jcarousel-prev {
-      right: 30px;
+      right: 45px;
       left: inherit;
     }
     .jcarousel-next {
@@ -986,6 +1097,8 @@ body {
                   a {
                     color: @v2_rosado_claro;
                     font-size: .5em;
+                    font-family: Asap !important;
+                    font-weight: bold;
                   }
                 }
 
@@ -1173,14 +1286,16 @@ body {
 
           .field-name-title {
             text-align: center;
-            padding: 10px 50px;
+            padding: 10px 20px;
             background: @v2_amarillo;
-            min-height: 60px;
+            min-height: 67px;
             strong {
               a {
                 text-transform: uppercase;
                 color: @v2_negro;
                 font-family: Asap !important;
+                font-size: 1.2em;
+                letter-spacing: 0.03em;
               }
             }
           }
@@ -1188,9 +1303,23 @@ body {
       }
     }
   }
-
-
 }
+
+.page-node-51 {
+  #block-system-main {
+    .webform-client-form {
+      label {
+        color: @v2_plomo;
+      }
+      input {
+        border-radius: 4px;
+        height: 45px;
+      }
+    }
+  }
+}
+
+
 // videos page
 .page-node-46 #block-system-main{
   h2 {
@@ -1249,9 +1378,13 @@ body {
         color: @v2_negro;
         width: 100%;
         font-weight: bold;
+        font-family: Asap !important;
+        text-transform: uppercase;
+        border-bottom: 1px solid #ccc;
         &.active {
           background: @v2_rosado_claro;
           color: #fff;
+          border-bottom: 1px solid #ccc;
           &:before {
           }
         }
@@ -1286,6 +1419,7 @@ body {
   #block-system-main {
     h2 {
       color: @v2_morado_claro;
+      font-family: Asap !important;
       strong {
 
       }
@@ -1378,7 +1512,7 @@ body {
       .field-name-body {
         color: @v2_plomo;
         margin-bottom: 25px;
-
+        width: 98%;
       }
       .field-name-field-author {
         padding: 0px 0 30px 20px;
@@ -1555,6 +1689,7 @@ body {
       width: 43%;
       display: inline-block;
       margin-right: 40px;
+      margin-bottom: 15px;
       &.webform-component-textarea {
         width: 95%;
       }
@@ -1676,10 +1811,12 @@ body {
 
 }
 
-footer {
+.footer {
   background: @v2_negro;
   color: @v2_blanco;
   margin-top: 0px;
+  padding-top: 45px;
+
 
   // popular categories
   #block-views-bloques-home-block-2 {
@@ -1687,7 +1824,7 @@ footer {
       font-family: 'Vollkorn' !important;
       font-weight: bolder;
       font-size: 2em;
-      margin-bottom: 10px;
+      margin-bottom: 21px;
     }
     .view-bloques-home {
       .item-list {
@@ -1713,7 +1850,7 @@ footer {
         .views-field-name {
           a {
             font-family: 'Asap' !important;
-            color: @v2_plomo;
+            color: #ccc;
             text-transform: uppercase;
             padding-bottom: 8px;
             display: inline-block;
@@ -1812,7 +1949,7 @@ footer {
             li {
               a {
                 text-transform: uppercase;
-                color: @v2_plomo;
+                color: #ccc;
                 display: inline-block;
                 padding-bottom: 5px;
                 font-family: 'Asap' !important;

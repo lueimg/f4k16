@@ -9,6 +9,10 @@ jQuery(function () {
 
   jQuery('.block-wrapper li.active-trail a').prepend('<i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>');
 
+  jQuery('#block-views-exp-search-page input.form-text').attr('placeholder', 'Search here ...');
+
+  //jQuery('.search-box #edit-taxonomy-catalog-tid-wrapper select').attr('size', '11');
+
   jQuery('.rp-cantidad-input').keyup(function () {
     var node = jQuery(this).attr("nid");
     var quantity = jQuery(this).val();
@@ -18,7 +22,5 @@ jQuery(function () {
         console.log('done:' +path);
       });
     }
-
-  })
-
+  });
 });

@@ -901,7 +901,7 @@ function node_selection_list_childrenV2($tid) {
 	if (count($childs) > 0 ) {
 		$html .= "<ul class = 'c-child'>";
 		foreach($childs as $child){
-			$html .= "<li><a href='#child-".str_replace(" ","-",check_plain($child->name))."'>".$child->name."</a></li>";
+//			$html .= "<li><a href='#child-".str_replace(" ","-",check_plain($child->name))."'>".$child->name."</a></li>";
 		}
 		$html .="</ul>";
 
@@ -958,7 +958,7 @@ function node_selection_new_ideas_vertical () {
 
 
 	print $html;
-	jcarousel_add('new-ideas-vertical', array('visible'=>1));
+	jcarousel_add('new-ideas-vertical', array('visible'=>1, 'wrap'=>'circular'));
 }
 
 /**
