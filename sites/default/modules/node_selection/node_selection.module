@@ -257,7 +257,7 @@ function node_selection_form_page(){
 
 	drupal_set_title('Send my Reservation Products');
 
-	$html = node_selection_nodes();
+	$html = '';
 
     //$html .= "Send my Reservation Products";
 	$form = drupal_get_form('node_selection_form');
@@ -274,6 +274,84 @@ $form['data']['to'] = array(
 	'#default_value' =>variable_get("nselected_mail",variable_get('site_mail', 'juanhispanocity@gmail.com'))
  );
 
+$form['data']['name'] = array(
+    '#type' => 'textfield',
+    '#length' => 100,
+    '#title' => 'Full name:',
+    '#required' => TRUE,
+	'#weight' => -15,
+ );
+
+	$form['data']['phone'] = array(
+    '#type' => 'textfield',
+    '#length' => 30,
+    '#maxlength' => 255,
+    '#title' => 'Phone number:',
+	'#required' => TRUE,
+  );
+
+  $form['data']['email'] = array(
+		'#title' => t('E-mail'),
+		'#type' => 'textfield',
+		'#length' => 30,
+	    '#maxlength' => 255,
+		'#required' => TRUE,
+  );
+
+  $form['data']['company'] = array(
+		'#title' => "Company Name: ",
+		'#type' => 'textfield',
+		'#length' => 30,
+	    '#maxlength' => 255,
+  );
+
+   $form['data']['type'] = array(
+		'#title' => "Type of event: ",
+		'#type' => 'textfield',
+		'#length' => 30,
+	    '#maxlength' => 255,
+		'#required' => TRUE,
+  );
+
+ $form['data']['date'] = array(
+		'#title' => "Date of event: ",
+		'#type' => 'textfield',
+		'#length' => 30,
+	    '#maxlength' => 255,
+		'#required' => TRUE,
+  );
+
+   $form['data']['timestart'] = array(
+		'#title' => "Event Start Time: ",
+		'#type' => 'textfield',
+		'#length' => 30,
+	    '#maxlength' => 255,
+		'#required' => TRUE,
+  );
+
+   $form['data']['timeend'] = array(
+		'#title' => "Event End Time: ",
+		'#type' => 'textfield',
+		'#length' => 30,
+	    '#maxlength' => 255,
+		'#required' => TRUE,
+  );
+
+ $form['data']['message'] = array(
+		'#title' => t('Message'),
+		'#type' => 'textarea',
+		'#required' => TRUE,
+		  );
+
+$form['data']["captcha"] = array(
+"#type"=>"captcha",
+);
+
+	 $form['data']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Send your Reservation',
+	"#weight"=>100,
+  );
 
   return $form;
 
@@ -950,29 +1028,28 @@ function node_selection_related_products () {
 
 function node_selection_reserved_list ()
 {
-//	$contador = 0;
-//	$isFirst = true;
-//	$html = '<div class="rl-rows ">';
-//	$nodes = $_SESSION["nodes"];
-//
-//	// Crear los grupos de a 4
-//	forEach ($nodes as $nid) {
-//		if ($isFirst) {
-//			$isFirst = false;
-//		}
-//		$html .= '<div class="row-item">';
-//		$html .= render(node_view(node_load($nid), 'reserved_list'));
-//		$html .= '</div>';
-//		print $nid;
-//	}
-//
-//	$html .= '</div>';
-//
-//	if ($isFirst) {
-//		$html = "No products reserved. Please visit our <a href='/'>catalog</a>";
-//	}
+	$contador = 0;
+	$isFirst = true;
+	$html = '<div class="rl-rows ">';
+	$nodes = $_SESSION["nodes"];
 
-	print 1;
+	// Crear los grupos de a 4
+	forEach ($nodes as $nid) {
+		if ($isFirst) {
+			$isFirst = false;
+		}
+		$html .= '<div class="row-item">';
+		$html .= render(node_view(node_load($nid), 'reserved_list'));
+		$html .= '</div>';
+	}
+
+	$html .= '</div>';
+
+	if ($isFirst) {
+		$html = "No products reserved. Please visit our <a href='/'>catalog</a>";
+	}
+
+	print $html;
 }
 
 function node_selection_reserved_list_button ($nid) {
