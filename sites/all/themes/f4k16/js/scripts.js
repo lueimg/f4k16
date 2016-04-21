@@ -13,7 +13,7 @@ jQuery(function () {
 
   //jQuery('.search-box #edit-taxonomy-catalog-tid-wrapper select').attr('size', '11');
 
-  jQuery('.rp-cantidad-input').keyup(function () {
+  jQuery('.page-nselect-form .rp-cantidad-input').keyup(function () {
     var node = jQuery(this).attr("nid");
     var quantity = jQuery(this).val();
     var path = '/nselect/updatequatity/' + node + '/' + quantity;

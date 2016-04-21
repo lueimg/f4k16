@@ -130,7 +130,7 @@ function node_selection_boton(){
 		$boton ="<a class='node-selection-link add ajax' path='/nselect/add/$nid' nid ='$nid'>".variable_get("nselected_addtext","Add to list")."</a>";
 	}else{
 //	$boton ="<a class='node-selection-link delete ajax' path='/nselect/delete/$nid'  nid ='$nid'>".variable_get("nselected_deltext","Add to list")."</a>";
-		$boton .="  <a class='node-selection-link goto' href='/nselect/form'><i class='fa fa-calendar-o'></i> Reserve NOW</a>";
+		$boton .="  <a class='node-selection-link goto' href='/nselect/form'><i class='fa fa-calendar-o'></i>Reserve Now</a>";
 //		$boton .="<div><a href='/catalog' class='continue shopping'>Continue shopping</a></div>";
 	}
 
@@ -143,22 +143,43 @@ function node_selection_boton(){
 
 function node_selection_boton_by_nid($nid){
 
-	//$nid = arg(1);
+	//$url_nid = arg(1);
 
 	$selected = in_array($nid, $_SESSION["nodes"]);
-//	$selected = FALSE;
 	$boton = '';
 	if(!$selected){
-		$boton ="<a class='node-selection-link add ajax' path='/nselect/add/$nid' nid ='$nid'>".variable_get("nselected_addtext","Add to list")."</a>";
+		$boton ="<a class='node-selection-link add ajax' path='/nselect/add/$nid' nid ='$nid'>"
+			.variable_get("nselected_addtext","Add to list")."</a>";
 	}else{
-//		$boton ="<a class='node-selection-link delete ajax' path='/nselect/delete/$nid'  nid ='$nid'>".variable_get("nselected_deltext","Add to list")."</a>";
-		$boton .="  <a class='node-selection-link goto' href='/nselect/form'><i class='fa fa-calendar-o'></i> Reserve NOW</a>";
-//		$boton .="<div><a href='/' class='continue shopping'>Continue shopping</a></div>";
+		$boton .="  <a class='node-selection-link goto' href='/nselect/form'> "
+			."<i class='fa fa-calendar-o'></i> Reserve Now</a>";
 	}
 
-	//$boton.=node_selection_script();
 	return $boton;
 
+}
+
+function node_selection_boton_by_nid_fullpage($nid) {
+
+
+	$selected = in_array($nid, $_SESSION["nodes"]);
+	$boton = '';
+	if(!$selected){
+		$boton ="<a class='node-selection-link add ajax' path='/nselect/add/$nid' nid ='$nid'>"
+			.variable_get("nselected_addtext","Add to list")."</a>";
+	}else{
+		$boton .="  <a class='node-selection-link goto' href='/nselect/form'> "
+			."<i class='fa fa-calendar-o'></i> Reserve Now</a>";
+	}
+
+	$value = $_SESSION["nodesquantity"][$nid];
+	if (!$value) {
+		$value = '01';
+	}
+
+	$contador = "<input  nid ='$nid' type='number' value='$value' class='rp-cantidad-input' disabled>";
+
+	return $contador.$boton;
 }
 
 
@@ -178,7 +199,7 @@ function node_selection_load(){
 		$boton ="<a class='node-selection-link add ajax' path='/nselect/add/$nid' nid ='$nid'>".variable_get("nselected_addtext","Add to list")."</a>";
 	}else{
 //		$boton ="<a class='node-selection-link delete ajax' path='/nselect/delete/$nid' nid ='$nid'>".variable_get("nselected_deltext","Add to list")."</a>";
-		$boton .="  <a class='node-selection-link goto' href='/nselect/form'><i class='fa fa-calendar-o'></i> Reserve NOW</a>";
+		$boton .="  <a class='node-selection-link goto' href='/nselect/form'><i class='fa fa-calendar-o'></i> Reserve Now</a>";
 //		$boton .="<div><a href='$url' class='continue shopping'>Continue shopping</a></div>";
 	}
 	//print node_selection_script();
@@ -195,6 +216,9 @@ function node_selection_script(){
 
 	/*** add to list  ***/
 	jQuery("a.ajax").click(function() {
+	var pageProduct = jQuery(".page-node.node-type-productv2");
+	var isPageProduct = pageProduct.length > 0;
+
 
 		var nid  = jQuery(this).attr("nid");
 		var path = jQuery(this).attr("path");
@@ -204,6 +228,15 @@ function node_selection_script(){
 
 		jQuery.get(path,{ name: Math.floor(Math.random()*11) },function(data){
    			jQuery.get("/nselect/load/"+nid,{ name: Math.floor(Math.random()*11) }, function(dt){ jQuery(self).parent().html(dt); });
+ 			if (isPageProduct) {
+				var quantity = jQuery(".rp-cantidad-input").val();
+				var node = jQuery(".rp-cantidad-input").attr("nid");
+				var path = "/nselect/updatequatity/" + node + "/" + quantity;
+ 				jQuery.get(path,{ name: Math.floor(Math.random()*11) },function(data){
+        		console.log("done: " +path);
+      });
+ 			}
+
  		});
  		jQuery(self).ajaxComplete(function() {
         	jQuery("span.count.ajax").ajaxStart(function() { jQuery(self).html("'.$img_load.'"); });
@@ -456,6 +489,7 @@ function node_selection_add(){
 function node_selection_delete(){
 	$nid = arg(2);
 	unset($_SESSION["nodes"][$nid]);
+	unset($_SESSION["nodesquantity"][$nid]);
 	return;
 }
 
