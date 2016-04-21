@@ -1023,7 +1023,7 @@ function node_selection_related_products () {
 
 
 	print $html;
-	jcarousel_add('jq-related-products', array('visible'=>4, 'wrap'=>'circular', 'scroll'=>1));
+	//jcarousel_add('jq-related-products', array('visible'=>4, 'wrap'=>'circular', 'scroll'=>1));
 }
 
 function node_selection_reserved_list ()
