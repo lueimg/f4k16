@@ -1004,22 +1004,22 @@ function node_selection_related_products () {
 
 	$prods = $node->field_related_products['und'];
 	$html = '<ul class="jq-related-products jcarousel-skin-default">';
+//
+//	// Crear los grupos de a 4
+//	forEach($prods as $record) {
+//		if ($record['nid']) {
+//			$nodeload = node_load($record['nid']);
+//			if ($nodeload) {
+//				$html .= '<li>';
+//				$html .= render(node_view($nodeload, 'product_list'));
+//				$html .= '</li>';
+//			}
+//
+//		}
+//
+//	}
 
-	// Crear los grupos de a 4
-	forEach($prods as $record) {
-		if ($record['nid']) {
-			$nodeload = node_load($record['nid']);
-			if ($nodeload) {
-				$html .= '<li>';
-				$html .= render(node_view($nodeload, 'product_list'));
-				$html .= '</li>';
-			}
-
-		}
-
-	}
-
-	$html .= '</html>';
+	$html .= '</ul>';
 
 
 	print $html;
