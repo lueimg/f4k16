@@ -1050,7 +1050,7 @@ function node_selection_reserved_list ()
 //		$html = "No products reserved. Please visit our <a href='/'>catalog</a>";
 //	}
 
-	print $html;
+	print 1;
 }
 
 function node_selection_reserved_list_button ($nid) {
