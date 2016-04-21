@@ -1004,26 +1004,26 @@ function node_selection_related_products () {
 
 	$prods = $node->field_related_products['und'];
 	$html = '<ul class="jq-related-products jcarousel-skin-default">';
-//
-//	// Crear los grupos de a 4
-//	forEach($prods as $record) {
-//		if ($record['nid']) {
-//			$nodeload = node_load($record['nid']);
-//			if ($nodeload) {
-//				$html .= '<li>';
-//				$html .= render(node_view($nodeload, 'product_list'));
-//				$html .= '</li>';
-//			}
-//
-//		}
-//
-//	}
+
+	// Crear los grupos de a 4
+	forEach($prods as $record) {
+		if ($record['nid']) {
+			$nodeload = node_load($record['nid']);
+			if ($nodeload) {
+				$html .= '<li>';
+				$html .= render(node_view($nodeload, 'product_list'));
+				$html .= '</li>';
+			}
+
+		}
+
+	}
 
 	$html .= '</ul>';
 
 
 	print $html;
-	//jcarousel_add('jq-related-products', array('visible'=>4, 'wrap'=>'circular', 'scroll'=>1));
+	jcarousel_add('jq-related-products', array('visible'=>4, 'wrap'=>'circular', 'scroll'=>1));
 }
 
 function node_selection_reserved_list ()
@@ -1035,12 +1035,13 @@ function node_selection_reserved_list ()
 
 	// Crear los grupos de a 4
 	forEach ($nodes as $nid) {
-		if ($isFirst) {
-			$isFirst = false;
-		}
-		$html .= '<div class="row-item">';
-		$html .= render(node_view(node_load($nid), 'reserved_list'));
-		$html .= '</div>';
+//		if ($isFirst) {
+//			$isFirst = false;
+//		}
+//		$html .= '<div class="row-item">';
+//		$html .= render(node_view(node_load($nid), 'reserved_list'));
+//		$html .= '</div>';
+		print $nid;
 	}
 
 	$html .= '</div>';
@@ -1053,10 +1054,10 @@ function node_selection_reserved_list ()
 }
 
 function node_selection_reserved_list_button ($nid) {
-//	$value = $_SESSION["nodesquantity"][$nid];
-//	if (!$value) {
-//		$value = 1;
-//	}
-//	print "<div class='rp-cantidad'><span class='label-cant'>Quantity</span> <input  nid ='$nid' type='text' value='$value' class='rp-cantidad-input'>";
-//	print "<a class='node-selection-link delete ajax' path='/nselect/delete/$nid'  nid ='$nid'>".variable_get("nselected_deltext","Add to list")."</a>";
+	$value = $_SESSION["nodesquantity"][$nid];
+	if (!$value) {
+		$value = 1;
+	}
+	print "<div class='rp-cantidad'><span class='label-cant'>Quantity</span> <input  nid ='$nid' type='text' value='$value' class='rp-cantidad-input'>";
+	print "<a class='node-selection-link delete ajax' path='/nselect/delete/$nid'  nid ='$nid'>".variable_get("nselected_deltext","Add to list")."</a>";
 }
