@@ -1028,27 +1028,27 @@ function node_selection_related_products () {
 
 function node_selection_reserved_list ()
 {
-	$contador = 0;
-	$isFirst = true;
-	$html = '<div class="rl-rows ">';
-	$nodes = $_SESSION["nodes"];
-
-	// Crear los grupos de a 4
-	forEach ($nodes as $nid) {
+//	$contador = 0;
+//	$isFirst = true;
+//	$html = '<div class="rl-rows ">';
+//	$nodes = $_SESSION["nodes"];
+//
+//	// Crear los grupos de a 4
+//	forEach ($nodes as $nid) {
 //		if ($isFirst) {
 //			$isFirst = false;
 //		}
 //		$html .= '<div class="row-item">';
 //		$html .= render(node_view(node_load($nid), 'reserved_list'));
 //		$html .= '</div>';
-		print $nid;
-	}
-
-	$html .= '</div>';
-
-	if ($isFirst) {
-		$html = "No products reserved. Please visit our <a href='/'>catalog</a>";
-	}
+//		print $nid;
+//	}
+//
+//	$html .= '</div>';
+//
+//	if ($isFirst) {
+//		$html = "No products reserved. Please visit our <a href='/'>catalog</a>";
+//	}
 
 	print $html;
 }
