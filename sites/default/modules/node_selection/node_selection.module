@@ -1053,10 +1053,10 @@ function node_selection_reserved_list ()
 }
 
 function node_selection_reserved_list_button ($nid) {
-	$value = $_SESSION["nodesquantity"][$nid];
-	if (!$value) {
-		$value = 1;
-	}
-	print "<div class='rp-cantidad'><span class='label-cant'>Quantity</span> <input  nid ='$nid' type='text' value='$value' class='rp-cantidad-input'>";
-	print "<a class='node-selection-link delete ajax' path='/nselect/delete/$nid'  nid ='$nid'>".variable_get("nselected_deltext","Add to list")."</a>";
+//	$value = $_SESSION["nodesquantity"][$nid];
+//	if (!$value) {
+//		$value = 1;
+//	}
+//	print "<div class='rp-cantidad'><span class='label-cant'>Quantity</span> <input  nid ='$nid' type='text' value='$value' class='rp-cantidad-input'>";
+//	print "<a class='node-selection-link delete ajax' path='/nselect/delete/$nid'  nid ='$nid'>".variable_get("nselected_deltext","Add to list")."</a>";
 }
