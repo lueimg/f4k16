@@ -323,7 +323,7 @@ body {
             margin-bottom: 10px;
           }
           .tb-megamenu-row {
-            margin-bottom: 30px;
+
             li.level-3 {
               a {
                 text-transform: capitalize;
@@ -725,10 +725,10 @@ body {
     li {
       background: url("../img/sprites-f4k.png") 0 0 no-repeat transparent;
       width: 20px;
-      height: 20px;
+      height: 19px;
       border-radius: 0;
       border: none;
-      background-position: 0 -94px;
+      background-position: 0 -95px;
       &.active {
         background-position: 0 -114px;
       }
@@ -1659,6 +1659,87 @@ body {
   }
 }
 
+
+// order now page header
+#block-block-44 {
+  h1 {
+    text-transform: capitalize;
+    border-bottom: 1px solid @plomo_search_border;
+    font-family: 'Vollkorn' !important;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    letter-spacing: 0.03em;
+    margin-left: 15px;
+    font-size: 2.5em;
+    margin-top: 10px;
+    .mix-segundoBorde();
+  }
+}
+
+
+#node-selection-form {
+  .form-item {
+    width: 45%;
+    display: inline-block;
+    margin-right: 40px;
+
+    .form-control {
+      height: 50px;
+      &.form-textarea {
+        height: 100px;
+      }
+    }
+
+    &.form-type-textarea {
+      width: 95%;
+    }
+  }
+  #edit-submit {
+    background: @rosado_claro;
+    color: #fff;
+    margin: 35px 0;
+    border-radius: 5px;
+    border: none;
+    border-bottom: 1px solid @v2_rosado_oscuro;
+    &:hover {
+      border: none;
+      border-bottom: 1px solid @v2_rosado_oscuro;
+    }
+  }
+}
+
+// contact us
+.page-node-51 {
+  .page-header {
+    margin-top: 30px;
+  }
+  .field-name-body {
+    float: right;
+    width: 30%;
+    display: inline-block;
+  }
+  .webform-client-form {
+    width: 60%;
+    display: inline-block;
+
+    .form-item {
+      width: 43%;
+      display: inline-block;
+      margin-right: 40px;
+      margin-bottom: 15px;
+      &.webform-component-textarea {
+        width: 95%;
+      }
+    }
+    #edit-submit {
+      background: @rosado_claro;
+      color: #fff;
+      margin: 35px 0;
+    }
+  }
+}
+
 #block-views-selected-list-block {
   .block-title {
     font-weight: bold;
@@ -1703,55 +1784,6 @@ body {
     }
   }
 }
-#node-selection-form {
-  .form-item {
-    width: 45%;
-    display: inline-block;
-    margin-right: 40px;
-
-    &.form-type-textarea {
-      width: 95%;
-    }
-  }
-  #edit-submit {
-    background: @rosado_claro;
-    color: #fff;
-    margin: 35px 0;
-  }
-}
-
-// contact us
-.page-node-51 {
-  .page-header {
-    margin-top: 30px;
-  }
-  .field-name-body {
-    float: right;
-    width: 30%;
-    display: inline-block;
-  }
-  .webform-client-form {
-    width: 60%;
-    display: inline-block;
-
-    .form-item {
-      width: 43%;
-      display: inline-block;
-      margin-right: 40px;
-      margin-bottom: 15px;
-      &.webform-component-textarea {
-        width: 95%;
-      }
-    }
-    #edit-submit {
-      background: @rosado_claro;
-      color: #fff;
-      margin: 35px 0;
-    }
-  }
-}
-
-
 #block-views-selected-list-block {
   .block-title {
 
@@ -1771,7 +1803,6 @@ body {
             display: inline-block;
             width: 100px;
           }
-
           .field-name-field-v2-images {
             float: left;
             margin-right: 15px;
@@ -1788,6 +1819,7 @@ body {
               padding: 0;
               font-weight: bold;
               text-transform: uppercase;
+              font-family: Asap !important;
             }
           }
           .field-name-reserved-list-button {
@@ -1812,6 +1844,19 @@ body {
           }
         }
       }
+    }
+  }
+}
+
+
+.page-nselect.page-nselect-form {
+  h1.page-header {
+    font-size: 2em;
+    color: @v2_morado_claro;
+    border: none;
+    font-family: Asap !important;
+    &::after{
+      content: none;
     }
   }
 }
@@ -2105,11 +2150,20 @@ body {
     margin-top: -285px;
     margin-right: 5px;
     .blockcentral-item {
+      &:hover {
+        .triangulo {
+          background-image: url("../img/tlargoamarillo.png");
+        }
+        .texto {
+          color: @v2_negro !important;
+        }
+      }
       a {
         .imagen {
 
         }
         .triangulo {
+          background: url("../img/tlargo.png") no-repeat 0 0 transparent;
           bottom: inherit;
           top: 0;
         }

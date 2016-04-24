@@ -277,56 +277,54 @@ $form['data']['to'] = array(
 $form['data']['name'] = array(
     '#type' => 'textfield',
     '#length' => 100,
-    '#title' => 'Full name:',
+    '#title' => 'Name',
     '#required' => TRUE,
 	'#weight' => -15,
  );
+	$form['data']['type'] = array(
+		'#title' => "Type of event: ",
+		'#type' => 'textfield',
+		'#length' => 30,
+		'#maxlength' => 255,
+		'#required' => TRUE,
+	);
+
+	$form['data']['email'] = array(
+		'#title' => t('E-mail'),
+		'#type' => 'textfield',
+		'#length' => 30,
+		'#maxlength' => 255,
+		'#required' => TRUE,
+	);
+	$form['data']['date'] = array(
+		'#title' => "Date of event: ",
+		'#type' => 'textfield',
+		'#length' => 30,
+		'#maxlength' => 255,
+		'#required' => TRUE,
+	);
 
 	$form['data']['phone'] = array(
     '#type' => 'textfield',
     '#length' => 30,
     '#maxlength' => 255,
-    '#title' => 'Phone number:',
+    '#title' => 'Phone',
 	'#required' => TRUE,
   );
 
-  $form['data']['email'] = array(
-		'#title' => t('E-mail'),
+
+	$form['data']['timestart'] = array(
+		'#title' => "Event Start Time: ",
 		'#type' => 'textfield',
 		'#length' => 30,
-	    '#maxlength' => 255,
+		'#maxlength' => 255,
 		'#required' => TRUE,
-  );
-
+	);
   $form['data']['company'] = array(
 		'#title' => "Company Name: ",
 		'#type' => 'textfield',
 		'#length' => 30,
 	    '#maxlength' => 255,
-  );
-
-   $form['data']['type'] = array(
-		'#title' => "Type of event: ",
-		'#type' => 'textfield',
-		'#length' => 30,
-	    '#maxlength' => 255,
-		'#required' => TRUE,
-  );
-
- $form['data']['date'] = array(
-		'#title' => "Date of event: ",
-		'#type' => 'textfield',
-		'#length' => 30,
-	    '#maxlength' => 255,
-		'#required' => TRUE,
-  );
-
-   $form['data']['timestart'] = array(
-		'#title' => "Event Start Time: ",
-		'#type' => 'textfield',
-		'#length' => 30,
-	    '#maxlength' => 255,
-		'#required' => TRUE,
   );
 
    $form['data']['timeend'] = array(
@@ -1058,5 +1056,5 @@ function node_selection_reserved_list_button ($nid) {
 		$value = 1;
 	}
 	print "<div class='rp-cantidad'><span class='label-cant'>Quantity</span> <input  nid ='$nid' type='text' value='$value' class='rp-cantidad-input'>";
-	print "<a class='node-selection-link delete ajax' path='/nselect/delete/$nid'  nid ='$nid'>".variable_get("nselected_deltext","Add to list")."</a>";
+	print "<a class='node-selection-link delete ajax' path='/nselect/delete/$nid'  nid ='$nid'>" .'<i class="fa fa-trash-o" aria-hidden="true"></i> '.variable_get("nselected_deltext","Add to list")."</a>";
 }
