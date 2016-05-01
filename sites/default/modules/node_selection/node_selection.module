@@ -931,24 +931,16 @@ function node_selection_list_childrenV2($tid) {
 	$html = '';
 
 	if (count($childs) > 0 ) {
-		$html .= "<ul class = 'c-child'>";
-		foreach($childs as $child){
-//			$html .= "<li><a href='#child-".str_replace(" ","-",check_plain($child->name))."'>".$child->name."</a></li>";
-		}
-		$html .="</ul>";
-
-
 		// Imprimir cada lista con su respectivos productos
 		foreach($childs as $child) {
-			$html .= "<h2>".$child->name."</h2>";
-			$html .= views_embed_view('productv2perterm','default', $child->tid);
+			if (count( taxonomy_select_nodes($child->tid)) > 0) {
+				$html .= "<h2>".$child->name."</h2>";
+				$html .= views_embed_view('productv2perterm','default', $child->tid);
+			}
 		}
-
 	} else {
 		$html .= views_embed_view('productv2perterm','default', $tid);
 	}
-
-
 	return $html;
 }
 
@@ -1012,13 +1004,10 @@ function node_selection_related_products () {
 				$html .= render(node_view($nodeload, 'product_list'));
 				$html .= '</li>';
 			}
-
 		}
-
 	}
 
 	$html .= '</ul>';
-
 
 	print $html;
 	jcarousel_add('jq-related-products', array('visible'=>4, 'wrap'=>'circular', 'scroll'=>1));
