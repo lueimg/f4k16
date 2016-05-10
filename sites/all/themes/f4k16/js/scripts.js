@@ -23,4 +23,9 @@ jQuery(function () {
       });
     }
   });
+
+  jQuery('.block-testimonials .jcarousel-container-horizontal .jcarousel-clip-horizontal .jcarousel-item').click(function () {
+    window.location = '/testimonial'
+  });
+
 });
