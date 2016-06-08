@@ -982,7 +982,7 @@ function node_selection_new_ideas_vertical () {
 
 
 	print $html;
-	jcarousel_add('new-ideas-vertical', array('visible'=>1, 'wrap'=>'circular'));
+	jcarousel_add('new-ideas-vertical', array('visible'=>1, 'wrap'=>'both'));
 }
 
 /**
