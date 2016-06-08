@@ -31,7 +31,10 @@ jQuery(function () {
 
   // Add prefix to price product
   var selector = '.not-front.node-type-productv2 .field-name-field-prod-price .field-label';
-  jQuery(selector).text(jQuery(selector).text() + ' $')
+  jQuery(selector).text(jQuery(selector).text() + ' $');
+
+  // related products block , re size if it doesn' have 4 elements
+  jQuery('.jq-related-products .jcarousel-item').css('width', '197px');
 
 
 });

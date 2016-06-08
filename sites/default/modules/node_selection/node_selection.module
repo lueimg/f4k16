@@ -993,24 +993,29 @@ function node_selection_related_products () {
 	$node = node_load(arg(1));
 
 	$prods = $node->field_related_products['und'];
-	$html = '<ul class="jq-related-products jcarousel-skin-default">';
+	if (count($prods)) {
+		$html = '<ul class="jq-related-products jcarousel-skin-default">';
 
-	// Crear los grupos de a 4
-	forEach($prods as $record) {
-		if ($record['nid']) {
-			$nodeload = node_load($record['nid']);
-			if ($nodeload) {
-				$html .= '<li>';
-				$html .= render(node_view($nodeload, 'product_list'));
-				$html .= '</li>';
+		// Crear los grupos de a 4
+		forEach($prods as $record) {
+			if ($record['nid']) {
+				$nodeload = node_load($record['nid']);
+				if ($nodeload) {
+					$html .= '<li>';
+					$html .= render(node_view($nodeload, 'product_list'));
+					$html .= '</li>';
+				}
 			}
 		}
+
+		$html .= '</ul>';
+
+		print $html;
+		$visibleItems = count($prods) >= 4 ? 4 : count($prods);
+		jcarousel_add('jq-related-products', array('visible'=> $visibleItems, 'wrap'=>'circular', 'scroll'=>1));
+	} else {
+		print 'Opps!, There is no related products yet.';
 	}
-
-	$html .= '</ul>';
-
-	print $html;
-	jcarousel_add('jq-related-products', array('visible'=>4, 'wrap'=>'circular', 'scroll'=>1));
 }
 
 function node_selection_reserved_list ()
