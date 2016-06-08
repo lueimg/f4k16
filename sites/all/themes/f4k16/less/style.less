@@ -12,6 +12,7 @@
 
 @import url(https://fonts.googleapis.com/css?family=Asap:700,400);
 @import url(https://fonts.googleapis.com/css?family=Vollkorn:700,400);
+@import url(https://fonts.googleapis.com/css?family=Courgette);
 
 @v2_morado_claro: #B91D98;
 @v2_morado_oscuro: #99117D;
@@ -53,6 +54,10 @@
 
 .fontAsap() {
   font-family: 'Asap' !important;
+}
+
+.fontPrice() {
+  font-family: 'Courgette', cursive !important;
 }
 
 .mix-segundoBorde() {
@@ -990,12 +995,13 @@ body {
   .field-name-field-prod-price {
     div {
       display: inline-block;
+      text-decoration: underline !important;
     }
     text-align: center;
     color: @v2_morado_claro !important;
-    text-decoration: underline !important;
     font-size: 2em;
     margin: 15px 0 35px;
+    .fontPrice();
   }
   .field-name-body {
     display: inline-block;

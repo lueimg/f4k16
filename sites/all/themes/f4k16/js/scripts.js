@@ -24,8 +24,14 @@ jQuery(function () {
     }
   });
 
+  // Home testimonial, redirect any click
   jQuery('.block-testimonials .jcarousel-container-horizontal .jcarousel-clip-horizontal .jcarousel-item').click(function () {
     window.location = '/testimonial'
   });
+
+  // Add prefix to price product
+  var selector = '.not-front.node-type-productv2 .field-name-field-prod-price .field-label';
+  jQuery(selector).text(jQuery(selector).text() + ' $')
+
 
 });
