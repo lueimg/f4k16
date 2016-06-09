@@ -37,4 +37,25 @@ jQuery(function () {
   jQuery('.jq-related-products .jcarousel-item').css('width', '197px');
 
 
+  // Resize or another width page
+  var currentWidth = jQuery( window ).width();
+
+  function valideElementsWithWidth() {
+    if (currentWidth < 1200) {
+      jQuery('#block-views-central-block-block .views-row-5').hide()
+    } else {
+      jQuery('#block-views-central-block-block .views-row-5').show()
+    }
+    //console.log(currentWidth);
+  }
+
+  // on resize
+  jQuery( window ).resize(function() {
+    currentWidth = jQuery( window ).width();
+    valideElementsWithWidth();
+  });
+
+  valideElementsWithWidth();
+
+
 });
