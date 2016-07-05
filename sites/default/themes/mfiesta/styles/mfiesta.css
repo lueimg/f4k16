@@ -8,10 +8,10 @@ h4.text.blank.small {
   padding-left: 10px;
 }
 li.orange {
-  background: #f58c21;
+  background: #01aef0;
 }
 li.blue {
-  background: #01aef0;
+  background: #b91d98;
 }
 li.pink {
   background: #ed1777;
@@ -37,7 +37,7 @@ h1.page-title.pink {
   background: #ed1777;
 }
 h1.page-title.blue {
-  background: #01aef0;
+  background: #b91d98;
 }
 div.main-content {
   padding: 0px;
@@ -56,7 +56,7 @@ h1.product-title {
   color: #fff;
   font-size: 18px;
   text-transform: uppercase;
-  background: #01aef0;
+  background: #b91d98;
   padding: 5px;
   margin: 0;
 }
@@ -183,7 +183,7 @@ textarea.ui-input-text {
   background: #e9e9e9;
 }
 .list .ui-listview li.ui-btn-active {
-  background: #f58c21;
+  background: #01aef0;
 }
 .swipe {
   overflow: hidden;
