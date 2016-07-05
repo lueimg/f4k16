@@ -1,5 +1,4 @@
 <?php
-session_start();
 
  function empty_front_page_menu_alter(&$items) {
    $items['node']['page callback'] = 'empty_front_page_callback';
