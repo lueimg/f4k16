@@ -115,7 +115,7 @@
             <li><a href="/form/contact-us" >Contact</a></li>
         </ul>
             <ul>
-                <li><a href="/disallowredirect" >View full site</a></li>
+                <li><a href="http://fiestarentals.ca/disallowredirect" >View full site</a></li>
             </ul>
         </nav>
     </div> <!-- /#footer -->
