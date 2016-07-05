@@ -73,7 +73,7 @@
 ?>
 
       <a href="http://m.fiesta4kids.com/" data-role="button" class="logo" data-corners="false" style="border: 0px none; margin: 0px; padding: 0px;width: 100%;">
-        <img src="/sites/default/themes/mfiesta/images/background_interior-logo.png" alt="<?php print t('Home'); ?>" style="width: 100%" />
+        <img src="/sites/default/files/logo.jpg" alt="<?php print t('Home'); ?>" style="width: 100%" />
       </a>
       </div> <!-- /#header -->
 

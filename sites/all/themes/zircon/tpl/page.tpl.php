@@ -85,7 +85,7 @@
 }
             </style>
             <div itemscope itemtype="http://schema.org/ShoppingCenter">
-              <a itemprop="url" href="http://fiesta4kids.com/" href="<?php print $front_page; ?>" title="<?php print t('Fiesta Rentals'); ?>" id="logo">
+              <a itemprop="url" href="http://fiestarentals.ca/" href="<?php print $front_page; ?>" title="<?php print t('Fiesta Rentals'); ?>" id="logo">
                 <img itemprop="logo" src="/sites/all/themes/zircon/images/f4k_logo.png" alt="<?php print ('Fiesta Rentals'); ?>" />
               </a>
             </div>
@@ -274,23 +274,23 @@
             <div style="float: left;margin-left: 100px;" xmlns:v="http://rdf.data-vocabulary.org/#">
 
               <span typeof="v:Breadcrumb">
-                <a rel="v:url" property="v:title" href="http://www.fiesta4kids.com/catalog/11">Bouncy Castles</a> >
+                <a rel="v:url" property="v:title" href="/catalog/11">Bouncy Castles</a> >
               </span>
 
 
               <span typeof="v:Breadcrumb">
-                <a rel="v:url" property="v:title" href="http://www.fiesta4kids.com/catalog-event/64">Corporate Events</a> >
+                <a rel="v:url" property="v:title" href="catalog-event/64">Corporate Events</a> >
               </span>
 
 
               <span typeof="v:Breadcrumb">
-                <a rel="v:url" property="v:title" href="http://www.fiesta4kids.com/catalog-event/65">Birthday Parties</a> >
+                <a rel="v:url" property="v:title" href="/catalog-event/65">Birthday Parties</a> >
               </span>
 
 
 
               <span typeof="v:Breadcrumb">
-                <a rel="v:url" property="v:title" href="http://www.fiesta4kids.com/catalog/12">Fun Food Machines</a> 
+                <a rel="v:url" property="v:title" href=/catalog/12">Fun Food Machines</a>
               </span>
 
             </div>

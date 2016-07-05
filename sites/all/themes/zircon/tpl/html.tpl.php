@@ -93,7 +93,7 @@ margin-right:100px
     <!-- //META FOR IOS & HANDHELD -->
      <link rel="publisher" href="https://plus.google.com/110081187329690512195/about " />
      
-     <script src="http://fiesta4kids.com/sites/all/themes/zircon/js/jquery.min.js"></script>
+     <script src="/sites/all/themes/zircon/js/jquery.min.js"></script>
     <?php  #if (drupal_is_front_page()) { ?>    
    
     

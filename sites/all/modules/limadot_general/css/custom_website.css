@@ -1,6 +1,6 @@
-@font-face{font-family:'CondBold';src:url('http://fiesta4kids.com/sites/all/modules/limadot_general/css/fonts/CondBold.ttf');}
-@font-face{font-family:'CondLight';src:url('http://fiesta4kids.com/sites/all/modules/limadot_general/css/fonts/CondLight.ttf');}
-@font-face{font-family:'CondLightItalic';src:url('http://fiesta4kids.com/sites/all/modules/limadot_general/css/fonts/CondLightItalic.ttf');}
+@font-face{font-family:'CondBold';src:url('http://fiestarentals.ca/sites/all/modules/limadot_general/css/fonts/CondBold.ttf');}
+@font-face{font-family:'CondLight';src:url('http://fiestarentals.ca/sites/all/modules/limadot_general/css/fonts/CondLight.ttf');}
+@font-face{font-family:'CondLightItalic';src:url('http://fiestarentals.ca/sites/all/modules/limadot_general/css/fonts/CondLightItalic.ttf');}
 body{font-family:condlight;background-image:-ms-linear-gradient(bottom, #FFFFFF 41%, #FFFFFF 100%, #FFFFFF 10%) !important;background-image:-moz-linear-gradient(bottom, #FFFFFF 41%, #FFFFFF 100%, #FFFFFF 10%) !important;background-image:-o-linear-gradient(bottom, #FFFFFF 41%, #FFFFFF 100%, #FFFFFF 10%) !important;background-image:-webkit-gradient(linear, left bottom, left top, color-stop(0.41, #FFFFFF), color-stop(1, #CCCCCC), color-stop(0.1, #FFFFFF)) !important;background-image:-webkit-linear-gradient(bottom, #FFFFFF 41%, #FFFFFF 100%, #FFFFFF 10%) !important;background-image:linear-gradient(to top, #FFFFFF 41%, #FFFFFF 100%, #FFFFFF 10%) !important;}
 #main-content a{color:#AA354C;}
 li#menu-838-1{background-color:#e50f72 !important;}
