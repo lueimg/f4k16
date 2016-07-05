@@ -29,7 +29,19 @@ function empty_front_page_menu(){
     'type' => MENU_CALLBACK,
   );
 
+	$items['disallowredirect'] = array(
+		'title' => '',
+		'page callback' => 'empty_front_page_disallowredirect',
+		'access arguments' => array('access content'),
+		'type' => MENU_CALLBACK,
+	);
+
 	 return $items;
+}
+
+function empty_front_page_disallowredirect() {
+	$_SESSION['disallowredirect'] = true;
+	header('Location: http://fiestarentals.ca');
 }
 
 function empty_front_page_home(){
@@ -261,16 +273,19 @@ function empty_front_page_init(){
 	$isMobile_device = mobile_detect();
 	$do = domain_get_domain();
 
-//	// Perform a redirection if a mobile device is detected
-//	if ($do['domain_id'] == 1 && $isMobile_device) {
-//		header('Location: http://m.fiestarentals.com');
-//		exit();
-//	} elseif($do['domain_id'] == 2 && !$isMobile_device) {
-//		header('Location: http://fiestarentals.com');
-//		exit();
-//	} else {
-//		//behavior as usual
-//	}
+	if (!$_SESSION['disallowredirect']) {
+		// Perform a redirection if a mobile device is detected
+		if ($do['domain_id'] == 1 && $isMobile_device) {
+			header('Location: http://m.fiestarentals.ca');
+			exit();
+		} elseif($do['domain_id'] == 2 && !$isMobile_device) {
+			header('Location: http://fiestarentals.ca');
+			exit();
+		} else {
+			//behavior as usual
+		}
+	}
+
 }
 
 

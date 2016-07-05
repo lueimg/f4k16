@@ -73,7 +73,7 @@
         print node_selection_block_content(); }
 ?>
 
-          <img data-link="/" src="/sites/default/themes/mfiesta/images/background_logo.png" alt="<?php print t('Home'); ?>" style="width: 100%" />
+          <img data-link="/" src="/sites/default/files/logo.jpg" alt="<?php print t('Home'); ?>" style="width: 100%" />
         
     
       </div> <!-- /#header -->
@@ -114,6 +114,9 @@
             <li><a href="/nselect/form" >Reserve</a></li>
             <li><a href="/form/contact-us" >Contact</a></li>
         </ul>
+            <ul>
+                <li><a href="/disallowredirect" >View full site</a></li>
+            </ul>
         </nav>
     </div> <!-- /#footer -->
 
