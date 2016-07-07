@@ -175,7 +175,7 @@ textarea.ui-input-text {
   background: #2e2e2e;
 }
 .ui-footer .ui-navbar li .ui-btn-active {
-  background: linear-gradient(#5393c5, #6facd5) repeat scroll 0% 0% #5393c5;
+  background: #fd037a;
 }
 .ui-footer .ui-navbar li .ui-btn-inner {
   border-top: none;
@@ -288,5 +288,5 @@ textarea.ui-input-text {
   color: #fff !important;
 }
 .ui-btn-up-a {
-  background: #fd037a;
+  background: #fd037a !important;
 }
