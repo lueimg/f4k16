@@ -103,7 +103,7 @@
       <?php print render($page['footer']); ?>
       <nav data-role="navbar">
         <ul>
-            <li><a href="/about-fiesta-4-kids" >About Us</a></li>
+            <li><a href="/about-fiesta-4-kids-fiesta-rentals" >About Us</a></li>
             <li><a href="/party-rental-toronto" >Service</a></li>
             <li><a href="/faq-page" >FAQ</a></li>
         </ul>
