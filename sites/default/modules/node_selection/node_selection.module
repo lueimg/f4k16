@@ -102,7 +102,8 @@ function node_selection_block_content(){
 
 	$html .="<div class='select-list'>";
 	$html .="<div class='select-header'>
-<span class='text'>Your items </span>	( <span class='count ajax'>".node_selection_contador_nodes()."</span> )<span class='view-nodes oculto'>  </span>
+<span class='text'>Your items </span>	( <span class='count ajax'>".
+		node_selection_contador_nodes()."</span> )<span class='view-nodes oculto'>  </span>
 	</div>";
 	$html .="<div class='select-nodes no-active ajax'></div>";
 	$html .="<div class='select-links'>
@@ -127,7 +128,8 @@ function node_selection_boton(){
 	$boton = '';
 
 	if(!$selected){
-		$boton ="<a class='node-selection-link add ajax' path='/nselect/add/$nid' nid ='$nid'>".variable_get("nselected_addtext","Add to list")."</a>";
+		$boton ="<a class='node-selection-link add ajax' path='/nselect/add/$nid' nid ='$nid'>".
+			variable_get("nselected_addtext","Add to list")."</a>";
 	}else{
 //	$boton ="<a class='node-selection-link delete ajax' path='/nselect/delete/$nid'  nid ='$nid'>".variable_get("nselected_deltext","Add to list")."</a>";
 		$boton .="  <a class='node-selection-link goto' href='/nselect/form'><i class='fa fa-calendar-o'></i>Reserve Now</a>";
