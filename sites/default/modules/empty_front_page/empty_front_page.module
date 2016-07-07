@@ -283,18 +283,18 @@ function empty_front_page_init(){
 	}
     print_r($_SESSION['mobileredirec']);
 
-	if (!$_SESSION['mobileredirec']['viewPageFromMobil']) {
-		// Perform a redirection if a mobile device is detected
-		if ($do['domain_id'] == 1 && $isMobile_device) {
-			header('Location: http://m.fiestarentals.ca');
-			exit();
-		} elseif($do['domain_id'] == 2 && !$isMobile_device) {
-			header('Location: http://fiestarentals.ca');
-			exit();
-		} else {
-			//behavior as usual
-		}
-	}
+//	if (!$_SESSION['mobileredirec']['viewPageFromMobil']) {
+//		// Perform a redirection if a mobile device is detected
+//		if ($do['domain_id'] == 1 && $isMobile_device) {
+//			header('Location: http://m.fiestarentals.ca');
+//			exit();
+//		} elseif($do['domain_id'] == 2 && !$isMobile_device) {
+//			header('Location: http://fiestarentals.ca');
+//			exit();
+//		} else {
+//			//behavior as usual
+//		}
+//	}
 
 }
 
