@@ -277,7 +277,7 @@ function empty_front_page_init(){
 
     print_r($_SESSION['mobileredirec']);
 
-	if(empty($_SESSION['mobileredirec'])) {
+	if(empty($_SESSION['mobileredirec']['viewPageFromMobil'])) {
 		$_SESSION['mobileredirec']['viewPageFromMobil'] = 0;
 	}
     print_r($_SESSION['mobileredirec']);
