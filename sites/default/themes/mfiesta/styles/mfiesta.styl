@@ -6,6 +6,15 @@ celeste = #B91D98;
 rosado = #ED1777;
 selectBackground = #fd037a;
 backgroundPage = #f8f9fa;
+borderSearchHome = #e1e2e3;
+menuFooterItem = #e5e6e7;
+menuFooterItemColor =  #403737;
+menuFooterItemBorder =  #b60e51;
+
+
+
+body
+	font-family: sans-serif !important;
 
 h4
 	&.text.blank.small
@@ -24,14 +33,18 @@ li
 		background rosado
 
 li.padb
-	margin-bottom: 10px !important;
+	margin-bottom: 15px !important;
+	border: none;
 .type-home
 	.ui-li 
 		.ui-btn-inner 
 			a
 				&.ui-link-inherit
-					padding 0.9em 15px
-					font-weight: bold
+					padding: 0.5em 15px;
+					font-weight: bold;
+					text-shadow: none;
+					font-family: sans-serif !important;
+					font-size: 1.5em;
 
 
 #block-search-form
@@ -103,7 +116,7 @@ h1.product-title
 	text-shadow: none;
 	width: 100%;
 	margin 0 10px
-	border-radius 20px
+	border-radius 0px
 #edit-title-wrapper
 	padding: 0;
 	width: 95%;
@@ -190,7 +203,11 @@ textarea.ui-input-text
 				border-top none
 				border-bottom 1px solid #818181
 				.ui-btn-text
-					font-family : arial;
+					font-family arial
+					text-shadow none;
+					color menuFooterItemColor
+					line-height 2em
+					font-size 1.3em
 
 .list 
 	.ui-listview 
@@ -274,3 +291,18 @@ textarea.ui-input-text
 				text-transform: uppercase;
 .ui-bar-a
 	background none
+
+.ui-grid-b
+	.ui-btn-active
+		a
+		span
+			background selectBackground
+			display inline-block
+			border-bottom 1px solid menuFooterItemBorder
+	li
+		span
+			background menuFooterItem
+
+.ui-grid-solo
+	.ui-block-a a span span
+		color #fff !important
