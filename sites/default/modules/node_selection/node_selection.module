@@ -144,7 +144,7 @@ function node_selection_boton(){
 function node_selection_boton_by_nid($nid){
 
 	//$url_nid = arg(1);
-
+print_r($_SESSION["nodes"]);
 	$selected = in_array($nid, $_SESSION["nodes"]);
 	$boton = '';
 	if(!$selected){
