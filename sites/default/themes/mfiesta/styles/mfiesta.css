@@ -182,7 +182,7 @@ textarea.ui-input-text {
   border-bottom: 1px solid #818181;
 }
 .ui-footer .ui-navbar li .ui-btn-inner .ui-btn-text {
-  font-family: arial;
+  font-family: 'arial';
   text-shadow: none;
   color: #403737;
   line-height: 2em;
