@@ -274,6 +274,8 @@ function empty_front_page_init(){
 	$isMobile_device = mobile_detect();
 	$do = domain_get_domain();
 
+    print_r($_SESSION['mobileredirec']);
+
 	if(empty($_SESSION['mobileredirec'])) {
 		$_SESSION['mobileredirec']['viewPageFromMobil'] = false;
 	}
