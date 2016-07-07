@@ -270,3 +270,11 @@ textarea.ui-input-text {
 .ui-bar-a {
   background: none;
 }
+.ui-grid-b .ui-btn-active span {
+  background: #fd037a;
+  display: inline-block;
+  border-bottom: 1px solid #b60e51;
+}
+.ui-grid-b li span {
+  background: #e5e6e7;
+}
