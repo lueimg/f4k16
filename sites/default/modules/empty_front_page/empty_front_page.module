@@ -180,8 +180,8 @@ function empty_front_page_view_producto($nid, $tid, $vid){
 	
 	$title = "<h1 class='product-title'>$nod->title</h1>";
 	$images = '';
-	if(count($nod->uc_product_image['und']) > 0 ){
-		$imgs = $nod->uc_product_image['und'];
+	if(count($nod->field_v2_images['und']) > 0 ){
+		$imgs = $nod->field_v2_images['und'];
 		foreach ($imgs as $img) {
 			$img_url = $img['uri'];
 			$img = image_style_url("large", $img_url);
@@ -197,7 +197,7 @@ function empty_front_page_view_producto($nid, $tid, $vid){
 
 	$detail = $nod->field_detalle_2['und'][0]['value'];
 
-	$price = "<div class='price'>Price: $".round($nod->price,2)."</div>";
+	$price = "<div class='price'>Price: $".round($nod->field_prod_price['und'][0]['value'] ,2)."</div>";
 
 	$buttons  = node_selection_boton_by_nid($nod->nid);
 
