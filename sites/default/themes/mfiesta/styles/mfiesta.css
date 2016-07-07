@@ -279,10 +279,14 @@ textarea.ui-input-text {
   background: #fd037a;
   display: inline-block;
   border-bottom: 1px solid #b60e51;
+  color: #fff;
 }
 .ui-grid-b li span {
   background: #e5e6e7;
 }
 .ui-grid-solo .ui-block-a a span span {
   color: #fff !important;
+}
+.ui-btn-up-a {
+  background: #fd037a;
 }
