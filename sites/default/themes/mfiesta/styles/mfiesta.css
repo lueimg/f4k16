@@ -1,3 +1,6 @@
+body {
+  font-family: sans-serif !important;
+}
 h4.text.blank.small {
   font-size: 13px;
   color: #000;
@@ -15,11 +18,15 @@ li.pink {
   background: #ed1777;
 }
 li.padb {
-  margin-bottom: 10px !important;
+  margin-bottom: 15px !important;
+  border: none;
 }
 .type-home .ui-li .ui-btn-inner a.ui-link-inherit {
-  padding: 0.9em 15px;
+  padding: 0.5em 15px;
   font-weight: bold;
+  text-shadow: none;
+  font-family: sans-serif !important;
+  font-size: 1.5em;
 }
 #block-search-form {
   width: 100%;
@@ -91,7 +98,7 @@ h1.product-title {
   text-shadow: none;
   width: 100%;
   margin: 0 10px;
-  border-radius: 20px;
+  border-radius: 0px;
 }
 #edit-title-wrapper {
   padding: 0;
