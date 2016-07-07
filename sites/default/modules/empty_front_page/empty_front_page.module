@@ -143,8 +143,8 @@ function empty_front_page_lista_productos($vid, $tid) {
 		$img= '';
 		$node = node_load($row->nid);
 		$lista .= "<li>";
-		if(!empty($node->uc_product_image)){
-			$img_url = $node->uc_product_image['und'][0]['uri'];
+		if(!empty($node->field_v2_images)){
+			$img_url = $node->field_v2_images['und'][0]['uri'];
 			$img = image_style_url("mobile_thumb", $img_url);
 			$lista .= "<img style=\"float: left;\" src=\"".$img."\">";
 		}
