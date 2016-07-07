@@ -174,7 +174,7 @@ function empty_front_page_view_producto($nid, $tid, $vid){
 	
 	$breadcrumb = "<div class='breadcrumb'> 
 	<a href='/'>Home</a> / 
-	<a href='/list/$voc->vid'>$voc->name</a>/ 
+	<a href='/list/$voc->vid'>$voc->name</a> /
 	<a href='/list/$voc->vid/$tax->tid'>$tax->name</a> /
 	</div>";
 	

@@ -480,7 +480,7 @@ jQuery(this).parent().parent().remove();
 function node_selection_add(){
 	$nid = arg(2);
 	$_SESSION["nodes"][$nid] = $nid;
-	return;
+	return true;
 }
 
 
