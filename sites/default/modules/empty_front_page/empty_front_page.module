@@ -40,6 +40,7 @@ function empty_front_page_menu(){
 }
 
 function empty_front_page_disallowredirect() {
+    print_r(array('aqui estoy'));
 	$_SESSION['mobileredirec']['viewPageFromMobil'] = true;
 	header('Location: http://fiestarentals.ca');
 	return true;
