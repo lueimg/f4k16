@@ -1,6 +1,11 @@
+// stylus -w mfiesta.styl -o mfiesta.css
+
+
 naranja = #01AEF0;
 celeste = #B91D98;
 rosado = #ED1777;
+selectBackground = #fd037a;
+backgroundPage = #f8f9fa;
 
 h4
 	&.text.blank.small
@@ -8,7 +13,7 @@ h4
 		color #000
 		font-weight: normal
 		padding-left: 10px
-	  	text-shadow none
+		text-shadow none
 
 li 
 	&.orange
@@ -246,39 +251,26 @@ textarea.ui-input-text
   
 .page
 	.select-list
-		background #F85D0B
+		background selectBackground
 		padding 10px
 		text-align center
+		font-size 1em
+		line-height 2em
 		div
 			display inline-block
 			a
 				color #fff !important
 		.select-header
+			color #fff
+			text-shadow none
 			font-weight normal
-			padding-left 30px
+			padding-left 40px
 			background url('../images/shoppingcart.png') no-repeat center left transparent
 		.select-links
-			padding-left 5px
+			padding-left 25px
 			a
-				text-decoration none 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+				text-decoration none
+				text-shadow: none;
+				text-transform: uppercase;
+.ui-bar-a
+	background none
