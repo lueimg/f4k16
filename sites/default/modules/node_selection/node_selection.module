@@ -401,11 +401,11 @@ function node_selection_form_mail($params){
 
 	$data = array();
 
-	$subject = "Reservación de Productos";
+	$subject = "FiestaRentals.ca Order Information";
 
 	$data["subject"] = $subject;
 
-	$table = "<h2>Productos Reservados</h2>";
+	$table = "<h2>Order List</h2>";
 	$nodes = node_load_multiple($_SESSION["nodes"]);
 
 	foreach($nodes as $node){
