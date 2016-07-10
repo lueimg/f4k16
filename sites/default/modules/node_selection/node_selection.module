@@ -654,8 +654,8 @@ function node_selection_form_page_thanks(){
 
 
 
-	$_SESSION["nodesquantity"] = [];
-	$_SESSION["nodes"] = [];
+	$_SESSION["nodesquantity"] = array();
+	$_SESSION["nodes"] = array();
 	return $html;
 }
 
