@@ -585,10 +585,16 @@ function node_selection_form_page_thanks(){
 	$nodes = $_SESSION["nodes"];
 	$quatities = '';
 	foreach($nodes as $n) {
+
+
+		$cantidad = $quantities[$n];
+		if (!is_numeric($cantidad)) {
+			$cantidad = 1;
+		}
 		$complete_node = node_load($n);
 		$quatities .= '<tr class="row-item">
 		<td>'.$complete_node->title .'</td>
-		<td>'. $quantities[$n] .'</td>
+		<td>'. $cantidad .'</td>
 	</tr>';
 	}
 
@@ -598,7 +604,7 @@ function node_selection_form_page_thanks(){
 <table class="table p-list">
 	<tr>
 		<th>Name products/Service</th>
-		<th>Quatity</th>
+		<th>Quantity</th>
 	</tr>
 	'.$quatities.'
 </table>
@@ -646,10 +652,11 @@ function node_selection_form_page_thanks(){
 	</table>
 </div>';
 
+
+
+	$_SESSION["nodesquantity"] = [];
+	$_SESSION["nodes"] = [];
 	return $html;
-
-
-	
 }
 
 
